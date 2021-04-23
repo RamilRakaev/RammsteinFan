@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RammsteinFan</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-reboot.min.css">
+
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/nav.css">
+    <link rel="stylesheet" href="~/css/feedback.css">
+    <link rel="stylesheet" href="~/css/footer.css">
+    <link rel="stylesheet" href="~/css/discuss.css">
+</head>
+@*<body>
+        <header>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                    <a class="navbar-brand" asp-area="" asp-page="/Index">RammsteinFan</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
+        </div>
+
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2021 - RammsteinFan - <a asp-area="" asp-page="/Privacy">Privacy</a>
+            </div>
+        </footer>
+
+
+
+        @RenderSection("Scripts", required: false)
+    </body>*@
+
+<body>
+    <header>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <img class="img-responsive" src="~/img/rammstein%20logo%20(5).jpg" width:"1400px" style="min-width: 400px">
+            </div>
+            <div class="row justify-content-center" style="background-color: #303030;">
+
+                <nav class="navbar navbar-expand-lg">
+                    <ul class="nav">
+                        <li class="btn-group">
+                            <button style="margin: 0;" class="dropdown-toggle nav-font" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Главное</button>
+                            <div class="dropdown-menu menuButtons">
+                                <div><a class="dropButton" href="main.html">О группе</a></div>
+                                <div><a class="dropButton" href="main.html">История</a></div>
+                                <div><a class="dropButton" href="main.html">Участники</a></div>
+                            </div>
+                        </li>
+
+                        <li><a style="margin: 0" class="nav-link nav-font" href="#">Альбомы</a></li>
+                        <li><a style="margin: 0" class="nav-link nav-font" href="#">Переводы песен</a></li>
+                        <li class="btn-group">
+                            <button type="button" style="margin: 0;" class="nav-link dropdown-toggle nav-font" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Галерея</button>
+                            <div class="dropdown-menu menuButtons">
+                                <div class="dropButton" href="#">Видеогалерея</div>
+                                <div class="dropButton" href="#">Фотогалерея</div>
+                            </div>
+                        </li>
+                        <li><a style="margin: 0" class="nav-link nav-font" href="discuss.html">Обсуждения</a></li>
+                        <li>
+                            <a class='nav-link socialNetworks'
+                               target="_blank" href='https://www.instagram.com/rammsteinofficial/?hl=ru'><img src='img/instagram.jpg' style="width:30px"></a>
+                        </li>
+                        <li>
+                            <a class='nav-link socialNetworks'
+                               target="_blank" href='https://www.facebook.com/Rammstein/'><img src='img/facebook.png' style="width:30px"></a>
+                        </li>
+                        <li>
+                            <a class='nav-link socialNetworks'
+                               target="_blank" href='https://twitter.com/rsprachrohr'><img src='img/Twitter-Emblem.png' style="width:30px"></a>
+                        </li>
+                        <li>
+                            <a class='nav-link socialNetworks'
+                               target="_blank" href='https://www.youtube.com/channel/UCYp3rk70ACGXQ4gFAiMr1SQ'><img src='img/youtube.png' style="width:30px"></a>
+                        </li>
+                        <li>
+
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <footer style="padding: 0">
+
+        <!--        Декоративные линии-->
+        <img style="width:100%" src="~/img/line.svg" />
+        <div class="container-fluid" style="padding: 0;margin: 0">
+            <div class="row justify-content-start">
+                <div class="col-lg-2 col-md-5 col-sm-2 col-5">
+                    <img class="card-img-left richard" src="img/richard.png" width:"100%">
+                </div>
+                <div class="col-lg-8 col-md-7 col-sm-5 col-7">
+                    <div class="container-fluid">
+                        <!--                    Авторские права-->
+                        <div class="row justify-content-center">
+                            <div class="col-lg-6 col-md-12 col-sm-12 col-12 text-center footer-font">
+                                <div class="footer-font">
+                                    <h4>Авторские права</h4>
+                                    <p>Вся информация представленная на сайте взята из </p>
+                                    <p>открытых источников и является собственностью </p>
+                                    <p>их авторов.</p>
+                                </div>
+                            </div>
+                            <!--                    Контакты-->
+                            <div class="col-lg-5 col-md-12 col-sm-12 col-12 text-center footer-font">
+                                <h4>Контакты</h4>
+                                <p><img src="~/img/telephone-fill.svg" width="18" style="margin-right: 10px;">89518994468</p>
+                                <p><img src="~/img/envelope-fill.svg">RammsteinFan@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

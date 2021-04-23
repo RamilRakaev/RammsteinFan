@@ -1,0 +1,56 @@
+/*Шрифт блока второстепенной информаци  */
+.secondaryFont{
+    margin: 0;
+    padding: 0;
+    color: #B79B74;
+    font-size: 1.2rem;
+}
+/*Блок рекламы*/
+.advertising{
+    background: #F02A2A; 
+    border-radius: 14px;
+    height: 340px;
+}
+.advertising>p{
+    padding: 80% 0;
+    font-size: 20px;
+    color: white;
+}
+@media(max-width:2560px){
+    
+}
+@media(max-width:1440px){
+    
+}
+@media(max-width:1024px){
+    .secondaryFont{
+        font-size: 0.8rem;
+    }
+    .advertising{
+        height: 300px;
+    }
+}
+@media(max-width:768px){
+    .secondaryFont{
+        font-size: 0.5rem;
+    }
+    .advertising{
+        height: 200px;
+    }
+}
+@media(max-width:425px){
+    .secondaryFont{
+        font-size: 1.3rem;
+    }
+    .advertising{
+        height: 450px;
+    }
+}
+@media(max-width:320px, max-width:375px){
+    .secondary-font{
+        font-size: 1rem;
+    }
+}
+.secondaryFont:hover{
+    color: white;
+}

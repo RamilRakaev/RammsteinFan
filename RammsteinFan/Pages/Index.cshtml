@@ -1,0 +1,82 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+@*<div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>*@
+
+<article class="container-fluid" style="padding: 0;margin: 0">
+    <section class="row justify-content-center">
+        <div class="container" style="margin: 0; margin-top: 20px;">
+
+            <!--        Эллипс с заголовком-->
+            <div class="row justify-content-center">
+                <div class="col-lg-11 padding-ellispe-block">
+                    <div id="ellipse" class="mainBackground FontColorWhite ">О группе</div>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                @Html.Partial("Shared/_aside");
+                <!--        Основная информация-->
+                <section class="col-lg-8 col-md-8 col-sm-12 col-12 order-sm-first  order-first ">
+                    <!--            Декоративные линии-->
+                    <div class="blockInfo">
+                        <div>
+                            <hr class="mainBackground" style="height: 2px; margin-bottom:-14px;">
+                            <hr class="mainBackground" style="height: 0.24px;margin-bottom:-14px;">
+                            <hr class="mainBackground" style="height: 0.01px">
+                        </div>
+                        <div class="container-fluid">
+                            <div class="container-fluid">
+                                <div class="row justify-content-center">
+                                    <div class="col-12 col-lg-12 col-md-12 col-sm-12 text-center">
+                                        <img src="img/Main/group%20photo.svg" class="img-fluid" style="width:86%">
+                                    </div>
+                                    <div class="col-12 col-lg-12 col-md-12 col-sm-12">
+                                        <pre>
+    Rammstein  — культовая немецкая метал-группа, образованная в 
+январе 1994 года в Берлине. Группа поёт в жанрах Neue Deutsche 
+Härte, индастриал-метал, хард-рок и готик-метал. Группа выделяется 
+обилием пиротехники на концертах, эпатажными выступлениями, 
+выходками перед зрителями и жёстким звучанием. В своих песнях они 
+затрагивают довольно острые социальные проблемы, и выражают через 
+них свой видение.
+        Награды:
+Премия «Грэмми» за лучшее метал-исполнение 1996 г., 2006 г. - Mein 
+teil, Du hast;
+Премия Echo Awards в номинации «Лучшая немецкая поп-рок-группа» 
+1998 г. - Sehnsucht;
+Премия Echo Awards в номинации «Альбом года» 2010 г. - Liebe ist 
+für alle da;
+Премия Echo Awards в номинации «Лучший национальный сингл» 2002 
+г., 1998 г. - Sonne, Engel;
+Премия Echo Awards в номинации «Лучший музыкальный DVD» 2016 г., 
+2013 г., 2007 г. - Rammstein in amerika;
+Премия Kerrang! Awards в номинации «Лучшая живая группа» 2005 г.;
+Премия UK Festival Awards в номинации «Лучший фестивальный 
+хэдлайнер года 2019 г.;
+Премия Kerrang! Awards в номинации «Лучшая международная группа» 
+2019 г.;
+MTV Europe Music Award в номинации «Лучшее видео» 2005 г. - 
+Keine lust;
+Премия Kerrang! Awards в номинации «Лучший сингл» 2019 г. - 
+Deutschland;
+MTV Europe Music Award в номинации «Лучшая рок-группа» 1998 г.
+                                        </pre>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </section>
+    @Html.Partial("Shared/_feedback")
+</article>

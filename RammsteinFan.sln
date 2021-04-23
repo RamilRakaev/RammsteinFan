@@ -1,0 +1,59 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30803.129
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RammsteinFan", "RammsteinFan\RammsteinFan.csproj", "{9E62FEEA-0B0A-45B4-AB5C-DA79BC14E44D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{6B95B93A-5908-4FB1-AE19-1EAF83F2767E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RammsteinFan.Domain.Core", "RammsteinFan.Domain.Core\RammsteinFan.Domain.Core.csproj", "{E6A448AA-B60A-4CDD-A767-0EB9D4D8585D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RammsteinFan.Domain.Repositories", "RammsteinFan.Domain.Repositories\RammsteinFan.Domain.Repositories.csproj", "{09098521-1E74-4CC4-B026-0FC5A21C212F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D5538F5F-3E88-4153-8F7D-4DF453460B86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RammsteinFan.Infrastructure.Core", "RammsteinFan.Infrastructure.Core\RammsteinFan.Infrastructure.Core.csproj", "{BFF17889-A007-42DF-85EA-00EBF2B6EE0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RammsteinFan.Infrastructure.Repositories", "RammsteinFan.Infrastructure.Repositories\RammsteinFan.Infrastructure.Repositories.csproj", "{B316C9A7-44F1-49BE-89C5-05196D062C45}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E62FEEA-0B0A-45B4-AB5C-DA79BC14E44D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E62FEEA-0B0A-45B4-AB5C-DA79BC14E44D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E62FEEA-0B0A-45B4-AB5C-DA79BC14E44D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E62FEEA-0B0A-45B4-AB5C-DA79BC14E44D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6A448AA-B60A-4CDD-A767-0EB9D4D8585D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6A448AA-B60A-4CDD-A767-0EB9D4D8585D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6A448AA-B60A-4CDD-A767-0EB9D4D8585D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6A448AA-B60A-4CDD-A767-0EB9D4D8585D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09098521-1E74-4CC4-B026-0FC5A21C212F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09098521-1E74-4CC4-B026-0FC5A21C212F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09098521-1E74-4CC4-B026-0FC5A21C212F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09098521-1E74-4CC4-B026-0FC5A21C212F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFF17889-A007-42DF-85EA-00EBF2B6EE0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFF17889-A007-42DF-85EA-00EBF2B6EE0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFF17889-A007-42DF-85EA-00EBF2B6EE0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFF17889-A007-42DF-85EA-00EBF2B6EE0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B316C9A7-44F1-49BE-89C5-05196D062C45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B316C9A7-44F1-49BE-89C5-05196D062C45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B316C9A7-44F1-49BE-89C5-05196D062C45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B316C9A7-44F1-49BE-89C5-05196D062C45}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E6A448AA-B60A-4CDD-A767-0EB9D4D8585D} = {6B95B93A-5908-4FB1-AE19-1EAF83F2767E}
+		{09098521-1E74-4CC4-B026-0FC5A21C212F} = {6B95B93A-5908-4FB1-AE19-1EAF83F2767E}
+		{BFF17889-A007-42DF-85EA-00EBF2B6EE0A} = {D5538F5F-3E88-4153-8F7D-4DF453460B86}
+		{B316C9A7-44F1-49BE-89C5-05196D062C45} = {D5538F5F-3E88-4153-8F7D-4DF453460B86}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {90062829-B08B-41DE-8E4D-2042AD8A9C7A}
+	EndGlobalSection
+EndGlobal
