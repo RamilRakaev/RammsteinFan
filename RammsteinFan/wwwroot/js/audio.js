@@ -1,12 +1,12 @@
-$(document).ready(function(){
-    $('#mainAudio').MediaElementPlayer({
-        alwaysShowControls:true,
-        features:['playpause','volume','progress'],
-        audioVolume:'horizontal',
-        audioWidth:400,
-        audioHeight:120
-    });
-});
+//$(document).ready(function(){
+//    $('#mainAudio').MediaElementPlayer({
+//        alwaysShowControls:true,
+//        features:['playpause','volume','progress'],
+//        audioVolume:'horizontal',
+//        audioWidth:400,
+//        audioHeight:120
+//    });
+//});
 var audio =document.getElementById("mainAudio");
     function playClick(){
         borderBlock(event)

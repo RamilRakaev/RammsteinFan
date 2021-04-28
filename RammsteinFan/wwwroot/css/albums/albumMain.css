@@ -1,8 +1,8 @@
 .textLink{
-    margin: -35px -0 0 0;
+    margin: -35px 0 0 0;
     padding: 5px 0 6px 0; 
     background: rgba(0,0,0,0.6);
-    opacity: 99%;
+    opacity: 0.99;
 }
 .linkAlbum{
     color: white;

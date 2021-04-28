@@ -1,0 +1,58 @@
+/*блок с текстом*/
+.blockInput{
+    border-radius: 10px;
+    border: 2.5px solid #B79B74;
+    padding: 6px 6px 0 12px;
+    font: normal 16px;
+    margin-bottom: 50px;
+    
+}
+.blockInput:before{
+    color: red;
+}
+
+/*многострочное текстовое поле*/
+.text{
+    width: 100%;
+    background: #303030;
+    border: 0;
+    line-height: 25px;
+    margin:0;
+    padding-left: 6px;
+    border: 0;
+    outline:none;
+    font: normal 16px;
+    color:white;
+}
+.text:focus{
+    outline:none;
+}
+
+/*однострочное текстовое поле*/
+.textInput{
+    font: normal 16px;
+    color:white;
+    background:#303030;
+    height: 28px;
+    border: 0;
+    padding:0 0 7px 4px;
+    caret-color: white;
+    border-radius: 0;
+    width: 100%;
+}
+/*Кнопка отправить*/
+.inputBtn{
+    outline:none;
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size:20px;
+    font-weight:400;
+    background: #B79B74;
+    color: white;
+    border:0;
+}
+.inputBtn:hover{
+    text-decoration: none;
+    background: black;
+    color: white;
+}
