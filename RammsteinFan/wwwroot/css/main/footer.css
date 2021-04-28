@@ -1,0 +1,51 @@
+.footerFont{
+    text-align:center;
+    text-indent:0;
+    padding:0;
+    margin:0;
+}
+.footerPadding {
+    padding-top: 80px;
+}
+@media(max-width:2560px) {
+    .richard{
+        width: 550px;
+    }
+    .footerText{
+        margin: 40px 0 0 0;
+    }
+}
+@media(max-width:1440px){
+    .richard{
+        width: 430px;
+    }
+}
+@media(max-width:1024px){
+    .richard{
+        width: 280px;
+    }
+    .footerText{
+        margin-top: 20px;
+    }
+}
+@media(max-width:768px){
+    .richard{
+        width: 300px;
+    }
+    .footerText{
+        margin-top: 20px;
+    }
+}
+@media(max-width:425px, max-width:375px){
+    .richard{ 
+        width: 250px;
+    }
+    .footerText{
+        margin-top: 0px;
+    }
+}
+@media(max-width:320px){
+    .richard{
+        width: 280px;
+    }
+}

@@ -1,0 +1,19 @@
+.fontAlbum{
+    margin:0;
+}
+.imgAlbum{
+    margin-bottom: 10px;
+    width: 100%;
+}
+@media(max-width:768px){
+    .fontAlbum{
+        font-size:10px;
+        margin: 0;
+    }
+}
+@media(max-width:425px){
+    .fontAlbum{
+        font-size:14px;
+        
+    }
+}

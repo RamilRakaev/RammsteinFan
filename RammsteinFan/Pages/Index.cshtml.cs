@@ -10,17 +10,18 @@ namespace RammsteinFan.Pages
 {
     public class IndexModel : PageModel
     {
-        private readonly string title="О группе";
+        public readonly string chapter="О группе";
         private readonly ILogger<IndexModel> _logger;
 
         public IndexModel(ILogger<IndexModel> logger)
         {
+            
             _logger = logger;
         }
 
         public void OnGet()
         {
-
+            
         }
     }
 }

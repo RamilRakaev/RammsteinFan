@@ -1,0 +1,25 @@
+.textLink{
+    margin: -35px -0 0 0;
+    padding: 5px 0 6px 0; 
+    background: rgba(0,0,0,0.6);
+    opacity: 99%;
+}
+.linkAlbum{
+    color: white;
+    margin: 24px 20px;
+    padding: 0;
+}
+.linkAlbum:hover{
+/*    text-decoration: none;*/
+    color: #B79B74;
+    text-decoration-color: #B79B74;
+}
+.audioBlock{
+    color:white;
+}
+/*
+.textLink:hover{
+    color: #B79B74;
+    text-decoration: underline;
+    text-decoration-color: #B79B74;
+}*/

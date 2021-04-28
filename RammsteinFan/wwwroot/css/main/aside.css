@@ -1,0 +1,16 @@
+/*Блок рекламы*/
+#adversting {
+    background: #F02A2A;
+    border-radius: 14px;
+    height: 340px;
+}
+#adversting>em{
+    margin: 134px 0;
+    font-size: 20px;
+    color: white;
+}
+
+.container > .row > .blockLargeIcons {
+    padding: 0;
+    margin-top: 20px;
+}

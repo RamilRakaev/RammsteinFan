@@ -1,57 +1,53 @@
 ﻿<!--        Второстепенная информация-->
 <aside class="col-lg-3 col-md-3 col-sm-12 col-12 order-lg-first order-md-first">
     <!--            Декоративные линии-->
-    <div class="background-col">
-        <hr class="mainBackground " style="height: 2px; margin-bottom:-14px;">
-        <hr class="mainBackground" style="height: 0.24px;margin-bottom:-14px;">
-        <hr class="mainBackground" style="height: 0.01px">
-
+    <div class=" blockInfo">
+        @await Html.PartialAsync("Shared/_decorativeLines")
         <!--                Содержание второстепенной инф.-->
         <div class="container">
             <!--                Крупные значки-->
             <div class="row justify-content-center">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="padding: 0;margin-top: 0;">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 blockLargeIcons">
                     <div class="container-fluid">
                         <div class="row justify-content-center">
                             <a class="btn" style="border:0; margin: 0;padding: 0;" target="_blank" href="https://www.rammstein.de/de/">
-                                <img src="~/img/official.svg" width:"70%">
-                                <p class="secondary-font">Rammstein - Die Band</p>
+                                <img src="~/img/official.svg" style="width:70%">
+                                <em>Rammstein - Die Band</em>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-12 col-md-12 col-sm-12 col-12" style="padding: 0;margin-top: 20px;">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 blockLargeIcons">
                     <div class="container-fluid">
                         <div class="row justify-content-center">
                             <a class="btn " style="border: 0; margin: 0;padding: 0;" target="_blank" href="https://www.rammsteinshop.us/">
-                                <img src="img/shop.jpg" style="width:52%">
-                                <p class="secondary-font">Rammstein-Shop</p>
+                                <img src="~/img/shop.jpg" style="width:52%">
+                                <em>Rammstein-Shop</em>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-10 col-md-10 col-sm-10 col-10" style="padding: 0;margin-top: 20px;">
+                <div class="col-lg-10 col-md-10 col-sm-10 col-10 blockLargeIcons">
                     <div class="container-fluid">
-                        <div class="row justify-content-center advertising" style="background: #F02A2A; border-radius: 14px">
-                            <p class="secondary-font" style="color: white"><br><br><br><br><br>Реклама</p>
+                        <div class="row justify-content-center" id="adversting" style="background: #F02A2A; border-radius: 14px">
+                            <em>Реклама</em>
                         </div>
                     </div>
                 </div>
             </div>
             <!--                    Ошибка-->
             <div class="row justify-content-center">
-                <div class="col-lg-10 col-md-10 col-sm-10 col-10" style="padding: 0;margin-top:20px;">
+                <div class="col-lg-10 col-md-10 col-sm-10 col-10 blockLargeIcons">
                     <div class="container-fluid">
                         <div class="row justify-content-center">
                             <a class="btn " style="border: 0; margin: 0;padding: 0;"
                                href="#feedback">
-                                <p class="secondary-font">Обнаружили ошибку?</p>
+                                <em>Обнаружили ошибку?</em>
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
 </aside>

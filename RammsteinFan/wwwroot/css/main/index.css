@@ -1,0 +1,129 @@
+@font-face{
+    font-family:"MainFont";
+    src:url("../fonts/16709.ttf");
+}
+body{
+    font-family: "MainFont";
+    background-color: #000000;
+    caret-color: white;
+}
+
+/*Текст*/
+p, ul {
+    font-size: 17px;
+}
+p {
+    margin: 0;
+    text-indent: 30px;
+    color: white;
+    padding-top:10px;
+    padding-left: 20px;
+}
+ul {
+    list-style-type: none;
+    color: white;
+    padding-left: 20px;
+    margin: 0;
+}
+h1, h2, h3, h4 {
+    font-weight: bold;
+    text-align: center;
+}
+/*Заголовок страницы*/
+h1 {
+    display: inline;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+h1, h2 {
+    font-size: 24px;
+}
+/*Заглавие раздела страницы*/
+h3 {
+    font-size: 22px;
+    color: #B79B74;
+}
+/*Подпись рисунка*/
+h4 {
+    font-size: 20px;
+    color:white;
+}
+/*Заголовок обратной связи и подвала*/
+h2 {
+    text-decoration-line: underline;
+    color: #B79B74;
+    margin-bottom: 10px;
+}
+/*Основной шрифт в подвале*/
+h6 {
+    color: white;
+    padding: 20px 15px 0 30px;
+    font-size: 19px;
+}
+/*Рекламный шрифт*/
+em {
+    display:block;
+    font-size: 18px;
+    color: #B79B74;
+    font-style:normal;
+}
+
+/*Заголовок*/
+.heading {
+    border-radius: 16px;
+    padding: 3px 0 4px 40%;
+    margin: 0 0 0 15px;
+    width: 91%;
+    background: #B79B74;
+}
+
+/*Блок с информацией*/
+.blockInfo{
+    background: #303030;
+    margin: 20px 15px;
+    width: 87%;
+    padding-bottom: 40px
+}
+.blockInfo> .container-fluid{
+    padding: 20px 0 0 0;
+}
+.blockInfo> .container-fluid>h4{
+    padding-bottom: 10px;
+}
+
+/*Декоративные линии*/
+table > tbody > tr > .Line1 {
+    background: #B79B74;
+    height: 3.5px;
+    border: none;
+    margin: 2px 0;
+    padding: 0;
+}
+
+table > tbody > tr > .Line2 {
+    background: #B79B74;
+    height: 1.5px;
+    border: none;
+    margin: 2px 0;
+    padding: 0;
+}
+
+table > tbody > tr > .Line3 {
+    background: #B79B74;
+    height: 1.5px;
+    border: none;
+    margin: 2px 0;
+    padding: 0;
+}
+
+table > tbody > tr > .separator {
+    height: 1px;
+}
+
+.decorativeLines {
+    width: 100%;
+    border: none;
+    margin: 2px 0;
+    padding: 0;
+}

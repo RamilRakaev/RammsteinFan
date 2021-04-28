@@ -7,15 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RammsteinFan", "RammsteinFa
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{6B95B93A-5908-4FB1-AE19-1EAF83F2767E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RammsteinFan.Domain.Core", "RammsteinFan.Domain.Core\RammsteinFan.Domain.Core.csproj", "{E6A448AA-B60A-4CDD-A767-0EB9D4D8585D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RammsteinFan.Domain.Core", "RammsteinFan.Domain.Core\RammsteinFan.Domain.Core.csproj", "{E6A448AA-B60A-4CDD-A767-0EB9D4D8585D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RammsteinFan.Domain.Repositories", "RammsteinFan.Domain.Repositories\RammsteinFan.Domain.Repositories.csproj", "{09098521-1E74-4CC4-B026-0FC5A21C212F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RammsteinFan.Domain.Repositories", "RammsteinFan.Domain.Repositories\RammsteinFan.Domain.Repositories.csproj", "{09098521-1E74-4CC4-B026-0FC5A21C212F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D5538F5F-3E88-4153-8F7D-4DF453460B86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RammsteinFan.Infrastructure.Core", "RammsteinFan.Infrastructure.Core\RammsteinFan.Infrastructure.Core.csproj", "{BFF17889-A007-42DF-85EA-00EBF2B6EE0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RammsteinFan.Infrastructure.Core", "RammsteinFan.Infrastructure.Core\RammsteinFan.Infrastructure.Core.csproj", "{BFF17889-A007-42DF-85EA-00EBF2B6EE0A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RammsteinFan.Infrastructure.Repositories", "RammsteinFan.Infrastructure.Repositories\RammsteinFan.Infrastructure.Repositories.csproj", "{B316C9A7-44F1-49BE-89C5-05196D062C45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RammsteinFan.Infrastructure.Repositories", "RammsteinFan.Infrastructure.Repositories\RammsteinFan.Infrastructure.Repositories.csproj", "{B316C9A7-44F1-49BE-89C5-05196D062C45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

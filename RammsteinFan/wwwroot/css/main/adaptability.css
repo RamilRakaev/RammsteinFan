@@ -1,0 +1,54 @@
+﻿@media(max-width:2561px) {
+}
+
+@media(max-width:1441px) {
+}
+
+@media(max-width:1025px) {
+}
+
+@media(max-width:769px) {
+    .advertising {
+        height: 200px;
+    }
+    #adversting > em {
+        font-size: 18px;
+    }
+    p,ul {
+        padding: 20px 0 0 10px;
+        font-size: 16px;
+    }
+    .md-form > #textareaFeedback, .emailInput, btnSend {
+        font-size: 16px;
+    }
+    em {
+        font-size: 16px;
+    }
+    .footerPadding{
+        padding-top:20px;
+    }
+}
+
+@media(max-width:426px) {
+    .heading {
+        margin: 0 0 0 11px;
+        width: 90%;
+    }
+
+    .advertising {
+        height: 450px;
+    }
+
+    #adversting > em {
+        font-size: 20px;
+    }
+    .footerPadding {
+        padding-top: 10px;
+    }
+}
+
+@media(max-width:376px) {
+}
+
+@media(max-width:321px) {
+}
