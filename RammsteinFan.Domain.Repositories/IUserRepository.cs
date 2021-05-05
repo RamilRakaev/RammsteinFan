@@ -52,6 +52,13 @@ namespace RammsteinFan.Domain.Repositories
         IEnumerable<C> GetContent(string type, string location);
 
         /// <summary>
+        /// Вернуть по заголовку
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
+        IEnumerable<C> GetContentForTitle(string title);
+
+        /// <summary>
         /// Вернуть весь контент определённого типа
         /// </summary>
         /// <param name="type"></param>

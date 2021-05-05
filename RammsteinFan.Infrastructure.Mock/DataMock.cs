@@ -34,9 +34,53 @@ namespace RammsteinFan.Infrastructure.Mock
         public List<Content> DbContent { get; set; } = new List<Content>()
         {
             new Content("Заголовок","Article","Текст","Index/History"){Id=1},
-            new Content("Liebe ist Fur alle da","ListOfSongs","Rammlied,Ich tu dir weh, Waidmanns Heil, Haifisch, " +
+            new Content("Liebe ist Fur alle da","AlbumWithSongs","Rammlied,Ich tu dir weh, Waidmanns Heil, Haifisch, " +
                 "B * *******, Fruhling in Paris, Wiener Blut, Pussy, Liebe ist Fur alle da, Mehr,Roter Sand, " +
-                "Fuhre mich, Donaukinder, Halt, Liese","SongTranslationsMain")
+                "Fuhre mich, Donaukinder, Halt, Liese","SongTranslationsMain"),
+            new Content("Mutter","AlbumWithSongs","Mein Herz brennt, Links 2 3 4, Sonne, Ich will, Feuer frei!," +
+                " Mutter, Spieluhr, Zwitter, Rein raus, Adios, Nebel","SongTranslationsMain"),
+            new Content("Links 2 3 4","SongText","Links 2 3 4\n" +
+           "\n" +
+"Kann man[1] Herzen brechen[2]\n" +
+"können Herzen sprechen\n" +
+"kann man Herzen quälen\n" +
+"kann man Herzen stehlen\n" +
+"\n" +
+"Sie wollen mein Herz am rechten Fleck[3]\n" +
+"doch seh ich dann nach unten weg[4]\n" +
+"da schlägt es links[5]\n" +
+"Links\n" +
+"\n" +
+"Können Herzen singen\n" +
+"kann ein Herz zerspringen\n" +
+"können Herzen rein sein\n" +
+"kann ein Herz aus Stein sein\n" +
+"\n" +
+"Sie wollen mein Herz am rechten Fleck\n" +
+"doch seh ich dann nach unten weg\n" +
+"da schlägt es links\n" +
+"Links(3x)\n" +
+"\n" +
+"Links zwo drei vier\n" +
+"Links zwo(3x) drei vier links(2x)\n" +
+"Links zwo drei vier\n" +
+"\n" +
+"Kann man Herzen fragen\n" +
+"ein Kind darunter tragen\n" +
+"kann man es verschenken\n" +
+"mit dem Herzen denken\n" +
+"\n" +
+"Sie wollen mein Herz am rechten Fleck\n" +
+"doch seh ich dann nach unten weg\n" +
+"da schlägt es in der linken Brust\n" +
+"der Neider hat es schlecht gewusst[6]\n" +
+"\n" +
+"Links(4x)\n" +
+"Links zwo drei vier links\n" +
+"\n" +
+"Links zwo drei vier\n" +
+"Links zwo(3x) drei vier links(2x)\n" +
+"Links zwo(3x) drei vier(4x)\n","SongTranslationsMain/Links 2 3 4")
         };
  
         

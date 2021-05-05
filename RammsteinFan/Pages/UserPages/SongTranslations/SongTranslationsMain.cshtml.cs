@@ -20,12 +20,15 @@ namespace RammsteinFan.Pages.UserPages.SongTranslations
         }
 
         public List<ListSongsViewModel> Albums { get; set; }
+        public List<string> Songs { get; set; }
+        public List<string> SongTranslations { get; set; }
 
         public void OnGet()
         {
-            foreach(var list in userdb.GetContentForType("ListOfSongs"))
+            Albums = new List<ListSongsViewModel>();
+            foreach(var list in userdb.GetContentForType("AlbumWithSongs"))
             {
-                Albums.Add(new ListSongsViewModel(list.Title, list.Text.Split(',').ToList()));
+                Albums.Add(new ListSongsViewModel(list.Title, SplitSpaces(list.Text).Split(',').ToList()));
             }
         }
 
@@ -41,7 +44,7 @@ namespace RammsteinFan.Pages.UserPages.SongTranslations
             {
                 if (text[i] == ' ' & text[i - 1] == ',')
                 {
-                    text.Remove(i);
+                    text=text.Remove(i,1);
                 }
             }
             return text;

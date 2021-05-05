@@ -12,51 +12,64 @@
     margin: 0;
 }
 
+.richard {
+    width: 100%;
+}
+
 .contacts .phone {
     width: 18px;
     margin-right: 10px;
 }
 @media(max-width:2560px) {
-    .richard{
+    .richard {
         width: 550px;
     }
+
     .contacts p,
     .contacts h2,
     .copyright p {
         margin: 40px 0 0 0;
     }
 }
-@media(max-width:1440px){
-    .richard{
+
+@media(max-width:1440px) {
+    .richard {
         width: 430px;
     }
 }
-@media(max-width:1024px){
-    .richard{
+
+@media(max-width:1024px) {
+    .richard {
         width: 280px;
     }
-    .footerText{
+
+    .footerText {
         margin-top: 20px;
     }
 }
-@media(max-width:768px){
-    .richard{
+
+@media(max-width:768px) {
+    .richard {
         width: 300px;
     }
-    .footerText{
+
+    .footerText {
         margin-top: 20px;
     }
 }
-@media(max-width:426px){
-    .richard{ 
+
+@media(max-width:426px) {
+    .richard { 
         width: 250px;
     }
-    .footerText{
+
+    .footerText {
         margin-top: 0px;
     }
 }
-@media(max-width:320px){
-    .richard{
+
+@media(max-width:320px) {
+    .richard {
         width: 280px;
     }
 }

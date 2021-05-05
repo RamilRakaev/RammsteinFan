@@ -37,6 +37,8 @@ namespace RammsteinFan.Infrastructure.Repositories
         public IEnumerable<Content> GetContent(string type, string location) => db.DbContent.Where(c => c.Type == type & c.Location == location);
 
         public IEnumerable<Content> GetContentForType(string type) => db.DbContent.Where(c => c.Type == type);
+
+        public IEnumerable<Content> GetContentForTitle(string title) => db.DbContent.Where(c => c.Title == title);
         #endregion
     }
 }
