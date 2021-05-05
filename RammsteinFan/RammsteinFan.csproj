@@ -11,4 +11,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.10" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RammsteinFan.Domain.Repositories\RammsteinFan.Domain.Repositories.csproj" />
+    <ProjectReference Include="..\RammsteinFan.Infrastructure.Core\RammsteinFan.Infrastructure.Core.csproj" />
+    <ProjectReference Include="..\RammsteinFan.Infrastructure.Mock\RammsteinFan.Infrastructure.Mock.csproj" />
+  </ItemGroup>
+
 </Project>

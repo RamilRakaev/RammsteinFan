@@ -17,7 +17,6 @@
     <link rel="stylesheet" href="~/css/main/header.css">
     <link rel="stylesheet" href="~/css/main/feedback.css">
     <link rel="stylesheet" href="~/css/main/footer.css">
-    <link rel="stylesheet" href="~/css/main/discuss.css">
     <link rel="stylesheet" href="~/css/main/aside.css" />
     <link rel="stylesheet" href="~/css/main/adaptability.css" />
 
@@ -29,11 +28,15 @@
     <link rel="stylesheet" href="~/css/photoGalery/photoGaleryMain.css" />
     <link rel="stylesheet" href="~/css/videoGalery/videoGaleryMain.css" />
 
+    <link rel="stylesheet" href="~/css/discussions/discuss.css" />
     <link rel="stylesheet" href="~/css/discussions/discussionsMain.css" />
+    <link rel="stylesheet" href="~/css/discussions/inputForm.css" />
+
+    <link rel="stylesheet" href="~/css/songTranslations/songTranslationsMain.css" />
 
 
 </head>
-<body>
+<body >
     <header>
         <div class="container-fluid">
             <div class="row justify-content-center">
@@ -51,16 +54,16 @@
                             </div>
                         </li>
 
-                        <li><a style="margin: 0" class="nav-link navBtn" asp-page="/UserPages/AlbumsMain">Альбомы</a></li>
-                        <li><a style="margin: 0" class="nav-link navBtn" href="#">Переводы песен</a></li>
+                        <li><a style="margin: 0" class="nav-link navBtn" asp-page="/UserPages/Albums/AlbumsMain">Альбомы</a></li>
+                        <li><a style="margin: 0" class="nav-link navBtn" asp-page="/UserPages/SongTranslations/SongTranslationsMain">Переводы песен</a></li>
                         <li class="btn-group">
                             <button type="button" style="margin: 0;" class="nav-link dropdown-toggle navBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Галерея</button>
                             <div class="dropdown-menu menuButtons">
                                 <a class="dropButton" asp-page="/UserPages/VideoGaleryMain">Видеогалерея</a>
-                                <a class="dropButton" asp-page="/UserPages/PhotoGaleryMain">Фотогалерея</a>
+                                <a class="dropButton" asp-page="/UserPages/PhotoGalery/PhotoGaleryMain">Фотогалерея</a>
                             </div>
                         </li>
-                        <li><a style="margin: 0" class="nav-link navBtn" asp-page="/UserPages/PhotoGalery">Обсуждения</a></li>
+                        <li><a style="margin: 0" class="nav-link navBtn" asp-page="/UserPages/Discussions/DiscussionsMain">Обсуждения</a></li>
                         @* Соц. сети *@
                         <li>
                             <a class='nav-link socialNetworks'
@@ -124,9 +127,9 @@
                         <!--                    Авторские права-->
                         <div class="row justify-content-center">
                             <div class="col-lg-6 col-md-12 col-sm-12 col-12 text-center footer-font">
-                                <div class="footerPadding">
+                                <div class="copyright">
                                     <h2>Авторские права</h2>
-                                    <p class="footerFont">
+                                    <p>
                                         Вся информация представленная на сайте взята из
                                         открытых источников и является собственностью
                                         их авторов.
@@ -134,12 +137,11 @@
                                 </div>
                             </div>
                             <!--                    Контакты-->
-
                             <div class="col-lg-5 col-md-12 col-sm-12 col-12 ">
-                                <div class="footerPadding">
+                                <div class="contacts">
                                     <h2>Контакты</h2>
-                                    <p class="footerFont"><img src="~/img/telephone-fill.svg" width="18" style="margin-right: 10px;">89518994468</p>
-                                    <p class="footerFont"><img src="~/img/envelope-fill.svg">  RammsteinFan@gmail.com</p>
+                                    <p><img src="~/img/telephone-fill.svg" class="phone">89518994468</p>
+                                    <p><img src="~/img/envelope-fill.svg"> RammsteinFan@gmail.com</p>
                                 </div>
                             </div>
                         </div>
@@ -150,8 +152,8 @@
     </footer>
     @RenderSection("Scripts", required: false)
     <script src="~/js/jquery-3.5.1.min.js"></script>
-    <script src="~/js/bootstrap.min.js"></script>
-    <script src="~/js/bootstrap.bundle.min.js"></script>
+    @*<script src="~/js/bootstrap.min.js"></script>*@
+    @*<script src="~/js/bootstrap.bundle.min.js"></script>*@
 
 
 

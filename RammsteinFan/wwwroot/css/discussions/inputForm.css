@@ -41,17 +41,28 @@
     width: 100%;
 }
 /*Кнопка отправить*/
-.inputBtn{
-    outline:none;
+.inputBtn, .back-btn {
+    margin-top: -15px;
+    outline: none;
     padding: 5px 12px;
     border-radius: 8px;
-    font-size:20px;
-    font-weight:400;
+    font-size: 20px;
+    font-weight: 400;
     background: #B79B74;
     color: white;
-    border:0;
+    border: 0;
 }
-.inputBtn:hover{
+.back-btn {
+    margin-left: 10px;
+    float: left;
+}
+
+.inputBtn {
+    float: right;
+    margin-right: 30px;
+}
+
+.inputBtn:hover,.back-btn:hover {
     text-decoration: none;
     background: black;
     color: white;

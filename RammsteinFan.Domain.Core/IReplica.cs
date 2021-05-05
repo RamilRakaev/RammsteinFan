@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RammsteinFan.Domain.Core
 {
-    public interface IAnswer
+    public interface IReplica
     {
         /// <summary>
         /// Идентификатор вопроса, к которому привязано сообщение
@@ -14,6 +14,6 @@ namespace RammsteinFan.Domain.Core
         /// <summary>
         /// Идентификатор ответа, к которому привязано сообщение
         /// </summary>
-        int AnswerId { get; set; }
+        int ReplicaId { get; set; }
     }
 }

@@ -1,5 +1,7 @@
 ﻿@page
 @model RammsteinFan.Pages.UserPages.DiscussionsMainModel
+@using RammsteinFan.Pages.ViewModels
+@using RammsteinFan.Infrastructure.Core
 @{
     ViewData["Title"] = "Обсуждения";
     ViewData["chapter"] = "Обсуждения";
@@ -7,7 +9,7 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-        <div class="log-12" style="border-radius:15px;background-color:white;width:95%;">
+        <div class="log-12" style="border-radius:15px;background-color:white;width:92%;">
             <div class="container-fluid" style="padding: 0;margin: 0;">
                 <form method="post" style="padding: 0;margin: 0;">
                     <div class="row justify-content-left" style="padding: 0;margin: 0;">
@@ -21,16 +23,37 @@
                 </form>
             </div>
         </div>
-        <div class="col-lg-8">
-            <h6>Не нашли подходящую тему? Добавьте свою.</h6>
+        @await Html.PartialAsync("SuggestionAddSubject")
+        <div class="panel-group container-fluid" id="collapseGroup" style="padding: 0;width:100%;margin:0 15px">
+            @{ int index = 0;
+                string href = "#" + index;
+                string id = "discussion" + index;
+                foreach (SubjectsListViewModel subjectsListViewModel in Model.SubjectsListViewModel)
+                {
+                    index++;
+                    href = "#" + "discussion" + index;
+                    id = "discussion" + index;
+                    <div class="panel" style="padding: 0;width:100%;">
+                        <div class="panel-heading division">
+                            <a data-toggle="collapse" data-parent="#collapseGroup" href="@href" style="margin:0;padding: 0;width:90%;">
+                                <h5>@subjectsListViewModel.TopHeading</h5>
+                            </a>
+                        </div>
+                        <div class="container-fluid collapse in" id="@id">
+                            @foreach (DiscussionSubject subject in subjectsListViewModel.GetDiscussionSubjects)
+                            {
+                                @await Html.PartialAsync("DiscussionTitle", subject)
+                            }
+                        </div>
+                    </div>
+                }
+
+            }
         </div>
-        <div class="col-lg-4">
-            <a class="btn btn-send btn-lg" href="input.html" style="margin-top: 15px">Добавить тему</a>
-        </div>
-        <div class="panel-group container-fluid" id="collapseGroup" style="padding: 0;">
-            <div class="panel">
-                <div class=" panel-heading division">
-                    <a data-toggle="collapse" data-parent="#collapseGroup" href="#disc1">
+        @*<div class="panel-group container-fluid" id="collapseGroup" style="padding: 0;width:100%;margin:0 15px">
+            <div class="panel" style="padding: 0;width:100%;">
+                <div class="panel-heading division">
+                    <a data-toggle="collapse" data-parent="#collapseGroup" href="#disc1" style="margin:0;padding: 0;width:90%;">
                         <h5>Участники группы</h5>
                     </a>
                 </div>
@@ -48,11 +71,11 @@
                     <div class="discuss">
                         <a class="answer"><h5>Тиль олимпийский спортсмен?</h5></a>
                         <a class="answer"><h6>Автор: Иван, 02.03.2021</h6></a>
-                        <button class="comment" style="background-image: url(img/comment.png);"></button>
+                        <button class="comment" style="background-image: url(../img/comment.png);"></button>
                         <label>3</label>
-                        <button class="eye" style="background-image: url(img/eye.png);"></button>
+                        <button class="eye" style="background-image: url(../img/eye.png);"></button>
                         <label>7</label>
-                        <button class="fire" style="background-image: url(img/fire.png);"></button>
+                        <button class="fire" style="background-image: url(../img/fire.png);"></button>
                         <label>3</label>
                     </div>
                     <div class="discuss">
@@ -84,6 +107,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>*@
     </div>
-</div>
+    </div>

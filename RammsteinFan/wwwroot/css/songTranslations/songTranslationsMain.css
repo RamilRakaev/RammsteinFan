@@ -1,0 +1,8 @@
+﻿.list-songs li a:hover, .list-songs li a:focus {
+    color: #B79B74;
+    text-decoration: underline;
+}
+
+.list-songs li a{
+    color:white;
+}

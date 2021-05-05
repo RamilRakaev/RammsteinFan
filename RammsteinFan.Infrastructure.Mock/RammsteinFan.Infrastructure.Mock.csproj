@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RammsteinFan.Domain.Repositories\RammsteinFan.Domain.Repositories.csproj" />
+    <ProjectReference Include="..\RammsteinFan.Infrastructure.Core\RammsteinFan.Infrastructure.Core.csproj" />
+  </ItemGroup>
+
+</Project>

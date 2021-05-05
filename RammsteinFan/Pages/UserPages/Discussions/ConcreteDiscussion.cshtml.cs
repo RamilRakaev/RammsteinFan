@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace RammsteinFan.Pages.UserPages
+namespace RammsteinFan.Pages.UserPages.Discussions
 {
-    public class DiscussionsMainModel : PageModel
+    public class ConcreteDiscussionModel : PageModel
     {
         public void OnGet()
         {

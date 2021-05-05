@@ -1,5 +1,5 @@
 /*Кнопка отправить*/
-.btnSend {
+.btn-send {
     color: white;
     background: #B79B74;
     border-color: #B79B74;
@@ -8,15 +8,18 @@
     padding-top: 2px;
     padding-bottom: 4px;
 }
-.btnSend:hover{
+
+.btn-send:hover {
     background: black;
     color: #B79B74;
     border-color: black;
 }
+
 .emailInput, .md-form > #textareaFeedback, .btnSend {
     margin-top: 10px;
     font-size: 18px;
 }
+
 /*Форма ввода эл. почты*/
 .emailInput {
     margin-bottom: 20px;
@@ -28,6 +31,7 @@
     caret-color: white;
     width: 100%;
 }
+
 /*Большое текстовое поле*/
 .md-form>#textareaFeedback {
     width: 100%;
@@ -37,9 +41,11 @@
     line-height: 25px;
     padding: 2px 10px;
     border: 0;
+    resize:none;
 }
+
 /*Блок формы*/
-.feedbackForm{
+.feedbackForm {
     border-style: solid;
     border-width: 3px;
     border-color: #B79B74;

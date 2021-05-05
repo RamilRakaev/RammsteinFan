@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RammsteinFan.Domain.Repositories
 {
-    public interface IUserRepos<Q,A,C>
+    public interface IUserRepository<DS,R,C>
     {
         /// <summary>
         /// Добавить ответ привязанный к вопросу или к другому ответу
@@ -28,14 +28,14 @@ namespace RammsteinFan.Domain.Repositories
         /// Вернуть все вопросы
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Q> GetAllQuestions();
+        IEnumerable<DS> GetAllQuestions();
 
         /// <summary>
         /// Вернуть ответы, привязанные к определённому вопросу или ответу
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        IEnumerable<A> GetAnswer(int id);
+        IEnumerable<R> GetAnswer(int id);
 
         /// <summary>
         /// Вернуть весь контент
@@ -50,5 +50,12 @@ namespace RammsteinFan.Domain.Repositories
         /// <param name="location"></param>
         /// <returns></returns>
         IEnumerable<C> GetContent(string type, string location);
+
+        /// <summary>
+        /// Вернуть весь контент определённого типа
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        IEnumerable<C> GetContentForType(string type);
     }
 }

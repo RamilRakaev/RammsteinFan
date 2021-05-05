@@ -5,16 +5,16 @@ using System.Text;
 
 namespace RammsteinFan.Infrastructure.Core
 {
-    public class Answer : DiscussionMessage, IAnswer
+    public class Replica : DiscussionMessage, IReplica
     {
-        public Answer(string author, string text, int questionId=0, int answerId=0) :base(author, text)
+        public Replica(string author, string text, int questionId=0, int answerId=0) :base(author, text)
         {
             QuestionId = questionId;
-            AnswerId = answerId;
-            if (QuestionId == 0 & AnswerId == 0)
+            ReplicaId = answerId;
+            if (QuestionId == 0 & ReplicaId == 0)
                 throw new Exception("Ответ ни к чему не привязан");
         }
         public int QuestionId { get; set; }
-        public int AnswerId { get; set; }
+        public int ReplicaId { get; set; }
     }
 }

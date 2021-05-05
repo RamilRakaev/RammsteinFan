@@ -1,28 +1,29 @@
 
-.division{
+.division {
     background: #B79B74;
     color: white;
     width: 100%;
-    padding:6 10 3 10;
-    margin: 50 0 5 0;
+    padding: 6px 10px 3px 10px;
+    margin: 50px 0 5px 0;
 }
 .division > a{
     color: white;
 }
-.discuss{
+.container-fluid>.discuss {
     color: white;
     width: 100%;
-    border-width: 3;
+    border-width: 3px;
     border-style: solid;
     border-radius: 5px;
     border-color: #B79B74;
-    margin: 15 10 0 10;
+    margin-top:15px;
+    /*margin: 15px 10px 0 10px;*/
     padding: 4px 6px 8px 12px;
 }
 .discuss > .answer{
     cursor: pointer;
     padding: 0;
-    margin: 0 0 10 0;
+    margin: 0 0 10px 0;
     background: none;
     color: white;
     
@@ -30,39 +31,38 @@
 .answer:hover{
     color: #B79B74;
 }
-.answer>h5{
+.answer > h5 {
     color: white;
     padding: 0;
-    margin: 10 0 10 0;
+    margin: 10px 0 10px 0;
     font-size: 21px;
 }
-.answer>h6{
+.answer > h6 {
     padding: 0;
-    margin: 10 10 10 0;
+    margin: 10px 10px 10px 0;
     font-size: 17px;
 }
-.discuss>button{
-    margin: 0 5 0 5;
-    background-repeat: no-repeat;
+.discuss > button {
+    margin: 0 5px 0 5px;
     border: 0;
 }
 .discuss>button:active{
     border: 0;
 }
-.discuss>label{
-    font-size: 14;
+.discuss > label {
+    font-size: 14px;
 }
-.eye{
-    width: 22; 
-    height: 13;
+.discuss >.eye {
+    width: 22px;
+    height: 13px;
 }
-.fire{
-    width:19;
-    height:22;
+.fire {
+    width: 19px;
+    height: 22px;
 }
-.comment{
-    width: 21; 
-    height: 16;
+.comment {
+    width: 21px;
+    height: 16px;
 }
 
 .search{
@@ -74,18 +74,21 @@ input {
     outline:none;
     caret-color: black;
 }
-button:focus{
+
+button:focus {
     outline: none;
 }
-.searchButton:focus 
-{
-    background: url(../../img/discuss/searchFocus.svg);
+
+.searchButton:focus {
+    background: url(../../img/discuss/searchActive.png);
     outline:none;
 }
-.searchButton{
-    margin-top: 2px;
+
+.searchButton {
+    margin-top: 6px;
+    padding:0;
     border: 0;
-    background: url(../../img/discuss/search.svg) no-repeat ;
-    height: 27px;
-    width: 31px;
+    background: url(../../img/discuss/search.png) no-repeat ;
+    width: 21px;
+    height:20px;
 }

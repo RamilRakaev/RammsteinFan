@@ -5,9 +5,9 @@ using System.Text;
 
 namespace RammsteinFan.Infrastructure.Core
 {
-    public class Question : DiscussionMessage, IQuestion
+    public class DiscussionSubject : DiscussionMessage, IDiscussionSubject
     {
-        public Question(string topHeading, string topic, string author, string text) :base(author, text)
+        public DiscussionSubject(string topHeading, string topic, string author, string text) :base(author, text)
         {
             TopHeading = topHeading;
             Topic = topic;

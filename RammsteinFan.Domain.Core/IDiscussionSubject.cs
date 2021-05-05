@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RammsteinFan.Domain.Core
 {
-    public interface IQuestion:IDiscussionMessage
+    public interface IDiscussionSubject:IDiscussionMessage
     {
         /// <summary>
         /// Верхний заголовок

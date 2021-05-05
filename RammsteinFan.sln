@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.30803.129
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RammsteinFan", "RammsteinFan\RammsteinFan.csproj", "{9E62FEEA-0B0A-45B4-AB5C-DA79BC14E44D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E6A448AA-B60A-4CDD-A767-0EB9D4D8585D} = {E6A448AA-B60A-4CDD-A767-0EB9D4D8585D}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{6B95B93A-5908-4FB1-AE19-1EAF83F2767E}"
 EndProject
@@ -16,6 +19,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RammsteinFan.Infrastructure.Core", "RammsteinFan.Infrastructure.Core\RammsteinFan.Infrastructure.Core.csproj", "{BFF17889-A007-42DF-85EA-00EBF2B6EE0A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RammsteinFan.Infrastructure.Repositories", "RammsteinFan.Infrastructure.Repositories\RammsteinFan.Infrastructure.Repositories.csproj", "{B316C9A7-44F1-49BE-89C5-05196D062C45}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RammsteinFan.Infrastructure.Mock", "RammsteinFan.Infrastructure.Mock\RammsteinFan.Infrastructure.Mock.csproj", "{A3ED1CC1-B5AF-412D-91A0-F72F8693A068}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +48,10 @@ Global
 		{B316C9A7-44F1-49BE-89C5-05196D062C45}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B316C9A7-44F1-49BE-89C5-05196D062C45}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B316C9A7-44F1-49BE-89C5-05196D062C45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A3ED1CC1-B5AF-412D-91A0-F72F8693A068}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A3ED1CC1-B5AF-412D-91A0-F72F8693A068}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A3ED1CC1-B5AF-412D-91A0-F72F8693A068}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A3ED1CC1-B5AF-412D-91A0-F72F8693A068}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +61,7 @@ Global
 		{09098521-1E74-4CC4-B026-0FC5A21C212F} = {6B95B93A-5908-4FB1-AE19-1EAF83F2767E}
 		{BFF17889-A007-42DF-85EA-00EBF2B6EE0A} = {D5538F5F-3E88-4153-8F7D-4DF453460B86}
 		{B316C9A7-44F1-49BE-89C5-05196D062C45} = {D5538F5F-3E88-4153-8F7D-4DF453460B86}
+		{A3ED1CC1-B5AF-412D-91A0-F72F8693A068} = {D5538F5F-3E88-4153-8F7D-4DF453460B86}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {90062829-B08B-41DE-8E4D-2042AD8A9C7A}

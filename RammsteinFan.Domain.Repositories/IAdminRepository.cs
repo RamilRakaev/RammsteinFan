@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RammsteinFan.Domain.Repositories
 {
-    public interface IAdminRepos<Q,A,C>: IUserRepos<Q, A, C>
+    public interface IAdminRepository<DS,R,C>: IUserRepository<DS, R, C>
     {
         /// <summary>
         /// Добавить новый фрагмент контента
@@ -39,12 +39,12 @@ namespace RammsteinFan.Domain.Repositories
         /// Удалить  ответ из бд
         /// </summary>
         /// <param name="id"></param>
-        void RemoveAnswer(int id);
+        void RemoveReplica(int id);
 
         /// <summary>
         /// Удалить  вопрос из бд
         /// </summary>
         /// <param name="id"></param>
-        void RemoveQuestion(int id);
+        void RemoveSubject(int id);
     }
 }

@@ -6,14 +6,14 @@ using System.Text;
 
 namespace RammsteinFan.Infrastructure.Repositories
 {
-    public class DataContext:DbContext
-    {
-        public DataContext()
-        {
+    //public class DataContext:DbContext
+    //{
+    //    public DataContext()
+    //    {
 
-        }
-        public DbSet<Answer> Answers;
-        public DbSet<Question> Questions;
-        public DbSet<Content> DbContent;
-    }
+    //    }
+    //    public DbSet<Replica> Replicas;
+    //    public DbSet<DiscussionSubject> DiscussionSubjects;
+    //    public DbSet<Content> DbContent;
+    //}
 }

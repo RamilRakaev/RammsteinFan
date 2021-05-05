@@ -1,32 +1,37 @@
-.audioBtn{   
+.audioBtn {
     background: none;
     height: 24px;
     width: 24px;
     border: 0;
     border-radius: 30px;
-    padding-bottom:5px;
+    padding-bottom: 5px;
     margin-right: 10px;
 }
-.playBtn{  
+
+.playBtn {  
     background-image: url("../../img/albums/PlayButton.svg");
 }
-.pauseBtn{
+.pauseBtn {
     display: none;
     background-image: url("../../img/albums/PauseButton.svg");
 }
-.audioBlock{
+
+.audioBlock {
     margin-left: 20px;
     padding: 9px 12px 3px 18px;
     border-radius: 15px;
     margin-bottom: 5px;
 }
-.selected{
+
+.selected {
     padding: 6px 9px 0 15px;
     border: 3px solid #B79B74;
 }
-.audioBlock:hover, .audioBlock>label:hover{
+
+.audioBlock:hover, .audioBlock>label:hover {
     cursor: pointer;
 }
-.audioBlock>label{
+
+.audioBlock>label {
     font-size: 18px;
 }

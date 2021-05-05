@@ -7,7 +7,7 @@ using System.Text;
 
 namespace RammsteinFan.Infrastructure.Repositories
 {
-    public class AdminRepos :UserRepos, IAdminRepos<Question,Answer,Content>
+    public class AdminRepos :UserRepository, IAdminRepository<DiscussionSubject,Replica,Content>
     {
         public AdminRepos(DataContext context):base(context)
         {}
@@ -25,17 +25,17 @@ namespace RammsteinFan.Infrastructure.Repositories
             db.SaveChanges();
         }
 
-        public void RemoveAnswer(int id)
+        public void RemoveReplica(int id)
         {
-            db.Answers.Remove(db.Answers.Find(id));
-            db.Answers.RemoveRange(db.Answers.Where(a =>a.AnswerId == id));
+            db.Replicas.Remove(db.Replicas.Find(id));
+            db.Replicas.RemoveRange(db.Replicas.Where(a =>a.ReplicaId == id));
             db.SaveChanges();
         }
 
-        public void RemoveQuestion(int id)
+        public void RemoveSubject(int id)
         {
-            db.Questions.Remove(db.Questions.Find(id));
-            db.Answers.RemoveRange(db.Answers.Where(a => a.QuestionId == id));
+            db.DiscussionSubjects.Remove(db.DiscussionSubjects.Find(id));
+            db.Replicas.RemoveRange(db.Replicas.Where(a => a.QuestionId == id));
             db.SaveChanges();
         }
         #endregion

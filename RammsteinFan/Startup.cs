@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using RammsteinFan.Domain.Repositories;
+using RammsteinFan.Infrastructure.Core;
+using RammsteinFan.Infrastructure.Mock;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,8 +26,9 @@ namespace RammsteinFan
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<IUserRepository<DiscussionSubject, Replica, Content>, UserMock> ();
+            services.AddTransient<IAdminRepository<DiscussionSubject, Replica, Content>, AdminMock>();
             services.AddRazorPages();
-
 
         }
 
