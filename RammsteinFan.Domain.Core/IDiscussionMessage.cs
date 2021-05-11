@@ -28,6 +28,11 @@ namespace RammsteinFan.Domain.Core
         uint Likes { get; set; }
 
         /// <summary>
+        /// Количество голосов
+        /// </summary>
+        uint Comments { get; set; }
+
+        /// <summary>
         /// Количество просмотров
         /// </summary>
         uint Views { get; set; }

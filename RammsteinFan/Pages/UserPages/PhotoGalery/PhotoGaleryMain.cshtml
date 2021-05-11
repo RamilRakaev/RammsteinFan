@@ -7,18 +7,15 @@
 <div class="container-fluid">
     <div class="row justify-content-center">
         <div class="col-12 col-lg-12 col-md-12 col-sm-12 ">
-            <a class="photosBtn row" asp-page="/UserPages/PhotoGalery/ConcretePhotoAlbum">
-                <div class="photoImg col-3">
-                    <img src="~/img/photoGalery/wallpaper/wallpaper.jpg">
-                </div>
-                <p class="col-8"> Rammstein - в Москве 2019</p>
-            </a>
-            <a class="photosBtn row">
-                <div class="photoImg col-3">
-                    <img src="~/img/photoGalery/inMoscow/inMoscow.jpg">
-                </div>
-                <p class="col-8"> Rammstein - в Москве 2019</p>
-            </a>
+            @foreach (var photoAlbum in Model.PhotoGalery)
+            {
+                <a class="photosBtn row" asp-page="/UserPages/PhotoGalery/ConcretePhotoAlbum" asp-route-title="@photoAlbum">
+                    <div class="photoImg col-3">
+                        <img src="~/img/photoGalery/@(photoAlbum)/1.jpg">
+                    </div>
+                    <p class="col-8">@photoAlbum</p>
+                </a>
+            }
         </div>
     </div>
 </div>

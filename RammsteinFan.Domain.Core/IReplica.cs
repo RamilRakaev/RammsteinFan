@@ -9,7 +9,7 @@ namespace RammsteinFan.Domain.Core
         /// <summary>
         /// Идентификатор вопроса, к которому привязано сообщение
         /// </summary>
-        int QuestionId { get; set; }
+        int DiscussionSubjectId { get; set; }
 
         /// <summary>
         /// Идентификатор ответа, к которому привязано сообщение

@@ -35,7 +35,7 @@ namespace RammsteinFan.Infrastructure.Repositories
         public void RemoveSubject(int id)
         {
             db.DiscussionSubjects.Remove(db.DiscussionSubjects.Find(id));
-            db.Replicas.RemoveRange(db.Replicas.Where(a => a.QuestionId == id));
+            db.Replicas.RemoveRange(db.Replicas.Where(a => a.DiscussionSubjectId == id));
             db.SaveChanges();
         }
         #endregion

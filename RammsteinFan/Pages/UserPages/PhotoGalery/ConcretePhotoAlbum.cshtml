@@ -19,54 +19,31 @@
         <div id="caption"></div>
     </div>
     <br />
-    <h3>Обои Rammstein</h3>
-    <div class="rowImg">
-        <div class="albumImg ">
-            <img class="myImg" src="~/img/photoGalery/wallpaper/1.jpg">
+    <h3>@Model.Title</h3>
+    @for(int i = 0; ;)
+    {
+        <div class="rowImg">
+            @while(true)
+            {
+                i++;
+                <div class="albumImg ">
+                    <img class="myImg" src="~/img/photoGalery/@Model.Title/@(i).jpg">
+                </div>
+                
+                if (i % 4 == 0 || i >= Model.Quantity)
+                {
+                    break;
+                }
+                if (i % 4 == 0)
+                {
+                    break;
+                }
+            }
         </div>
-        <div class="albumImg ">
-            <img class="myImg" src="~/img/photoGalery/wallpaper/2.jpg">
-        </div>
-
-        <div class="albumImg ">
-            <img class="myImg" src="~/img/photoGalery/wallpaper/3.jpg">
-        </div>
-
-        <div class="albumImg ">
-            <img class="myImg" src="~/img/photoGalery/wallpaper/4.jpg">
-        </div>
-    </div>
-    <div class="rowImg">
-        <div class="albumImg ">
-            <img class="myImg" src="~/img/photoGalery/wallpaper/5.jpg">
-        </div>
-        <div class="albumImg ">
-            <img class="myImg" src="~/img/photoGalery/wallpaper/6.jpg">
-        </div>
-
-        <div class="albumImg ">
-            <img class="myImg" src="~/img/photoGalery/wallpaper/7.jpg">
-        </div>
-
-        <div class="albumImg ">
-            <img class="myImg" src="~/img/photoGalery/wallpaper/8.jpg">
-        </div>
-    </div>
-    <div class="rowImg">
-        <div class="albumImg ">
-            <img class="myImg" src="~/img/photoGalery/wallpaper/wallpaper.jpg">
-        </div>
-        <div class="albumImg ">
-            <img class="myImg" src="~/img/photoGalery/wallpaper/10.jpg">
-        </div>
-
-        <div class="albumImg ">
-            <img class="myImg" src="~/img/photoGalery/wallpaper/11.jpg">
-        </div>
-
-        <div class="albumImg ">
-            <img class="myImg" src="~/img/photoGalery/wallpaper/12.jpg">
-        </div>
-    </div>
+        if (i >= Model.Quantity)
+        {
+            break;
+        }
+    }
 </div>
 <script src="~/js/concretePhotoAlbum.js"></script>

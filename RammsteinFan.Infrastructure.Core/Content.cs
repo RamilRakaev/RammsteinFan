@@ -7,12 +7,12 @@ namespace RammsteinFan.Infrastructure.Core
 {
     public class Content : IContent
     {
-        public Content(string title, string type, string text, string location)
+        public Content(string title, string type, string location, string text)
         {
             Title = title;
             Type = type;
-            Text = text;
             Location = location;
+            Text = text;
         }
 
         public int Id { get; set; }

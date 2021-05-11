@@ -3,14 +3,18 @@
 *@
 @model RammsteinFan.Infrastructure.Core.DiscussionSubject
 
-<div class="discuss">
-    <a class="answer" asp-page="/UserPages/Discussions/ConcreteDiscussion"><h5>@Model.Topic</h5></a>
-    <a class="answer"><h6>@Model.Author, @Model.CreationDate.Date.ToString("D")</h6></a>
+<div class="discussion-message subject">
+    <a asp-page="/UserPages/Discussions/ConcreteDiscussion" asp-route-id="@Model.Id">
+        <h5>@Model.Topic</h5>
+    </a>
+    <a>
+        <h6>@Model.Author, @Model.CreationDate.Date.ToString("D")</h6>
+    </a>
     <button class="comment" style="background-image: url(../../img/comment.png);"></button>
-    <label>3</label>
-    <button class="eye" style="background-image: url(../../img/eye.png);"></button>
-    <label>5</label>
-    <button class="fire" style="background-image: url(../../img/fire.png);"></button>
-    <label>2</label>
+    <label>@Model.Comments</label>
+    <button class="views" style="background-image: url(../../img/eye.png);"></button>
+    <label>@Model.Views</label>
+    <button class="likes" style="background-image: url(../../img/fire.png);"></button>
+    <label>@Model.Likes</label>
 </div>
 

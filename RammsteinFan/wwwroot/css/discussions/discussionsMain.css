@@ -1,94 +1,110 @@
+.discussion-container {
+	padding: 0;
+	width: 100%;
+	margin: 0 15px;
+}
 
 .division {
-    background: #B79B74;
-    color: white;
-    width: 100%;
-    padding: 6px 10px 3px 10px;
-    margin: 50px 0 5px 0;
-}
-.division > a{
-    color: white;
-}
-.container-fluid>.discuss {
-    color: white;
-    width: 100%;
-    border-width: 3px;
-    border-style: solid;
-    border-radius: 5px;
-    border-color: #B79B74;
-    margin-top:15px;
-    /*margin: 15px 10px 0 10px;*/
-    padding: 4px 6px 8px 12px;
-}
-.discuss > .answer{
-    cursor: pointer;
-    padding: 0;
-    margin: 0 0 10px 0;
-    background: none;
-    color: white;
-    
-}
-.answer:hover{
-    color: #B79B74;
-}
-.answer > h5 {
-    color: white;
-    padding: 0;
-    margin: 10px 0 10px 0;
-    font-size: 21px;
-}
-.answer > h6 {
-    padding: 0;
-    margin: 10px 10px 10px 0;
-    font-size: 17px;
-}
-.discuss > button {
-    margin: 0 5px 0 5px;
-    border: 0;
-}
-.discuss>button:active{
-    border: 0;
-}
-.discuss > label {
-    font-size: 14px;
-}
-.discuss >.eye {
-    width: 22px;
-    height: 13px;
-}
-.fire {
-    width: 19px;
-    height: 22px;
-}
-.comment {
-    width: 21px;
-    height: 16px;
+	background: #B79B74;
+	color: white;
+	width: 100%;
+	padding: 6px 10px 3px 10px;
+	margin: 50px 0 5px 0;
 }
 
-.search{
-    width:100%;
-    border-radius:15px;
-    border:0;
+.division a {
+	color: white;
+}
+
+.container-fluid .discussion-message {
+	color: white;
+	width: 100%;
+	padding: 4px 6px 8px 12px;
+	border-width: 3px;
+}
+
+.subject {
+	margin-top: 15px;
+	border: 3px solid #B79B74;
+	border-radius: 5px;
+	border-color: #B79B74;
+}
+
+.discussion-message a {
+	cursor: pointer;
+	padding: 0;
+	margin: 0 0 10px 0;
+	background: none;
+	color: white;
+}
+
+.discussion-message a :hover {
+	color: #B79B74;
+}
+div h5.discussion-message {
+	margin-top: 0;
+}
+
+.discussion-message a h5 {
+	color: white;
+	padding: 0;
+	margin: 10px 0 10px 0;
+	font-size: 21px;
+}
+.discussion-message h6 {
+	padding: 0;
+	margin: 10px 10px 10px 0;
+	font-size: 17px;
+}
+.discussion-message button {
+	margin: 0 5px 0 5px;
+	border: 0;
+}
+
+.discussion-message button:active {
+	border: 0;
+}
+
+.discussion-message label {
+	font-size: 14px;
+}
+.discussion-message .views {
+	width: 22px;
+	height: 13px;
+}
+.likes {
+	width: 19px;
+	height: 22px;
+}
+.comment {
+	width: 21px;
+	height: 16px;
+}
+
+.search {
+	width:100%;
+	border-radius:15px;
+	border:0;
 }
 input {
-    outline:none;
-    caret-color: black;
+	outline:none;
+	caret-color: black;
 }
 
 button:focus {
-    outline: none;
+	outline: none;
 }
 
 .searchButton:focus {
-    background: url(../../img/discuss/searchActive.png);
-    outline:none;
+	background: url(../../img/discuss/searchActive.png);
+	outline:none;
 }
 
 .searchButton {
-    margin-top: 6px;
-    padding:0;
-    border: 0;
-    background: url(../../img/discuss/search.png) no-repeat ;
-    width: 21px;
-    height:20px;
+	margin-top: 6px;
+	padding:0;
+	border: 0;
+	background: url(../../img/discuss/search.png) no-repeat ;
+	width: 21px;
+	height:20px;
 }

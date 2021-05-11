@@ -22,17 +22,20 @@ namespace RammsteinFan.Infrastructure.Mock
         #endregion
 
         #region Вернуть данные из бд
-        public IEnumerable<DiscussionSubject> GetAllQuestions() => db.DiscussionSubjects;
+        public IEnumerable<DiscussionSubject> GetAllDiscussionSubjects() => db.DiscussionSubjects;
 
-        public IEnumerable<Replica> GetAnswer(int id) => db.Replicas.Where(a => a.ReplicaId == id | a.QuestionId == id);
+        public DiscussionSubject GetDiscussionSubject(int id) => db.DiscussionSubjects.Where(ds=> ds.Id == id).FirstOrDefault();
+
+        public IEnumerable<Replica> GetReplicas(int id) => db.Replicas.Where(a => a.ReplicaId == id || a.DiscussionSubjectId == id).OrderBy(c => c.CreationDate);
 
         public IEnumerable<Content> GetAllContent() => db.DbContent;
 
-        public IEnumerable<Content> GetContent(string type, string location) => db.DbContent.Where(c => c.Type == type & c.Location == location);
-
         public IEnumerable<Content> GetContentForType(string type) => db.DbContent.Where(c => c.Type == type);
 
-        public IEnumerable<Content> GetContentForTitle(string title) => db.DbContent.Where(c => c.Title == title);
+        public IEnumerable<Content> GetContentForLocation(string location) => db.DbContent.Where(c => c.Location == location);
+
+        public Content GetContentForTitle(string title, string type) => db.DbContent.Where(c => c.Title == title & c.Type == type).DefaultIfEmpty(new Content("","","","")).First();
+
         #endregion
     }
 }

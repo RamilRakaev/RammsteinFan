@@ -6,21 +6,24 @@
 }
 <div class="container">
     <div class="row justify-content-center m-3 mt-4">
+        @{int index = 0;
+        }
         @foreach (var album in Model.Albums)
         {
             string imgPath = "../../img/albums/" + album.AlbumTitle.ToString() + ".jpg";
             <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                 <h4>@album.AlbumTitle</h4>
-                <img class="img-fluid" src="@imgPath" alt="@album.AlbumTitle"/>
+                <img class="img-fluid" src="@imgPath" alt="@album.AlbumTitle" />
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-5">
                 <ul class="text-white font-weight-bold list-songs mt-3">
-                    @{int index = 0;
-                    }
-                    @foreach (var song in album.SongsList)
-                    {
-                        index++;
-                        <li><a asp-page="/UserPages/SongTranslations/TranslationSong" asp-route-song="@song">@index.ToString(). @song</a></li>
+                    @foreach(var songTitle in album.SongsList)
+                    { index++;
+                    <li>
+                        
+                        <a asp-page="/UserPages/SongTranslations/TranslationSong" asp-route-title="@songTitle">@index. @songTitle</a>
+                        
+                    </li>
                     }
                 </ul>
             </div>

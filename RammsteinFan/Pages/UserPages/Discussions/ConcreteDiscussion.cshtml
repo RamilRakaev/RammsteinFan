@@ -1,58 +1,63 @@
 ﻿@page
 @model RammsteinFan.Pages.UserPages.Discussions.ConcreteDiscussionModel
 @{
+	ViewData["Title"] = "Добавить новую форму";
+	ViewData["chapter"] = "Добавить новую форму";
 }
 
 <div class="container-fluid"style="padding: 0;">
-    <div class="row justify-content-center">
-        @await Html.PartialAsync("SuggestionAddSubject") 
-        <div class="panel-group container-fluid" id="collapseGroup" style="padding: 0;width:100%;margin:0 15px">
-            <div class="panel" style="padding: 0;width:100%;">
-                <div class="container-fluid">
-                    <div class="discuss">
-                        <a class="answer"><h5>Логотип Rammstein</h5></a>
-                        <a class="answer"><h6>Автор: Алексей, 08.02.2021</h6></a>
-                        <a class="answer"><h6>Откуда взялся логотип Rammstein?</h6></a>
-                        <button class="comment" style="background-image: url(../../img/comment.png);"></button>
-                        <label>2</label>
-                        <button class="eye" style="background-image: url(../../img/eye.png);"></button>
-                        <label>6</label>
-                        <button class="fire" style="background-image: url(../../img/fire.png);"></button>
-                        <label>3</label>
-                    </div>
-                    <h4 style="margin-top: 50px">Ответы</h4>
-                    <div class="discuss">
-                        <a class="answer"><h6>Автор: Саша, 08.03.2021</h6></a>
-                        <h5>Я не знаю</h5>
-                        <button class="comment" style="background-image: url(../../img/comment.png);"></button>
-                        <label>2</label>
-                        <button class="eye" style="background-image: url(../../img/eye.png);"></button>
-                        <label>6</label>
-                        <button class="fire" style="background-image: url(../../img/fire.png);"></button>
-                        <label>3</label>
-                    </div>
-                    <div class="discuss">
-                        <a class="answer"><h6>Автор: Саша, 08.03.2021</h6></a>
-                        <h5>Я не знаю</h5>
-                        <button class="comment" style="background-image: url(../../img/comment.png);"></button>
-                        <label>2</label>
-                        <button class="eye" style="background-image: url(../../img/eye.png);"></button>
-                        <label>6</label>
-                        <button class="fire" style="background-image: url(../../img/fire.png);"></button>
-                        <label>3</label>
-                    </div>
-                    <div class="discuss">
-                        <a class="answer"><h6>Автор: Саша, 08.03.2021</h6></a>
-                        <h5>Я не знаю</h5>
-                        <button class="comment" style="background-image: url(../../img/comment.png);"></button>
-                        <label>2</label>
-                        <button class="eye" style="background-image: url(../../img/eye.png);"></button>
-                        <label>6</label>
-                        <button class="fire" style="background-image: url(../../img/fire.png);"></button>
-                        <label>3</label>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+	<div class="row justify-content-center">
+		@await Html.PartialAsync("SuggestionAddSubject") 
+		<div class="panel-group container-fluid discussion-container">
+			<div class="panel" style="padding: 0;width:100%;">
+				<div class="container-fluid">
+					<div class="discussion-message subject">
+						<a><h5>@Model.DiscussionSubject.Topic</h5></a>
+						<a><h6>Автор: @Model.DiscussionSubject.Author, @Model.DiscussionSubject.CreationDate.Date.ToString("D")</h6></a>
+						<h6>@Model.DiscussionSubject.Text</h6>
+						<button class="comment" style="background-image: url(../../img/comment.png);"></button>
+						<label>@Model.DiscussionSubject.Comments</label>
+						<button class="views" style="background-image: url(../../img/eye.png);"></button>
+						<label>@Model.DiscussionSubject.Views</label>
+						<button class="likes" style="background-image: url(../../img/fire.png);"></button>
+						<label>@Model.DiscussionSubject.Likes</label>
+					</div>
+					<h4 class="mt-5">Ответы</h4>
+					@foreach (var replica in Model.Replicas.Where(r => r.DiscussionSubjectId == Model.DiscussionSubject.Id & r.ReplicaId == 0))
+                    {
+						<div class="discussion-message">
+							<a><h6>Автор: @replica.Author, @replica.CreationDate.Date.ToString("D")</h6></a>
+							<a><h6>@replica.Text</h6></a>
+							<button class="comment" style="background-image: url(../../img/comment.png);"></button>
+							<label>@replica.Comments</label>
+							<button class="views" style="background-image: url(../../img/eye.png);"></button>
+							<label>@replica.Views</label>
+							<button class="likes" style="background-image: url(../../img/fire.png);"></button>
+							<label>@replica.Likes</label>
+						</div>
+						@if (Model.SetComments(replica.Id).Count() != 0)
+                        {
+						<div class="ml-4">
+							<h5>Комментарии</h5>
+							@foreach(var comment in Model.Comments)
+							{
+							<div class="discussion-message">
+								<a><h6>Автор: @comment.Author, @comment.CreationDate.Date.ToString("D")</h6></a>
+								<a><h6>@comment.Text</h6></a>
+								<button class="comment" style="background-image: url(../../img/comment.png);"></button>
+								<label>@comment.Comments</label>
+								<button class="views" style="background-image: url(../../img/eye.png);"></button>
+								<label>@comment.Views</label>
+								<button class="likes" style="background-image: url(../../img/fire.png);"></button>
+								<label>@comment.Likes</label>
+							</div>
+							}
+						</div>
+						}
+						<br />
+					}
+				</div>
+			</div>
+		</div>
+	</div>
 </div>

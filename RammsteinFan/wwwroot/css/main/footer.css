@@ -1,6 +1,6 @@
 .contacts, 
 .copyright {
-    padding-top: 80px;
+    padding-top: 60px;
 }
 
 .contacts p,
@@ -20,17 +20,7 @@
     width: 18px;
     margin-right: 10px;
 }
-@media(max-width:2560px) {
-    .richard {
-        width: 550px;
-    }
 
-    .contacts p,
-    .contacts h2,
-    .copyright p {
-        margin: 40px 0 0 0;
-    }
-}
 
 @media(max-width:1440px) {
     .richard {
@@ -42,19 +32,11 @@
     .richard {
         width: 280px;
     }
-
-    .footerText {
-        margin-top: 20px;
-    }
 }
 
 @media(max-width:768px) {
     .richard {
         width: 300px;
-    }
-
-    .footerText {
-        margin-top: 20px;
     }
 }
 

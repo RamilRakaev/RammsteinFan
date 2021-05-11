@@ -24,9 +24,6 @@
     em {
         font-size: 16px;
     }
-    .footerPadding{
-        padding-top:20px;
-    }
 }
 
 @media(max-width:426px) {
@@ -41,9 +38,6 @@
 
     #adversting > em {
         font-size: 20px;
-    }
-    .footerPadding {
-        padding-top: 10px;
     }
 }
 

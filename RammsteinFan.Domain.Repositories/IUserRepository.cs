@@ -25,17 +25,24 @@ namespace RammsteinFan.Domain.Repositories
         void AddQuestion(string topHeading, string topic, string author, string text);
 
         /// <summary>
-        /// Вернуть все вопросы
+        /// Вернуть все темы обсуждений
         /// </summary>
         /// <returns></returns>
-        IEnumerable<DS> GetAllQuestions();
+        IEnumerable<DS> GetAllDiscussionSubjects();
+
+        /// <summary>
+        /// Вернуть определённую тему дискуссии
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        DS GetDiscussionSubject(int id);
 
         /// <summary>
         /// Вернуть ответы, привязанные к определённому вопросу или ответу
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        IEnumerable<R> GetAnswer(int id);
+        IEnumerable<R> GetReplicas(int id);
 
         /// <summary>
         /// Вернуть весь контент
@@ -44,25 +51,25 @@ namespace RammsteinFan.Domain.Repositories
         IEnumerable<C> GetAllContent();
 
         /// <summary>
-        /// Вернуть определённый фрагмент контента
+        /// Вернуть контент определённого типа
         /// </summary>
         /// <param name="type"></param>
-        /// <param name="location"></param>
         /// <returns></returns>
-        IEnumerable<C> GetContent(string type, string location);
+        IEnumerable<C> GetContentForType(string type);
 
         /// <summary>
-        /// Вернуть по заголовку
+        /// Вернуть контент по заголовку
         /// </summary>
         /// <param name="title"></param>
+        /// <param name="type"></param>
         /// <returns></returns>
-        IEnumerable<C> GetContentForTitle(string title);
+        C GetContentForTitle(string title, string type);
 
         /// <summary>
         /// Вернуть весь контент определённого типа
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        IEnumerable<C> GetContentForType(string type);
+        IEnumerable<C> GetContentForLocation(string type);
     }
 }

@@ -3,7 +3,7 @@ console.log(collapse);
 for (let i = 0; i < collapse.length; i++) {
     collapse[i].addEventListener('click', function () {
         this.classList.toggle('active');
-        let content = document.getElementsByClassName('content')[i];
+        let content = document.getElementsByClassName('hidden-content')[i];
         if (content.style.maxHeight) {
             content.style.maxHeight = null;
             this.textContent = "Развернуть";

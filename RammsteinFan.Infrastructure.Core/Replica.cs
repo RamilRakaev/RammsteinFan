@@ -9,12 +9,12 @@ namespace RammsteinFan.Infrastructure.Core
     {
         public Replica(string author, string text, int questionId=0, int answerId=0) :base(author, text)
         {
-            QuestionId = questionId;
+            DiscussionSubjectId = questionId;
             ReplicaId = answerId;
-            if (QuestionId == 0 & ReplicaId == 0)
+            if (DiscussionSubjectId == 0 & ReplicaId == 0)
                 throw new Exception("Ответ ни к чему не привязан");
         }
-        public int QuestionId { get; set; }
+        public int DiscussionSubjectId { get; set; }
         public int ReplicaId { get; set; }
     }
 }

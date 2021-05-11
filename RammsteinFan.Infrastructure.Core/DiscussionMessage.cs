@@ -19,6 +19,7 @@ namespace RammsteinFan.Infrastructure.Core
         public string Text { get; set; }
         public DateTime CreationDate { get; set; }
         public uint Likes { get; set; }
+        public uint Comments { get; set; }
         public uint Views { get; set; }
     }
 }

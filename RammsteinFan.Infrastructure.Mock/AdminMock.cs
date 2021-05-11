@@ -23,13 +23,13 @@ namespace RammsteinFan.Infrastructure.Mock
         public void RemoveReplica(int id)
         {
             db.Replicas.Remove(db.Replicas.Where(c => c.Id == id).FirstOrDefault());
-            db.Replicas = db.Replicas.Where(a => a.QuestionId != id).ToList();
+            db.Replicas = db.Replicas.Where(a => a.DiscussionSubjectId != id).ToList();
         }
 
         public void RemoveSubject(int id)
         {
             db.DiscussionSubjects.Remove(db.DiscussionSubjects.Where(c => c.Id == id).FirstOrDefault());
-            db.Replicas=db.Replicas.Where(a => a.QuestionId != id).ToList();
+            db.Replicas=db.Replicas.Where(a => a.DiscussionSubjectId != id).ToList();
         }
         #endregion
 
