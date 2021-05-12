@@ -28,5 +28,12 @@ namespace RammsteinFan.Pages.UserPages.Discussions
             DiscussionSubject = userdb.GetDiscussionSubject(id);
             Replicas = userdb.GetReplicas(id).ToList();
         }
+
+        public IActionResult OnPost(string author, string text, int id, int subjectId, int replicaId = 0)
+        {
+            userdb.AddReplica(author, text, subjectId, replicaId);
+            var url = Url.Page("ConcreteDiscussion", new { id = id });
+            return Redirect(url);
+        }
     }
 }

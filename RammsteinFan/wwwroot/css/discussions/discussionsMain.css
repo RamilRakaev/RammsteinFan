@@ -15,12 +15,47 @@
 .division a {
 	color: white;
 }
+/*Форма отправки комментариев*/
+input {
+	outline: none;
+	caret-color: black;
+}
+
+.comment-form input:nth-child(-n+2) {
+	border: none;
+	background: none;
+	color: white;
+	border-bottom: solid #71705d 1px;
+	caret-color: white;
+	margin-right: 5%;
+}
+
+.comment-form input:nth-child(1) {
+	width: 22%;
+}
+
+.comment-form input:nth-child(2) {
+	width: 70%;
+}
+
+.comment-send {
+	color: white;
+	background: #b79b74;
+	border: none;
+	border-radius: 4px;
+	padding: 4px 10px;
+}
 
 .container-fluid .discussion-message {
 	color: white;
 	width: 100%;
 	padding: 4px 6px 8px 12px;
 	border-width: 3px;
+}
+
+.comment-form,
+.container-fluid .discussion-message {
+	padding: 4px 6px 8px 12px;
 }
 
 .subject {
@@ -56,18 +91,29 @@ div h5.discussion-message {
 	margin: 10px 10px 10px 0;
 	font-size: 17px;
 }
+
+/*Кнопки*/
 .discussion-message button {
 	margin: 0 5px 0 5px;
 	border: 0;
+	background:none;
+	color:white;
 }
 
-.discussion-message button:active {
+.discussion-message button:focus {
+	color:#B79B74;
+}
+
+.discussion-message button:active,
+.discussion-message button:focus{
 	border: 0;
+	color:#B79B74;
 }
 
 .discussion-message label {
 	font-size: 14px;
 }
+
 .discussion-message .views {
 	width: 22px;
 	height: 13px;
@@ -86,14 +132,6 @@ div h5.discussion-message {
 	border-radius:15px;
 	border:0;
 }
-input {
-	outline:none;
-	caret-color: black;
-}
-
-button:focus {
-	outline: none;
-}
 
 .searchButton:focus {
 	background: url(../../img/discuss/searchActive.png);
@@ -107,4 +145,19 @@ button:focus {
 	background: url(../../img/discuss/search.png) no-repeat ;
 	width: 21px;
 	height:20px;
+}
+
+.comment-white-triangle {
+	display: inline-block;
+	background: url(../../img/discuss/commentWhiteCollapse.png) no-repeat center;
+	width: 11px;
+	height: 7px;
+	background-size: 11px 7px;
+	border: 0;
+	background-position: center;
+}
+
+.comment-collapse-btn:hover {
+	color:white;
+	text-decoration:none;
 }

@@ -5,21 +5,19 @@ using System.Text;
 
 namespace RammsteinFan.Infrastructure.Mock
 {
-    public class DataMock
+    public static class db
     {
-        public DataMock()
-        {
-
-        }
-        public List<Replica> Replicas { get; set; } = new List<Replica>()
+        
+        public static List<Replica> Replicas { get; set; } = new List<Replica>()
         {
             new Replica("Саша","Я не знаю, блин",2){Id=3, DiscussionSubjectId=2 },
             new Replica("Данил","Это Тиль",1){Id=4, DiscussionSubjectId=1},
-            new Replica("Данил","Нет, это Рихард",1){Id=5, ReplicaId=4, DiscussionSubjectId = 1},
+            new Replica("Данил","Нет, это Рихард",1, 4){Id=5, DiscussionSubjectId = 1},
             new Replica("Данил","Это Пауль",1){Id=6, DiscussionSubjectId = 1},
             new Replica("Данил","Это была их любимая игра, и это звучало бростко",1){Id=4, DiscussionSubjectId=3},
         };
-        public List<DiscussionSubject> DiscussionSubjects { get; set; } = new List<DiscussionSubject>() 
+
+        public static List<DiscussionSubject> DiscussionSubjects { get; set; } = new List<DiscussionSubject>() 
         { 
             new DiscussionSubject(
                 "Участники группы",
@@ -40,7 +38,7 @@ namespace RammsteinFan.Infrastructure.Mock
                 "Откуда взялся логотип группы?")
             {Id=2, Comments=1, Views=32, Likes=23}
         };
-        public List<Content> DbContent { get; set; } = new List<Content>()
+        public static List<Content> DbContent { get; set; } = new List<Content>()
         {
             new Content("Заголовок","Article", "Index/History", "Текст"){Id=1},
             new Content("Liebe ist Fur alle da","AlbumTitles", "SongTranslationsMain&AlbumsMain","Rammlied,Ich tu dir weh, Waidmanns Heil, Haifisch, " +

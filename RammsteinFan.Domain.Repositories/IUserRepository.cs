@@ -11,9 +11,9 @@ namespace RammsteinFan.Domain.Repositories
         /// </summary>
         /// <param name="author">Атор ответа</param>
         /// <param name="text">Текст ответа</param>
-        /// <param name="questionId">Идентификатор вопроса, к которому привязан объект</param>
-        /// <param name="answerId">Идентификатор ответа (если он есть), к которому объект</param>
-        void AddAnswer(string author, string text, int questionId, int answerId=0);
+        /// <param name="subjectId">Идентификатор вопроса, к которому привязан объект</param>
+        /// <param name="replicaId">Идентификатор ответа (если он есть), к которому объект</param>
+        void AddReplica(string author, string text, int subjectId, int replicaId=0);
 
         /// <summary>
         /// Добавить вопрос
@@ -22,7 +22,7 @@ namespace RammsteinFan.Domain.Repositories
         /// <param name="topic">Тема</param>
         /// <param name="author">Автор</param>
         /// <param name="text">Текст вопроса</param>
-        void AddQuestion(string topHeading, string topic, string author, string text);
+        void AddDiscussionSubject(string topHeading, string topic, string author, string text);
 
         /// <summary>
         /// Вернуть все темы обсуждений

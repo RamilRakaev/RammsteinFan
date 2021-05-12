@@ -139,3 +139,7 @@ table > tbody > tr > .separator {
     margin: 2px 0;
     padding: 0;
 }
+
+button:focus {
+    outline: none;
+}

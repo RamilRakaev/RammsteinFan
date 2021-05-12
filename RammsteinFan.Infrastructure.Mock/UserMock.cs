@@ -2,22 +2,22 @@
 using RammsteinFan.Infrastructure.Core;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace RammsteinFan.Infrastructure.Mock
 {
     public class UserMock : IUserRepository<DiscussionSubject, Replica, Content>
     {
-        readonly protected DataMock db=new DataMock();
-
+        
         #region Добавить
-        public void AddAnswer(string author, string Text, int questionId, int answerId = 0)
+        public void AddReplica(string author, string Text, int discussionSubjectId, int replicaId = 0)
         {
-            db.Replicas.Add(new Replica(author, Text, questionId, answerId));
+            db.Replicas.Add(new Replica(author, Text, discussionSubjectId, replicaId) { Id = new Random().Next(1000) });
         }
 
-        public void AddQuestion(string topHeading, string topic, string author, string text)
+        public void AddDiscussionSubject(string topHeading, string topic, string author, string text)
         {
-            db.DiscussionSubjects.Add(new DiscussionSubject(topHeading, topic, author, text));
+            db.DiscussionSubjects.Add(new DiscussionSubject(topHeading, topic, author, text) { Id = new Random().Next(1000) });
         }
         #endregion
 

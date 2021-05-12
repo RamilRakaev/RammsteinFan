@@ -7,10 +7,10 @@ namespace RammsteinFan.Infrastructure.Core
 {
     public class Replica : DiscussionMessage, IReplica
     {
-        public Replica(string author, string text, int questionId=0, int answerId=0) :base(author, text)
+        public Replica(string author, string text, int discussionSubjectId, int replicaId=0) :base(author, text)
         {
-            DiscussionSubjectId = questionId;
-            ReplicaId = answerId;
+            DiscussionSubjectId = discussionSubjectId;
+            ReplicaId = replicaId;
             if (DiscussionSubjectId == 0 & ReplicaId == 0)
                 throw new Exception("Ответ ни к чему не привязан");
         }

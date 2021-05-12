@@ -1,0 +1,25 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model RammsteinFan.Pages.ViewModels.CommentViewModel
+<form method="post" class="comment-form" >
+
+    <input type="text" placeholder="Ваше имя" name="author" class="comment-text-input" />
+    <input type="text" placeholder="Оставьте свой комментарий" name="text" class="comment-text-input" />
+    <input type="submit" placeholder="Отправить" class="comment-send" />
+
+    @if (Model.IsReplica)
+    {
+        <input type="hidden" name="subjectId" value="@((Model.Message as Replica).DiscussionSubjectId)" />
+        <input type="hidden" name="replicaId" value="@Model.Message.Id" />
+        <input type="hidden" name="id" value="@((Model.Message as Replica).DiscussionSubjectId)" />
+    }
+    else
+    {
+        <input type="hidden" name="subjectId" value="@Model.Message.Id" />
+        <input type="hidden" name="replicaId" value="0" />
+        <input type="hidden" name="id" value="@(Model.Message.Id)" />
+    }
+</form>

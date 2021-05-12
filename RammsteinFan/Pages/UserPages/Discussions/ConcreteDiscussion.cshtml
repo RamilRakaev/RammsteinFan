@@ -2,7 +2,9 @@
 @model RammsteinFan.Pages.UserPages.Discussions.ConcreteDiscussionModel
 @{
 	ViewData["Title"] = "Добавить новую форму";
-	ViewData["chapter"] = "Добавить новую форму";
+	ViewData["chapter"] = "Добавить новую форму"; 
+	string id = "collapse";
+	var index = 1;
 }
 
 <div class="container-fluid"style="padding: 0;">
@@ -12,47 +14,37 @@
 			<div class="panel" style="padding: 0;width:100%;">
 				<div class="container-fluid">
 					<div class="discussion-message subject">
-						<a><h5>@Model.DiscussionSubject.Topic</h5></a>
-						<a><h6>Автор: @Model.DiscussionSubject.Author, @Model.DiscussionSubject.CreationDate.Date.ToString("D")</h6></a>
-						<h6>@Model.DiscussionSubject.Text</h6>
-						<button class="comment" style="background-image: url(../../img/comment.png);"></button>
-						<label>@Model.DiscussionSubject.Comments</label>
-						<button class="views" style="background-image: url(../../img/eye.png);"></button>
-						<label>@Model.DiscussionSubject.Views</label>
-						<button class="likes" style="background-image: url(../../img/fire.png);"></button>
-						<label>@Model.DiscussionSubject.Likes</label>
+						@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", Model.DiscussionSubject)
 					</div>
+					@await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(Model.DiscussionSubject))
+					
 					<h4 class="mt-5">Ответы</h4>
 					@foreach (var replica in Model.Replicas.Where(r => r.DiscussionSubjectId == Model.DiscussionSubject.Id & r.ReplicaId == 0))
-                    {
+					{
 						<div class="discussion-message">
-							<a><h6>Автор: @replica.Author, @replica.CreationDate.Date.ToString("D")</h6></a>
-							<a><h6>@replica.Text</h6></a>
-							<button class="comment" style="background-image: url(../../img/comment.png);"></button>
-							<label>@replica.Comments</label>
-							<button class="views" style="background-image: url(../../img/eye.png);"></button>
-							<label>@replica.Views</label>
-							<button class="likes" style="background-image: url(../../img/fire.png);"></button>
-							<label>@replica.Likes</label>
+							@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", replica)
 						</div>
+						@await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(replica))
+						
 						@if (Model.SetComments(replica.Id).Count() != 0)
-                        {
-						<div class="ml-4">
-							<h5>Комментарии</h5>
-							@foreach(var comment in Model.Comments)
-							{
-							<div class="discussion-message">
-								<a><h6>Автор: @comment.Author, @comment.CreationDate.Date.ToString("D")</h6></a>
-								<a><h6>@comment.Text</h6></a>
-								<button class="comment" style="background-image: url(../../img/comment.png);"></button>
-								<label>@comment.Comments</label>
-								<button class="views" style="background-image: url(../../img/eye.png);"></button>
-								<label>@comment.Views</label>
-								<button class="likes" style="background-image: url(../../img/fire.png);"></button>
-								<label>@comment.Likes</label>
+						{
+							<div class="ml-4">
+								<a class="comment-collapse-btn" data-toggle="collapse" href="#@(id+(index))">
+									<h5 class="d-inline">Комментарии</h5>
+									<div class="comment-white-triangle"></div>
+								</a>
+								<div class="collapse in" id="@(id+(index++))">
+									@foreach (var comment in Model.Comments)
+									{
+										<div class="discussion-message">
+											@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", comment)
+										</div>
+                                        <div id="comment@(comment.Id)">
+                                            @await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(comment))
+                                        </div>
+									}
+								</div>
 							</div>
-							}
-						</div>
 						}
 						<br />
 					}
@@ -61,3 +53,4 @@
 		</div>
 	</div>
 </div>
+<script src="~/js/discussion.js"></script>

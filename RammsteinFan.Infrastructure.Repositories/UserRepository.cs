@@ -14,13 +14,13 @@ namespace RammsteinFan.Infrastructure.Repositories
         readonly protected DataContext db;
 
         #region Добавить
-        public void AddAnswer(string author, string Text, int questionId, int answerId=0)
+        public void AddReplica(string author, string Text, int questionId, int answerId=0)
         {
             db.Replicas.Add(new Replica(author, Text, questionId, answerId));
             db.SaveChanges();
         }
 
-        public void AddQuestion(string topHeading, string topic, string author, string text)
+        public void AddDiscussionSubject(string topHeading, string topic, string author, string text)
         {
             db.DiscussionSubjects.Add(new DiscussionSubject(topHeading, topic, author, text));
             db.SaveChanges();

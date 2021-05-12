@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model DiscussionMessage
+
+<a><h6>Автор: @Model.Author, @Model.CreationDate.Date.ToString("D")</h6></a>
+<h6>@Model.Text</h6>
+<button class="comment" style="background-image: url(../../img/comment.png);"></button>
+<label>@Model.Comments</label>
+<button class="views" style="background-image: url(../../img/eye.png);"></button>
+<label>@Model.Views</label>
+<button class="likes" style="background-image: url(../../img/fire.png);"></button>
+<label>@Model.Likes</label>
+<button class="show-form-comment" child-id="comment@(Model.Id)">Ответить</button>
