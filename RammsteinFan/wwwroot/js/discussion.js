@@ -10,17 +10,17 @@ commentBtn.onclick = function () {
 }
 
 function showHideFormComment() {
-	//alert(event.target.getAttribute("child-id"))
-	//alert(document.getElementById(event.target.getAttribute("child-id")).style)
 	let form = document.getElementById(event.target.getAttribute("child-id"))
 	
-	if (form.style.display == 'none') {
-		form.style.display = 'block'
+	if (form.classList.contains('show')) {
+		form.classList.toggle('show')
+		event.target.style.color = 'white';
 	}
 	else {
-		form.style.display = 'none'
-		event.bl()
+		form.classList.toggle('show');
+		event.target.style.color = '#B79B74';
 	}
+	
 }
 for (let elem of document.getElementsByClassName('show-form-comment')) {
     elem.onclick = function () { showHideFormComment(event) };

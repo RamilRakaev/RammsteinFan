@@ -16,16 +16,18 @@
 					<div class="discussion-message subject">
 						@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", Model.DiscussionSubject)
 					</div>
-					@await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(Model.DiscussionSubject))
-					
+					<div id="comment@(Model.DiscussionSubject.Id)"  class="comment-form">
+						@await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(Model.DiscussionSubject))
+					</div>
 					<h4 class="mt-5">Ответы</h4>
 					@foreach (var replica in Model.Replicas.Where(r => r.DiscussionSubjectId == Model.DiscussionSubject.Id & r.ReplicaId == 0))
 					{
 						<div class="discussion-message">
 							@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", replica)
 						</div>
-						@await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(replica))
-						
+						<div id="comment@(replica.Id)" class="comment-form">
+							@await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(replica))
+						</div>
 						@if (Model.SetComments(replica.Id).Count() != 0)
 						{
 							<div class="ml-4">
@@ -39,7 +41,7 @@
 										<div class="discussion-message">
 											@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", comment)
 										</div>
-                                        <div id="comment@(comment.Id)">
+                                        <div id="comment@(comment.Id)" class="comment-form">
                                             @await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(comment))
                                         </div>
 									}

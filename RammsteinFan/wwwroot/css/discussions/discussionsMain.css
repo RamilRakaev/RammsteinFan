@@ -21,7 +21,8 @@ input {
 	caret-color: black;
 }
 
-.comment-form input:nth-child(-n+2) {
+.commentator-name,
+.comment-text {
 	border: none;
 	background: none;
 	color: white;
@@ -30,11 +31,11 @@ input {
 	margin-right: 5%;
 }
 
-.comment-form input:nth-child(1) {
+.commentator-name {
 	width: 22%;
 }
 
-.comment-form input:nth-child(2) {
+.comment-text {
 	width: 70%;
 }
 
@@ -46,16 +47,20 @@ input {
 	padding: 4px 10px;
 }
 
+.comment-form {
+	display: none;
+	padding: 6px 6px 8px 15px;
+}
+
+.show {
+	display: block;
+}
+
 .container-fluid .discussion-message {
 	color: white;
 	width: 100%;
-	padding: 4px 6px 8px 12px;
+	padding: 4px 6px 0 12px;
 	border-width: 3px;
-}
-
-.comment-form,
-.container-fluid .discussion-message {
-	padding: 4px 6px 8px 12px;
 }
 
 .subject {
@@ -104,8 +109,7 @@ div h5.discussion-message {
 	color:#B79B74;
 }
 
-.discussion-message button:active,
-.discussion-message button:focus{
+.discussion-message button:active{
 	border: 0;
 	color:#B79B74;
 }

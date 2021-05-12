@@ -4,15 +4,15 @@
 @{
 }
 @model RammsteinFan.Pages.ViewModels.CommentViewModel
-<form method="post" class="comment-form" >
+<form method="post">
 
-    <input type="text" placeholder="Ваше имя" name="author" class="comment-text-input" />
-    <input type="text" placeholder="Оставьте свой комментарий" name="text" class="comment-text-input" />
+    <input type="text" autocomplete="off" placeholder="Ваше имя" name="author" class="commentator-name" />
+    <input type="text" autocomplete="off" placeholder="Оставьте свой комментарий" name="text" class="comment-text" />
     <input type="submit" placeholder="Отправить" class="comment-send" />
 
     @if (Model.IsReplica)
     {
-        <input type="hidden" name="subjectId" value="@((Model.Message as Replica).DiscussionSubjectId)" />
+        <input type="hidden" name="subjectId"  value="@((Model.Message as Replica).DiscussionSubjectId)" />
         <input type="hidden" name="replicaId" value="@Model.Message.Id" />
         <input type="hidden" name="id" value="@((Model.Message as Replica).DiscussionSubjectId)" />
     }
