@@ -41,6 +41,11 @@ namespace RammsteinFan.Infrastructure.Repositories
         #endregion
 
         #region Редактировать определённые значения
+        public void ChangeTitleContent(int id, string newTitle)
+        {
+            throw new NotImplementedException();
+        }
+
         public void EditTextContent(int id, string text)
         {
             db.DbContent.Find(id).Text = text;
@@ -51,6 +56,23 @@ namespace RammsteinFan.Infrastructure.Repositories
         {
             db.DbContent.Find(id).Location = newLocation;
             db.SaveChanges();
+        }
+
+        public void ChangeTypeContent(int id, string newType)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
+
+        #region Авторизация
+        public bool PermissionEnter(string name, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public string ErrorAuthorizationMessage(string name, string password)
+        {
+            throw new NotImplementedException();
         }
         #endregion
 

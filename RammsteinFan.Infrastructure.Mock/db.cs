@@ -11,10 +11,10 @@ namespace RammsteinFan.Infrastructure.Mock
         public static List<Replica> Replicas { get; set; } = new List<Replica>()
         {
             new Replica("Саша","Я не знаю, блин",2){Id=3, DiscussionSubjectId=2 },
-            new Replica("Данил","Это Тиль",1){Id=4, DiscussionSubjectId=1},
-            new Replica("Данил","Нет, это Рихард",1, 4){Id=5, DiscussionSubjectId = 1},
+            new Replica("Данил","Это Тиль",1){Id=4, Comments=1},
+            new Replica("Данил","Нет, это Рихард",1, 4){Id=5},
             new Replica("Данил","Это Пауль",1){Id=6, DiscussionSubjectId = 1},
-            new Replica("Данил","Это была их любимая игра, и это звучало бростко",1){Id=4, DiscussionSubjectId=3},
+            new Replica("Данил","Это была их любимая игра, и это звучало бростко",3){Id=4},
         };
 
         public static List<DiscussionSubject> DiscussionSubjects { get; set; } = new List<DiscussionSubject>() 
@@ -24,7 +24,7 @@ namespace RammsteinFan.Infrastructure.Mock
                 "Кто лидер группы Тиль или Рихард?",
                 "Иван",
                 "С одной стороны основателем группы является Рихард, с другой Тиль является главным фронтменом.")
-            {Id=1, Comments=1, Views=50, Likes=11},
+            {Id=1, Comments=3, Views=50, Likes=11},
             new DiscussionSubject(
                 "Участники группы",
                 "Почему к имени Кристофа добавили префикс Doom?",
@@ -38,12 +38,18 @@ namespace RammsteinFan.Infrastructure.Mock
                 "Откуда взялся логотип группы?")
             {Id=2, Comments=1, Views=32, Likes=23}
         };
+
+        public static List<User> Users { get; set; } = new List<User>()
+        {
+            new User("Name", 26, "password", "admin")
+        };
+
         public static List<Content> DbContent { get; set; } = new List<Content>()
         {
-            new Content("Заголовок","Article", "Index/History", "Текст"){Id=1},
+            new Content("Заголовок","Article", "Index/History", "Текст", false){Id=1},
             new Content("Liebe ist Fur alle da","AlbumTitles", "SongTranslationsMain&AlbumsMain","Rammlied,Ich tu dir weh, Waidmanns Heil, Haifisch, " +
                 "B * *******, Fruhling in Paris, Wiener Blut, Pussy, Liebe ist Fur alle da, Mehr,Roter Sand, " +
-                "Fuhre mich, Donaukinder, Halt, Liese"){Id=2 },
+                "Fuhre mich, Donaukinder, Halt, Liese", false){Id=2 },
             new Content("Mutter","AlbumTitles", "SongTranslationsMain&AlbumsMain","Mein Herz brennt, Links 2 3 4, Sonne, Ich will, Feuer frei!," +
                 " Mutter, Spieluhr, Zwitter, Rein raus, Adios, Nebel"){Id=3 },
             new Content("Links 2 3 4","Lyrics", "SongTranslationsMain/Links 2 3 4","Links 2 3 4\n" +

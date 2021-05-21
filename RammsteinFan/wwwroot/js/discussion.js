@@ -14,14 +14,17 @@ function showHideFormComment() {
 	
 	if (form.classList.contains('show')) {
 		form.classList.toggle('show')
-		event.target.style.color = 'white';
+		let cancel = document.getElementsByClassName('dedicated')[0]
+		cancel.style.color = 'white'
+		cancel.classList.toggle('dedicated')
 	}
 	else {
 		form.classList.toggle('show');
+		event.target.classList.toggle('dedicated')
 		event.target.style.color = '#B79B74';
 	}
 	
 }
-for (let elem of document.getElementsByClassName('show-form-comment')) {
+for (let elem of document.getElementsByClassName('show-close-comment')) {
     elem.onclick = function () { showHideFormComment(event) };
 }

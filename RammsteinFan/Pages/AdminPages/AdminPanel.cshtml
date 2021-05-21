@@ -1,0 +1,54 @@
+﻿@page
+@model RammsteinFan.Pages.AdminPages.AdminPanelModel
+@{
+}
+<link rel="stylesheet" href="~/css/admin/adminPanel.css" />
+<div class="container">
+    <div class="row justify-content-start">
+        <div class="col-3">
+            <a class="btn btn-send btn-lg">Добавить</a>
+        </div>
+        <div class="col-12">
+            <table class="admin-panel" cellspacing="3">
+                <thead>
+                    <tr>
+                        <td class="default-cell">Заголовок</td>
+                        <td class="text-cell">Текст</td>
+                        <td class="default-cell">Позиция</td>
+                        <td class="default-cell">Тип</td>
+                        <td class="management-cell"></td>
+                        <td class="management-cell"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var content in Model.Contents)
+                    {
+                        <tr>
+                            <td class="default-cell">
+                                @content.Title
+                            </td>
+                            <td class="default-cell">
+                                @(content.Text)
+                            </td>
+                            <td class="default-cell">
+                                @content.Location
+                            </td>
+                            <td class="default-cell">
+                                @content.Type
+                            </td>
+                            <td>
+                                <a class="btn edit-btn" asp-page="EditContent" asp-route-id="@content.Id"></a>
+                            </td>
+                            <td>
+                                @if (content.CanRemoved)
+                                {
+                                    <a class="btn remove-btn"></a>
+                                }
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+    </div>
+</div>

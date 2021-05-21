@@ -18,9 +18,12 @@ namespace RammsteinFan.Pages
             _logger = logger;
         }
 
+        public bool IsAdmin { get; set; }
+
         public void OnGet()
         {
             
         }
+
     }
 }

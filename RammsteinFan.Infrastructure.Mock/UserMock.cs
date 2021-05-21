@@ -13,6 +13,15 @@ namespace RammsteinFan.Infrastructure.Mock
         public void AddReplica(string author, string Text, int discussionSubjectId, int replicaId = 0)
         {
             db.Replicas.Add(new Replica(author, Text, discussionSubjectId, replicaId) { Id = new Random().Next(1000) });
+            if(replicaId != 0)
+            {
+                GetDiscussionSubject(discussionSubjectId).Comments++;
+                GetReplica(replicaId).Comments++;
+            }
+            else
+            {
+                GetDiscussionSubject(discussionSubjectId).Comments++;
+            }
         }
 
         public void AddDiscussionSubject(string topHeading, string topic, string author, string text)
@@ -26,9 +35,13 @@ namespace RammsteinFan.Infrastructure.Mock
 
         public DiscussionSubject GetDiscussionSubject(int id) => db.DiscussionSubjects.Where(ds=> ds.Id == id).FirstOrDefault();
 
+        public Replica GetReplica(int id) => db.Replicas.Where(ds=> ds.Id == id).FirstOrDefault();
+
         public IEnumerable<Replica> GetReplicas(int id) => db.Replicas.Where(a => a.ReplicaId == id || a.DiscussionSubjectId == id).OrderBy(c => c.CreationDate);
 
         public IEnumerable<Content> GetAllContent() => db.DbContent;
+
+        public Content GetContentForId(int id) => db.DbContent.Where(c => c.Id == id).FirstOrDefault();
 
         public IEnumerable<Content> GetContentForType(string type) => db.DbContent.Where(c => c.Type == type);
 

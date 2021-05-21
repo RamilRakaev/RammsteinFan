@@ -8,11 +8,12 @@
 
     <input type="text" autocomplete="off" placeholder="Ваше имя" name="author" class="commentator-name" />
     <input type="text" autocomplete="off" placeholder="Оставьте свой комментарий" name="text" class="comment-text" />
-    <input type="submit" placeholder="Отправить" class="comment-send" />
+    <input type="button" child-id="comment@(Model.Message.Id)" value="Отмена" class="comment-cancel comment-send show-close-comment" />
+    <input type="submit" class="comment-send" />
 
     @if (Model.IsReplica)
     {
-        <input type="hidden" name="subjectId"  value="@((Model.Message as Replica).DiscussionSubjectId)" />
+        <input type="hidden" name="subjectId" value="@((Model.Message as Replica).DiscussionSubjectId)" />
         <input type="hidden" name="replicaId" value="@Model.Message.Id" />
         <input type="hidden" name="id" value="@((Model.Message as Replica).DiscussionSubjectId)" />
     }

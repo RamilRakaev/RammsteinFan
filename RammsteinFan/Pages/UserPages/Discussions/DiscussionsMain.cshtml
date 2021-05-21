@@ -9,11 +9,12 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
+        @await Html.PartialAsync("../../AdminPages/AdminPanel") 
         <div class="log-12" style="border-radius:15px;background-color:white;width:92%;">
             <div class="container-fluid" style="padding: 0;margin: 0;">
                 <form method="post" style="padding: 0;margin: 0;">
                     <div class="row justify-content-left" style="padding: 0;margin: 0;">
-                        <div class="col-11" style="padding:0 0 0 16px;margin: 0;">
+                        <div class="col-11" style="padding:3px 0 0 16px;margin: 0;">
                             <input class="search" type="text">
                         </div>
                         <div class="col-1">

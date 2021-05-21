@@ -31,5 +31,14 @@ namespace RammsteinFan.Domain.Core
         /// </summary>
         string Location { get; set; }
 
+        /// <summary>
+        /// Разрешение на удаление
+        /// </summary>
+        bool CanRemoved { get; set; }
+
+        /// <summary>
+        /// Разрешение на изменение типа
+        /// </summary>
+        bool CanChangeType { get; set; }
     }
 }

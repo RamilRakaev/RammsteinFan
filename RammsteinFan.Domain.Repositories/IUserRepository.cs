@@ -38,6 +38,13 @@ namespace RammsteinFan.Domain.Repositories
         DS GetDiscussionSubject(int id);
 
         /// <summary>
+        /// Вернуть конкретный элемент Replica
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        R GetReplica(int id);
+
+        /// <summary>
         /// Вернуть ответы, привязанные к определённому вопросу или ответу
         /// </summary>
         /// <param name="id"></param>
@@ -49,6 +56,13 @@ namespace RammsteinFan.Domain.Repositories
         /// </summary>
         /// <returns></returns>
         IEnumerable<C> GetAllContent();
+
+        /// <summary>
+        /// Вернуть контент по идентификатору
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        C GetContentForId(int id);
 
         /// <summary>
         /// Вернуть контент определённого типа

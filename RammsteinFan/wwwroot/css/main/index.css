@@ -82,10 +82,11 @@ em {
 /*Заголовок*/
 .heading {
     border-radius: 16px;
-    padding: 3px 0 4px 40%;
+    padding: 3px 0 4px 15px;
     margin: 0 0 0 15px;
     width: 91%;
     background: #B79B74;
+    text-align: center;
 }
 
 /*Блок с информацией*/

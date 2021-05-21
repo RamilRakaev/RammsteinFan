@@ -1,0 +1,26 @@
+﻿@page
+@model RammsteinFan.Pages.AdminPages.EditContentModel
+@{
+    Content newContent = new Content() { Text = Model.OriginalContent.Text, Id = Model.OriginalContent.Id };
+    
+    }
+<form class="container" method="post">
+    <input type="hidden" asp-for="@newContent.Id" />
+    <div class="form-group">
+        <label>Заголовок</label>
+        <input type="text" class="form-control" asp-for="@newContent.Title" value="@Model.OriginalContent.Title"/>
+    </div>
+    <div class="form-group">
+        <label>Текст</label>
+        <textarea rows="4" type="text" class="form-control" asp-for="@newContent.Text">@Model.OriginalContent.Text</textarea>
+    </div>
+    <div class="form-group">
+        <label>Расположение</label>
+        <input type="text" class="form-control" asp-for="@newContent.Location" value="@Model.OriginalContent.Location"/>
+    </div>
+    <div class="form-group">
+        <label>Тип</label>
+        <input type="text" class="form-control" asp-for="@newContent.Type" value="@Model.OriginalContent.Type"/>
+    </div>
+    <button type="submit" class="btn btn-send">Изменить</button>
+</form>

@@ -1,7 +1,7 @@
 ﻿@page
 @model RammsteinFan.Pages.UserPages.Discussions.AddNewSubjectModel
 @{
-    ViewData["Title"] = "Добавить новую тему для обсуждения";
+    ViewData["Title"] = "Обсуждения";
     ViewData["chapter"] = "Добавить новую тему для обсуждения";
 }
 
@@ -16,19 +16,19 @@
             </p><br />
             <form method="post">
                 <div class="form-group blockInput">
-                    <input type="text" class="textInput" placeholder="Ваше имя">
+                    <input type="text" class="textInput" name="author" placeholder="Ваше имя">
                 </div>
                 <div class="form-group blockInput">
-                    <input type="text" class="textInput" placeholder="Надтема">
+                    <input type="text" class="textInput" name="topHeading" placeholder="Надтема">
                 </div>
                 <div class="form-group blockInput">
-                    <textarea class="text" rows="2" type="text" placeholder="Тема обсуждения"></textarea>
+                    <textarea class="text" rows="2" type="text" name="topic" placeholder="Тема обсуждения"></textarea>
                 </div>
                 <div class="form-group blockInput">
-                    <textarea class="text" rows="3" type="text" placeholder="Текст"></textarea>
+                    <textarea class="text" rows="3" type="text" name="text" placeholder="Текст"></textarea>
                 </div>
                 <div class="form-group">
-                    <a class="back-btn " type="submit">Назад</a>
+                    <a class="back-btn" asp-page="/UserPages/Discussions/DiscussionsMain">Назад</a>
                     <button class="inputBtn"  type="submit">Отправить</button>
                 </div>
             </form>

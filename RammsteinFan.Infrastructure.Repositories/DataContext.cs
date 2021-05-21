@@ -15,5 +15,6 @@ namespace RammsteinFan.Infrastructure.Repositories
         public DbSet<Replica> Replicas;
         public DbSet<DiscussionSubject> DiscussionSubjects;
         public DbSet<Content> DbContent;
+        public DbSet<User> Users;
     }
 }

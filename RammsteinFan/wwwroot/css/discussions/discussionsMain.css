@@ -8,7 +8,7 @@
 	background: #B79B74;
 	color: white;
 	width: 100%;
-	padding: 6px 10px 3px 10px;
+	padding: 6px 10px 1px 10px;
 	margin: 50px 0 5px 0;
 }
 
@@ -28,23 +28,29 @@ input {
 	color: white;
 	border-bottom: solid #71705d 1px;
 	caret-color: white;
-	margin-right: 5%;
 }
 
 .commentator-name {
-	width: 22%;
+	margin-right: 5%;
+	width: 20%;
 }
 
 .comment-text {
-	width: 70%;
+	width: 74%;
 }
 
 .comment-send {
+	margin: 15px 20px 0 0;
 	color: white;
 	background: #b79b74;
 	border: none;
 	border-radius: 4px;
 	padding: 4px 10px;
+}
+
+.comment-cancel {
+	background: none;
+	margin-left: 65%;
 }
 
 .comment-form {

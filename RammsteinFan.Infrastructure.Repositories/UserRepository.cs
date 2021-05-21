@@ -14,9 +14,18 @@ namespace RammsteinFan.Infrastructure.Repositories
         readonly protected DataContext db;
 
         #region Добавить
-        public void AddReplica(string author, string Text, int questionId, int answerId=0)
+        public void AddReplica(string author, string Text, int discussionSubjectId, int replicaId =0)
         {
-            db.Replicas.Add(new Replica(author, Text, questionId, answerId));
+            db.Replicas.Add(new Replica(author, Text, discussionSubjectId, replicaId));
+            if (replicaId != 0)
+            {
+                GetDiscussionSubject(discussionSubjectId).Comments++;
+                GetReplica(replicaId).Comments++;
+            }
+            else
+            {
+                GetDiscussionSubject(discussionSubjectId).Comments++;
+            }
             db.SaveChanges();
         }
 
@@ -31,6 +40,8 @@ namespace RammsteinFan.Infrastructure.Repositories
         public IEnumerable<DiscussionSubject> GetAllDiscussionSubjects() => db.DiscussionSubjects;
 
         public DiscussionSubject GetDiscussionSubject(int id) => db.DiscussionSubjects.Find(id);
+
+        public Replica GetReplica(int id) => db.Replicas.Where(ds => ds.Id == id).FirstOrDefault();
 
         public IEnumerable<Replica> GetReplicas(int id) => db.Replicas.Where(a => a.ReplicaId == id || a.DiscussionSubjectId == id).OrderBy(c=>c.CreationDate);
 

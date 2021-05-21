@@ -1,0 +1,46 @@
+﻿.admin-panel {
+    width: 670px;
+    border: 0;
+    word-break: break-word;
+}
+.default-cell {
+    padding: 0;
+    width: 120px;
+    white-space: normal;
+    text-wrap: normal;
+    word-wrap: break-word;
+}
+
+.text-cell {
+    width: 250px;
+}
+
+.default-cell,
+.text-cell {
+    padding: 4px;
+    border: 4px white solid;
+}
+
+.admin-panel .management-cell {
+    width: 30px;
+}
+
+.edit-btn,
+.remove-btn {
+    background-color: #B79B74;
+    width: 30px;
+    height: 30px;
+    background-size: 24px 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 3px;
+    border: 0;
+}
+
+.remove-btn {
+    background-image: url(../../img/Remove.png);
+}
+
+.edit-btn {
+    background-image: url(../../img/Pencil.png);
+}

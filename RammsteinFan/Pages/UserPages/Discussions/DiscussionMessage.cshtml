@@ -10,8 +10,17 @@
 <h6>@Model.Text</h6>
 <button class="comment" style="background-image: url(../../img/comment.png);"></button>
 <label>@Model.Comments</label>
-<button class="views" style="background-image: url(../../img/eye.png);"></button>
-<label>@Model.Views</label>
+@if (Model is DiscussionSubject)
+{
+    <button class="views" style="background-image: url(../../img/eye.png);"></button>
+    <label>@Model.Views</label>
+}
+
 <button class="likes" style="background-image: url(../../img/fire.png);"></button>
 <label>@Model.Likes</label>
-<button class="show-form-comment" child-id="comment@(Model.Id)">Ответить</button>
+<button class="show-close-comment" child-id="comment@(Model.Id)">Ответить</button>
+<script>
+    for (let elem of document.getElementsByClassName('show-close-comment')) {
+        elem.onclick = function () { showHideFormComment(event) };
+    }
+</script>

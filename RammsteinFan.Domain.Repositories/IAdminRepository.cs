@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RammsteinFan.Domain.Repositories
 {
-    public interface IAdminRepository<DS,R,C>: IUserRepository<DS, R, C>
+    public interface IAdminRepository<DS, R, C> : IUserRepository<DS, R, C>
     {
         /// <summary>
         /// Добавить новый фрагмент контента
@@ -14,6 +14,20 @@ namespace RammsteinFan.Domain.Repositories
         /// <param name="location">Относительное местоположение контента по разделам</param>
         /// <param name="type">Разновидность контента (текст, видео, аудио, картинка)</param>
         void AddContent(string title, string type, string text, string location);
+
+        /// <summary>
+        /// Полностью заменить контент
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="newcontent"></param>
+        void ReplaceContent(int id, C newcontent);
+
+        /// <summary>
+        /// Изменить заголовок содержимого
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="newTitle"></param>
+        void ChangeTitleContent(int id, string newTitle);
 
         /// <summary>
         /// Редактировать текст контента
@@ -28,6 +42,13 @@ namespace RammsteinFan.Domain.Repositories
         /// <param name="Id"></param>
         /// <param name="newLocation"></param>
         void ChangeLocationContent(int Id, string newLocation);
+
+        /// <summary>
+        /// Изменить тип содержимого
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="newType"></param>
+        void ChangeTypeContent(int id, string newType);
 
         /// <summary>
         /// Удалить фрагмент контента
@@ -46,5 +67,24 @@ namespace RammsteinFan.Domain.Repositories
         /// </summary>
         /// <param name="id"></param>
         void RemoveSubject(int id);
+    
+
+    /// <summary>
+    /// Разрешение на вход
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="password"></param>
+    /// <returns></returns>
+    bool PermissionEnter(string name, string password);
+
+    /// <summary>
+    /// Выдача сообщения об ошибке
+    /// </summary>
+    /// <param name="name"></param>
+    /// <param name="password"></param>
+    /// <returns></returns>
+    string ErrorAuthorizationMessage(string name, string password);
+       
+         
     }
 }
