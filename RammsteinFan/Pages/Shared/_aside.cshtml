@@ -44,12 +44,15 @@
                                href="#feedback">
                                 <em>Обнаружили ошибку?</em>
                             </a>
-                            <a class="btn mt-2" asp-page="AdminPages/Authorization">
-                                <em>Войти как админ</em>
+                            <a class="btn mt-2" asp-page="/Account/LoginAccount">
+                                <em>Войти</em>
                             </a>
-                            <a class="btn mt-2" asp-page="AdminPages/AdminPanel">
-                                <em>Войти в панель администратора</em>
-                            </a>
+                            @if (AdminIndexModel.IsAdmin)
+                            {
+                                <a class="btn m-3" asp-page="/AdminPages/AdminPanel">
+                                    <em>Войти в панель администратора</em>
+                                </a>
+                            }
                         </div>
                     </div>
                 </div>

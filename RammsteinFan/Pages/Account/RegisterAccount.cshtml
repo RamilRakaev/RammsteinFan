@@ -1,0 +1,57 @@
+﻿@page
+@model CookieAuthentication.Pages.Account.RegisterAccountModel
+@{
+    ViewData["Title"] = "Регистрация";
+    ViewData["chapter"] = "Регистрация";
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <form method="post" class="mt-3" asp-anti-forgery="true">
+            <div class="validation" asp-validation-summary="ModelOnly"></div>
+            <div>
+                <div class="form-group">
+                    <label>Введите имя</label><br />
+                    <div class="blockInput">
+                        <input type="text" class="textInput" asp-for="@Model.Register.Name" />
+                    </div>
+                    <span asp-validation-for="@Model.Register.Name" />
+
+                </div>
+                <div class="form-group">
+                    <label>Введите Email</label><br />
+                    <div class="blockInput">
+                        <input type="text" class="textInput" asp-for="@Model.Register.EmailAdress" />
+                    </div>
+                    <span asp-validation-for="@Model.Register.EmailAdress" />
+                </div>
+                <div class="form-group">
+                    <label>Введите возраст</label><br />
+                    <div class="blockInput">
+                        <input type="number" max="120" class="textInput" asp-for="@Model.Register.Age" />
+                    </div>
+                    <span asp-validation-for="@Model.Register.Age" />
+                </div>
+                <div class="form-group">
+                    <label>Введите пароль</label><br />
+                    <div class="blockInput">
+                        <input type="password" class="textInput" asp-for="@Model.Register.Password" />
+                    </div>
+                    <span asp-validation-for="@Model.Register.Password" />
+                </div>
+                <div class="form-group">
+                    <label>Повторите пароль</label><br />
+                    <div class="blockInput">
+                        <input type="password" class="textInput" asp-for="@Model.Register.ConfirmPassword" />
+                    </div>
+                    <span asp-validation-for="@Model.Register.ConfirmPassword" />
+                </div>
+                <div>
+                    <a class="float-left btn btn-send" asp-page="/Account/LoginAccount">Войти</a>
+                </div>
+                <div>
+                    <input type="submit" class="float-right btn btn-send" value="Регистрация" />
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

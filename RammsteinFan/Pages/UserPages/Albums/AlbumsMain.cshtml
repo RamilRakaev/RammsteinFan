@@ -4,14 +4,22 @@
     ViewData["Title"] = "Альбомы";
     ViewData["chapter"] = "Альбомы";
 }
-<div class="container mt-2">
-    <div class="row justify-content-center">
+<div class="container mt-4">
+    <div class="row justify-content-around">
         @foreach (var album in Model.Albums)
         {
-            <a class="col-5 linkAlbum" asp-page="/UserPages/Albums/ConcreteAlbum" asp-route-title="@album">
-                <img style="width:100%" src="~/img/albums/@(album).jpg">
-                <h5 class="text-center textLink">@album</h5>
-            </a>
+            <div class="col-5">
+                <img style="width:100%" class="border-secondary" src="~/img/albums/@(album.Key).jpg">
+                <div class="mt-2">
+                    <a class="link-album" asp-page="/UserPages/Albums/ConcreteAlbum" asp-route-title="@album.Key"><h6>@album.Key</h6></a>
+                    <div class="float-right mr-1">
+                        <a class="d-inline-block"  asp-page-handler="SetFavoriteAlbum" asp-route-title="@album.Key"><div class="likes"></div></a>
+                        <label class="lbl-icon">@album.Value</label>
+                    </div>
+                </div>
+            </div>
         }
+
+        
     </div>
 </div>

@@ -7,6 +7,11 @@ namespace RammsteinFan.Infrastructure.Core
 {
     public class DiscussionSubject : DiscussionMessage, IDiscussionSubject
     {
+        public DiscussionSubject()
+        {
+
+        }
+
         public DiscussionSubject(string topHeading, string topic, string author, string text) :base(author, text)
         {
             TopHeading = topHeading;

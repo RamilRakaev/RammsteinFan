@@ -14,7 +14,7 @@ namespace RammsteinFan.Infrastructure.Mock
             new Replica("Данил","Это Тиль",1){Id=4, Comments=1},
             new Replica("Данил","Нет, это Рихард",1, 4){Id=5},
             new Replica("Данил","Это Пауль",1){Id=6, DiscussionSubjectId = 1},
-            new Replica("Данил","Это была их любимая игра, и это звучало бростко",3){Id=4},
+            new Replica("Данил","Это была их любимая игра, и это звучало бростко",3){Id=4}
         };
 
         public static List<DiscussionSubject> DiscussionSubjects { get; set; } = new List<DiscussionSubject>() 
@@ -41,7 +41,7 @@ namespace RammsteinFan.Infrastructure.Mock
 
         public static List<User> Users { get; set; } = new List<User>()
         {
-            new User("Name", 26, "password", "admin")
+            new User()
         };
 
         public static List<Content> DbContent { get; set; } = new List<Content>()

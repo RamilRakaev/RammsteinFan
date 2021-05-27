@@ -9,13 +9,10 @@ using RammsteinFan.Infrastructure.Core;
 
 namespace RammsteinFan.Pages.AdminPages
 {
-    public class EditContentModel : PageModel
+    public class EditContentModel : GeneralAdminPageTemplate
     {
-        readonly IAdminRepository<DiscussionSubject,Replica,Content> admindb;
-        public EditContentModel(IAdminRepository<DiscussionSubject, Replica, Content> _admindb)
-        {
-            admindb = _admindb;
-        }
+        public EditContentModel(IAdminRepository<DiscussionSubject, Replica, Content, User, Role> _admindb):base(_admindb)
+        {}
         public void OnGet(int id)
         {
             OriginalContent = admindb.GetContentForId(id);

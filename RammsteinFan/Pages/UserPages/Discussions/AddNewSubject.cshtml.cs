@@ -9,14 +9,10 @@ using RammsteinFan.Infrastructure.Core;
 
 namespace RammsteinFan.Pages.UserPages.Discussions
 {
-	public class AddNewSubjectModel : PageModel
+	public class AddNewSubjectModel : GeneralUserPageTemplate
 	{
-
-		readonly private IUserRepository<DiscussionSubject, Replica, Content> userdb;
-		public AddNewSubjectModel(IUserRepository<DiscussionSubject, Replica, Content> _userdb)
-		{
-			userdb = _userdb;
-		}
+		public AddNewSubjectModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+		{}
 
 		public void OnGet()
 		{

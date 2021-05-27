@@ -9,13 +9,10 @@ using RammsteinFan.Infrastructure.Core;
 
 namespace RammsteinFan.Pages.UserPages
 {
-    public class ConcretePhotoAlbumModel : PageModel
+    public class ConcretePhotoAlbumModel : GeneralUserPageTemplate
     {
-        readonly private IUserRepository<DiscussionSubject, Replica, Content> userdb;
-        public ConcretePhotoAlbumModel(IUserRepository<DiscussionSubject, Replica, Content> _userdb)
-        {
-            userdb = _userdb;
-        }
+        public ConcretePhotoAlbumModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        {}
         private int quantity=0;
         public int Quantity 
         {

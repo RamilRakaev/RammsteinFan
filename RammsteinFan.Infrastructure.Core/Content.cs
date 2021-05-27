@@ -49,13 +49,7 @@ namespace RammsteinFan.Infrastructure.Core
             CanChangeType = canChangeType;
         }
 
-        public void ReplaceContent(Content newContent)
-        {
-            this.Title = newContent.Title;
-            this.Text = newContent.Text;
-            this.Location = newContent.Location;
-            this.Type = newContent.Type;
-        }
+
 
         public int Id { get; set; }
         public string Title { get; set; }

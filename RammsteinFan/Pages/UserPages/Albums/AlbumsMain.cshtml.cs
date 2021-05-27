@@ -9,19 +9,26 @@ using RammsteinFan.Infrastructure.Core;
 
 namespace RammsteinFan.Pages.UserPages
 {
-    public class AlbumsMainModel : PageModel
+    public class AlbumsMainModel : GeneralUserPageTemplate
     {
-        readonly private IUserRepository<DiscussionSubject, Replica, Content> userdb;
-        public AlbumsMainModel(IUserRepository<DiscussionSubject, Replica, Content> _userdb)
-        {
-            userdb = _userdb;
-        }
+        public AlbumsMainModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        {}
 
         public void OnGet()
         {
-            Albums = userdb.GetContentForLocation("SongTranslationsMain&AlbumsMain").Select(c=>c.Title).ToList();
+            userdb.GetFavoriteAlbum(User.Identity.Name);
+            Albums = userdb.AlbumRating();
         }
 
-        public List<string> Albums { get; set; }
+        public Dictionary<string, int> Albums { get; set; }
+
+        public void OnGetSetFavoriteAlbum(string title)
+        {
+            Albums = userdb.AlbumRating();
+            if (User.Identity.IsAuthenticated)
+            {
+                userdb.SetFavoriteAlbum(User.Identity.Name, title);
+            }
+        }
     }
 }

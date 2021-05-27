@@ -4,7 +4,7 @@ using System.Text;
 
 namespace RammsteinFan.Domain.Repositories
 {
-    public interface IAdminRepository<DS, R, C> : IUserRepository<DS, R, C>
+    public interface IAdminRepository<DiscussionSubject, Replica, Content, User, Role> : IUserRepository<DiscussionSubject, Replica, Content, User, Role>
     {
         /// <summary>
         /// Добавить новый фрагмент контента
@@ -20,7 +20,7 @@ namespace RammsteinFan.Domain.Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <param name="newcontent"></param>
-        void ReplaceContent(int id, C newcontent);
+        void ReplaceContent(int id, Content newcontent);
 
         /// <summary>
         /// Изменить заголовок содержимого
@@ -68,22 +68,21 @@ namespace RammsteinFan.Domain.Repositories
         /// <param name="id"></param>
         void RemoveSubject(int id);
     
+        /// <summary>
+        /// Разрешение на вход
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        bool PermissionEnter(string name, string password);
 
-    /// <summary>
-    /// Разрешение на вход
-    /// </summary>
-    /// <param name="name"></param>
-    /// <param name="password"></param>
-    /// <returns></returns>
-    bool PermissionEnter(string name, string password);
-
-    /// <summary>
-    /// Выдача сообщения об ошибке
-    /// </summary>
-    /// <param name="name"></param>
-    /// <param name="password"></param>
-    /// <returns></returns>
-    string ErrorAuthorizationMessage(string name, string password);
+        /// <summary>
+        /// Выдача сообщения об ошибке
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        string ErrorAuthorizationMessage(string name, string password);
        
          
     }

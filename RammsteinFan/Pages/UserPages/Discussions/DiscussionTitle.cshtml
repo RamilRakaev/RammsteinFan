@@ -10,11 +10,14 @@
     <a>
         <h6>@Model.Author, @Model.CreationDate.Date.ToString("D")</h6>
     </a>
-    <button class="comment" style="background-image: url(../../img/comment.png);"></button>
-    <label>@Model.Comments</label>
-    <button class="views" style="background-image: url(../../img/eye.png);"></button>
-    <label>@Model.Views</label>
-    <button class="likes" style="background-image: url(../../img/fire.png);"></button>
-    <label>@Model.Likes</label>
+    <br />
+    <div class="m-2">
+        <button class="comment" style="background-image: url(../../img/comment.png);"></button>
+        <label>@Model.Comments</label>
+        <button class="views" style="background-image: url(../../img/eye.png);"></button>
+        <label>@Model.Views</label>
+        <button class="likes"></button>
+        <label>@Model.Likes</label>
+    </div>
 </div>
 

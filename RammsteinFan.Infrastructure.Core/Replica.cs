@@ -7,6 +7,11 @@ namespace RammsteinFan.Infrastructure.Core
 {
     public class Replica : DiscussionMessage, IReplica
     {
+        public Replica()
+        {
+
+        }
+
         public Replica(string author, string text, int discussionSubjectId, int replicaId=0) :base(author, text)
         {
             DiscussionSubjectId = discussionSubjectId;

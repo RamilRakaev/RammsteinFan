@@ -10,13 +10,10 @@ using RammsteinFan.Pages.ViewModels;
 
 namespace RammsteinFan.Pages.UserPages.SongTranslations
 {
-    public class TranslationSongModel : PageModel
+    public class TranslationSongModel : GeneralUserPageTemplate
     {
-        readonly private IUserRepository<DiscussionSubject, Replica, Content> userdb;
-        public TranslationSongModel(IUserRepository<DiscussionSubject, Replica, Content> _userdb)
-        {
-            userdb = _userdb;
-        }
+        public TranslationSongModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        {}
 
         public string Title { set; get; }
         public List<string> Lyrics { get; set; }
@@ -25,9 +22,21 @@ namespace RammsteinFan.Pages.UserPages.SongTranslations
         public void OnGet(string title)
         {
             Title = title;
-            Lyrics = userdb.GetContentForTitle(title, "Lyrics").Text.Split("\n").ToList();
-            SongTranslation = userdb.GetContentForTitle(title, "SongTranslation").Text.Split("\n").ToList();
-            SongDescription = userdb.GetContentForTitle(title, "SongDescription").Text;
+            var lyrics = userdb.GetContentForTitle(title, "Lyrics");
+            var songTranslation = userdb.GetContentForTitle(title, "SongTranslation");
+            var songDescription = userdb.GetContentForTitle(title, "SongDescription");
+            if(lyrics !=null && songTranslation!=null && songDescription != null)
+            {
+                Lyrics = lyrics.Text.Split("\n").ToList();
+                SongTranslation = songTranslation.Text.Split("\n").ToList();
+                SongDescription = songDescription.Text;
+            }
+            else
+            {
+                Lyrics = new List<string>();
+                SongTranslation = new List<string>();
+                SongDescription = "";
+            }
         }
 
         

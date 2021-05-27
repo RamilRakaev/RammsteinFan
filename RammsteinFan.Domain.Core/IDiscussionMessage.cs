@@ -25,16 +25,16 @@ namespace RammsteinFan.Domain.Core
         /// <summary>
         /// Количество голосов
         /// </summary>
-        uint Likes { get; set; }
+        int Likes { get; set; }
 
         /// <summary>
         /// Количество голосов
         /// </summary>
-        uint Comments { get; set; }
+        int Comments { get; set; }
 
         /// <summary>
         /// Количество просмотров
         /// </summary>
-        uint Views { get; set; }
+        int Views { get; set; }
     }
 }

@@ -1,11 +1,46 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace RammsteinFan.Domain.Repositories
 {
-    public interface IUserRepository<DS,R,C>
+    public interface IUserRepository<DiscussionSubject,Replica,Content,User,Role>
     {
+        #region Авторизация и права пользователя
+        /// <summary>
+        /// Получить пользователя по почте и паролю
+        /// </summary>
+        /// <param name="emailAdress"></param>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        Task<User> GetUserAsync(string emailAdress, string password);
+
+        /// <summary>
+        /// Проверка на наличие аккаунта с заданной электронной почтой
+        /// </summary>
+        /// <param name="emailAdress"></param>
+        /// <returns></returns>
+        Task<User> AccountByEmailAsync(string emailAdress);
+
+        /// <summary>
+        /// Получить права пользователя
+        /// </summary>
+        /// <returns></returns>
+        Task<Role> UserRights();
+
+        /// <summary>
+        /// Добавить простого пользователя
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="emailAdress"></param>
+        /// <param name="age"></param>
+        /// <param name="password"></param>
+        /// <param name="userRole"></param>
+        Task AddUserAsync(User user);
+        #endregion
+
+        #region Добавить новое сообщение
         /// <summary>
         /// Добавить ответ привязанный к вопросу или к другому ответу
         /// </summary>
@@ -23,53 +58,55 @@ namespace RammsteinFan.Domain.Repositories
         /// <param name="author">Автор</param>
         /// <param name="text">Текст вопроса</param>
         void AddDiscussionSubject(string topHeading, string topic, string author, string text);
+        #endregion
 
+        #region Вернуть данные из бд
         /// <summary>
         /// Вернуть все темы обсуждений
         /// </summary>
         /// <returns></returns>
-        IEnumerable<DS> GetAllDiscussionSubjects();
+        IEnumerable<DiscussionSubject> GetAllDiscussionSubjects();
 
         /// <summary>
         /// Вернуть определённую тему дискуссии
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        DS GetDiscussionSubject(int id);
+        DiscussionSubject GetDiscussionSubject(int id);
 
         /// <summary>
-        /// Вернуть конкретный элемент Replica
+        /// Вернуть конкретную реплику
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        R GetReplica(int id);
+        Replica GetReplica(int id);
 
         /// <summary>
-        /// Вернуть ответы, привязанные к определённому вопросу или ответу
+        /// Вернуть реплики, привязанные к определённому вопросу или другой реплике
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        IEnumerable<R> GetReplicas(int id);
+        IEnumerable<Replica> GetReplicas(int id);
 
         /// <summary>
         /// Вернуть весь контент
         /// </summary>
         /// <returns></returns>
-        IEnumerable<C> GetAllContent();
+        IEnumerable<Content> GetAllContent();
 
         /// <summary>
         /// Вернуть контент по идентификатору
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        C GetContentForId(int id);
+        Content GetContentForId(int id);
 
         /// <summary>
         /// Вернуть контент определённого типа
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        IEnumerable<C> GetContentForType(string type);
+        IEnumerable<Content> GetContentForType(string type);
 
         /// <summary>
         /// Вернуть контент по заголовку
@@ -77,13 +114,36 @@ namespace RammsteinFan.Domain.Repositories
         /// <param name="title"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        C GetContentForTitle(string title, string type);
+        Content GetContentForTitle(string title, string type);
 
         /// <summary>
         /// Вернуть весь контент определённого типа
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        IEnumerable<C> GetContentForLocation(string type);
+        IEnumerable<Content> GetContentForLocation(string type);
+        #endregion
+
+        #region Статистика
+        /// <summary>
+        /// Венруть любимый альбом пользователя
+        /// </summary>
+        /// <param name="emailAdress"></param>
+        /// <returns></returns>
+        string GetFavoriteAlbum(string emailAdress);
+
+        /// <summary>
+        /// Установить любимый альбом пользователя
+        /// </summary>
+        /// <param name="emailAdress"></param>
+        /// <param name="titleAlbum">Название альбома</param>
+        void SetFavoriteAlbum(string emailAdress, string titleAlbum);
+
+        /// <summary>
+        /// Вернуть рейтинг альбомов
+        /// </summary>
+        /// <returns></returns>
+        Dictionary<string, int> AlbumRating();
+        #endregion
     }
 }

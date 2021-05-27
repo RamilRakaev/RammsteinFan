@@ -4,7 +4,6 @@
     ViewData["Title"] = "Альбомы";
     ViewData["chapter"] = "Альбомы";
 }
-<br />
 <div class="container-fluid" style="padding: 0;">
     <h3>@Model.Album.Title</h3>
     <div class="row justify-content-center">
@@ -32,29 +31,45 @@
                     </label>
                 </form>
             </section>
-            <h4 id="preview">Mein herz brennt</h4>
+            <h4 id="preview"></h4>
             <img class="imgAlbum img-fluid text-center" src="~/img/albums/Mutter.jpg">
-            <audio id="mainAudio" preload="none" controls width="100%">
+            <audio id="main-audio" preload="none" controls width="100%">
                 Ваш браузер не поддерживает элемент audio или данная запись отсутствует
                 <source src="~/audio/Mein herz brennt.mp3" type="audio/mp3">
             </audio>
         </div>
     </div>
     <div class="row" style="margin-top: 15px;">
-        @foreach (var song in Model.Songs)
+        @for (int i = 0; i < Model.Songs.Count(); i++)
         {
-            <div class="col-lg-11 audioBlock">
-                <button path="@(song).mp3" class="playBtn audioBtn"></button>
-                <button class="pauseBtn audioBtn"></button>
-                <label class="title">@song</label>
-                <label style="float: right;">4:57</label>
-            </div>
+            @if (i == 0)
+            {
+
+                <div class="col-lg-11 audioBlock selected">
+                    <button path="@(Model.Songs[i]).mp3" class="playBtn audioBtn"></button>
+                    <button class="pauseBtn audioBtn"></button>
+                    <label class="title">@(Model.Songs[i])</label>
+                    <label style="float: right;">4:57</label>
+                </div>
+            }
+            else
+            {
+                <div class="col-lg-11 audioBlock">
+                    <button path="@(Model.Songs[i]).mp3" class="playBtn audioBtn"></button>
+                    <button class="pauseBtn audioBtn"></button>
+                    <label class="title">@(Model.Songs[i])</label>
+                    <label style="float: right;">4:57</label>
+                </div>
+            }
+        }
         }
     </div>
 </div>
+<script src="/../../js/audio.js"></script>
 <script>
     let buttons = document.getElementsByClassName("playBtn");
     for (let elem of buttons) {
+        //alert("11");
         elem.onclick = function () { playClick(event) };
     }
     let pauseButtons = document.getElementsByClassName("pauseBtn");
@@ -71,5 +86,3 @@
 <script src="~/js/mediaelement-and-player.min.js"></script>
 <script src="~/js/lang/ru.js"></script>
 <script src="~/js/demo.js"></script>
-
-<script src="~/js/audio.js"></script>

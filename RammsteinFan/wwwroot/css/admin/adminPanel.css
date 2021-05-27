@@ -42,5 +42,6 @@
 }
 
 .edit-btn {
+    margin: 5px;
     background-image: url(../../img/Pencil.png);
 }

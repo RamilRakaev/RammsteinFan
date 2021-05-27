@@ -9,13 +9,10 @@ using RammsteinFan.Infrastructure.Core;
 
 namespace RammsteinFan.Pages.UserPages
 {
-    public class VideoGaleryMainModel : PageModel
+    public class VideoGaleryMainModel : GeneralUserPageTemplate
     {
-        readonly private IUserRepository<DiscussionSubject, Replica, Content> userdb;
-        public VideoGaleryMainModel(IUserRepository<DiscussionSubject, Replica, Content> _userdb)
-        {
-            userdb = _userdb;
-        }
+        public VideoGaleryMainModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        {}
 
         public void OnGet()
         {

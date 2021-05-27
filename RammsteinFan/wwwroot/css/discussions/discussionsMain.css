@@ -94,28 +94,23 @@ div h5.discussion-message {
 .discussion-message a h5 {
 	color: white;
 	padding: 0;
-	margin: 10px 0 10px 0;
+	margin: 10px 0 5px 0;
 	font-size: 21px;
-}
-.discussion-message h6 {
-	padding: 0;
-	margin: 10px 10px 10px 0;
-	font-size: 17px;
 }
 
 /*Кнопки*/
-.discussion-message button {
+.answer-btn {
 	margin: 0 5px 0 5px;
 	border: 0;
-	background:none;
-	color:white;
+	background: none;
+	color: white;
 }
 
-.discussion-message button:focus {
+.answer-btn:focus {
 	color:#B79B74;
 }
 
-.discussion-message button:active{
+.answer-btn:active{
 	border: 0;
 	color:#B79B74;
 }
@@ -128,13 +123,27 @@ div h5.discussion-message {
 	width: 22px;
 	height: 13px;
 }
-.likes {
-	width: 19px;
-	height: 22px;
+
+.likes,
+.comment,
+.views {
+	border: 0;
 }
+
+.likes {
+	background-image: url(../../img/discuss/likes.png);
+	margin-top: 2px;
+	width: 17px;
+	height: 18px;
+}
+
 .comment {
 	width: 21px;
 	height: 16px;
+}
+
+.lbl-icon {
+	font-size:15px;
 }
 
 .search {

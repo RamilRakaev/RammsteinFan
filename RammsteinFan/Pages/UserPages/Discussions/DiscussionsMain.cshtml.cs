@@ -10,13 +10,10 @@ using RammsteinFan.Pages.ViewModels;
 
 namespace RammsteinFan.Pages.UserPages
 {
-    public class DiscussionsMainModel : PageModel
+    public class DiscussionsMainModel : GeneralUserPageTemplate
     {
-        readonly private IUserRepository<DiscussionSubject, Replica, Content> userdb;
-        public DiscussionsMainModel(IUserRepository<DiscussionSubject, Replica, Content> _userdb)
-        {
-            userdb = _userdb;
-        }
+        public DiscussionsMainModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        {}
         
         public List<DiscussionSubject> DiscussionSubjects { get; set; } 
 

@@ -7,23 +7,23 @@
 //        audioHeight:120
 //    });
 //});
-var audio =document.getElementById("mainAudio");
-    function playClick(){
-        borderBlock(event)
+var audio = document.getElementById("main-audio");
+function playClick() {
+    borderBlock(event)
 
-        //найти элемент audio и изменить путь к треку
-        
-        audio.src="/../audio/"+event.target.getAttribute("path"); 
-        document.getElementById("preview").textContent=
-        event.target.parentElement.getElementsByClassName("title")[0].innerHTML
-        //включить или выключить проигрывание аудио
-        audio.play()
+    //найти элемент audio и изменить путь к треку
 
-        //скрыть кнопку play и показать кнопку pause
-        event.target.style.display="none";
-        document.getElementsByClassName("selected")[0].getElementsByClassName("pauseBtn")[0].style.display="inline"
-    
-    };
+    audio.src="/../audio/"+event.target.getAttribute("path"); 
+    document.getElementById("preview").textContent=
+    event.target.parentElement.getElementsByClassName("title")[0].innerHTML
+    //включить или выключить проигрывание аудио
+    audio.play()
+
+    //скрыть кнопку play и показать кнопку pause
+    event.target.style.display="none";
+    document.getElementsByClassName("selected")[0].getElementsByClassName("pauseBtn")[0].style.display="inline"
+  
+};
 
     function pauseClick(){
         borderBlock(event)
@@ -36,7 +36,8 @@ var audio =document.getElementById("mainAudio");
         //найти и убрать обводку у элемента с классом selected, после удалить класс
         var previous=document.getElementsByClassName("selected")[0]
         var previousStyle=previous.style;
-        previousStyle.border="0";
+        previousStyle.border = "0";
+        
         previousStyle.padding="9px 12px 3px 18px";
         previous.getElementsByClassName("pauseBtn")[0].style.display="none"
         previous.getElementsByClassName("playBtn")[0].style.display="inline"

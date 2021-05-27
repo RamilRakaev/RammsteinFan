@@ -9,18 +9,24 @@ using RammsteinFan.Infrastructure.Core;
 
 namespace RammsteinFan.Pages.UserPages
 {
-    public class ConcreteAlbumModel : PageModel
+    public class ConcreteAlbumModel : GeneralUserPageTemplate
     {
-        readonly private IUserRepository<DiscussionSubject, Replica, Content> userdb;
-        public ConcreteAlbumModel(IUserRepository<DiscussionSubject, Replica, Content> _userdb)
-        {
-            userdb = _userdb;
-        }
+        public ConcreteAlbumModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        {}
 
         public void OnGet(string title)
         {
+            
             Album = userdb.GetContentForTitle(title, "AlbumDescription");
-            Songs = RammsteinFan.LineHandler.SplitSpaces(userdb.GetContentForTitle(title, "AlbumTitles").Text);
+            if (Album != null)
+            {
+                Songs = LineHandler.SplitSpaces(userdb.GetContentForTitle(title, "AlbumTitles").Text);
+            }
+            else
+            {
+                Album = new Content("", "", "", "");
+                Songs = new List<string>();
+            }
         }
 
         public Content Album { get; set; }

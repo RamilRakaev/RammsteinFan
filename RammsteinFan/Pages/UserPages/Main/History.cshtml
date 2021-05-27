@@ -1,0 +1,32 @@
+﻿@page
+@model RammsteinFan.Pages.UserPages.Main.HistoryModel
+@{
+    ViewData["Title"] = "История";
+    ViewData["chapter"] = "История группы";
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <a class="btn" asp-page="/UserPages/Main/History" asp-route-pageNumber="@(Model.PageNumber-1)">
+                <em>Назад</em>
+            </a>
+        </div>
+        <div class="col-6">
+            <a class="btn float-right" asp-page="/UserPages/Main/History" asp-route-pageNumber="@(Model.PageNumber+1)">
+                <em>Вперёд</em>
+            </a>
+        </div>
+
+        @foreach (var content in Model.History)
+        {
+
+            <div class="col-12">
+                <h3>@content.Title</h3>
+                @foreach(var pharagraph in Model.SplitIntoParagraphs(content.Text))
+                {
+                    <p>@pharagraph</p>
+                }
+            </div>
+        }
+    </div>
+</div>

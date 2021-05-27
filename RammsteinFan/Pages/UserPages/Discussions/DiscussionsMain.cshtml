@@ -9,7 +9,6 @@
 
 <div class="container-fluid">
     <div class="row justify-content-center">
-        @await Html.PartialAsync("../../AdminPages/AdminPanel") 
         <div class="log-12" style="border-radius:15px;background-color:white;width:92%;">
             <div class="container-fluid" style="padding: 0;margin: 0;">
                 <form method="post" style="padding: 0;margin: 0;">
@@ -26,7 +25,7 @@
         </div>
         @await Html.PartialAsync("SuggestionAddSubject")
 
-        <div class="panel-group container-fluid" id="collapseGroup" style="padding: 0;width:100%;margin:0 15px">
+        <div class="panel-group container-fluid" id="collapseGroup" style="padding:0;width:100%;margin:0 15px">
             @{ int index = 0;
                 string href = "#" + index;
                 string id = "discussion" + index;

@@ -1,16 +1,15 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RammsteinFan.Domain.Repositories;
 using RammsteinFan.Infrastructure.Core;
 using RammsteinFan.Infrastructure.Mock;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using RammsteinFan.Infrastructure.Repositories;
 
 namespace RammsteinFan
 {
@@ -26,8 +25,18 @@ namespace RammsteinFan
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IUserRepository<DiscussionSubject, Replica, Content>, UserMock> ();
-            services.AddTransient<IAdminRepository<DiscussionSubject, Replica, Content>, AdminMock>();
+            string connectionString = "Server=(localdb)\\mssqllocaldb;Database=RammsteinFans;Trusted_Connection=True;";
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(connectionString));
+
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(
+                options =>
+                {
+                    options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/LoginAccount");
+                    options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/LoginAccount");
+                }
+                );
+            services.AddTransient<IUserRepository<DiscussionSubject, Replica, Content, User, Role>, UserRepository> ();
+            services.AddTransient<IAdminRepository<DiscussionSubject, Replica, Content, User, Role>, AdminRepository>();
             services.AddRazorPages();
 
         }
@@ -35,6 +44,7 @@ namespace RammsteinFan
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -51,12 +61,15 @@ namespace RammsteinFan
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
             });
+
+            
         }
     }
 }

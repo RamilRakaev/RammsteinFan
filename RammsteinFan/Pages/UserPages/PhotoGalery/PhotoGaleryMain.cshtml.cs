@@ -10,19 +10,17 @@ using RammsteinFan;
 
 namespace RammsteinFan.Pages.UserPages
 {
-    public class PhotoGaleryModel : PageModel
+    public class PhotoGaleryModel : GeneralUserPageTemplate
     {
-        readonly private IUserRepository<DiscussionSubject,Replica,Content> userdb;
-        public PhotoGaleryModel(IUserRepository<DiscussionSubject, Replica, Content> _userdb)
-        {
-            userdb = _userdb;
-        }
+        public PhotoGaleryModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        {}
 
         public List<string> PhotoGalery { set; get; }
 
         public void OnGet()
         {
-            PhotoGalery = LineHandler.SplitSpaces(userdb.GetContentForTitle("PhotoGalery", "PhotoGalery").Text).ToList();
+            var galery = userdb.GetContentForTitle("PhotoGalery", "PhotoGalery");
+            PhotoGalery = LineHandler.SplitSpaces(galery.Text).ToList();
         }
     }
 }

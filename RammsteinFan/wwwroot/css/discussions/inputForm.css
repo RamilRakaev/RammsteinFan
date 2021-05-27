@@ -1,18 +1,17 @@
 /*блок с текстом*/
-.blockInput{
+.blockInput {
     border-radius: 10px;
     border: 2.5px solid #B79B74;
     padding: 6px 6px 0 12px;
     font: normal 16px;
-    margin-bottom: 50px;
-    
+    margin-bottom: 20px;
 }
-.blockInput:before{
+.blockInput:before {
     color: red;
 }
 
 /*многострочное текстовое поле*/
-.text{
+.text {
     width: 100%;
     background: #303030;
     border: 0;
@@ -29,13 +28,14 @@
 }
 
 /*однострочное текстовое поле*/
-.textInput{
-    font: normal 16px;
-    color:white;
-    background:#303030;
+.textInput {
+    
+    font: normal 16px !important;
+    color: white !important;
+    background: #303030;
     height: 28px;
     border: 0;
-    padding:0 0 7px 4px;
+    padding: 0 0 7px 4px;
     caret-color: white;
     border-radius: 0;
     width: 100%;

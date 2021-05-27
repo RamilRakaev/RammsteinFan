@@ -4,7 +4,7 @@
     min-width: 400px
 }
 /*Навигации*/
-.navBtn{
+.nav-btn {
     font-weight: 600;
     background-color: #303030;
     border: 0;
@@ -15,10 +15,10 @@
     margin:0;
     outline:none;
 }
-.navBtn:focus {
+.nav-btn:focus {
     outline: none;
 }
-.navBtn:hover{
+.nav-btn:hover {
     background-color: black;
     border-color: black;
     color: #B79B74;
@@ -41,16 +41,22 @@
     text-align: left;
     color: white
 }
-.menuButtons{
+.menuButtons {
     background: rgba(0,0,0,0.7);
 }
 
 /*Ссылки на соц. сети*/
-.socialNetworks{
+.socialNetworks {
     border: 0; 
     padding: 25% 0 25% 0;
     margin: 0 0 0 8px;
 }
-.nav > li > a> img{
-    width:30px;
+
+.nav > li:nth-last-child(2)  {
+    margin-right: 8px;
+}
+
+.nav > li > a > img {
+    width: 30px;
+    border-radius: 3px;
 }

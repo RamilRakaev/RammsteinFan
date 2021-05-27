@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using System;
@@ -17,8 +18,6 @@ namespace RammsteinFan.Pages
             
             _logger = logger;
         }
-
-        public bool IsAdmin { get; set; }
 
         public void OnGet()
         {

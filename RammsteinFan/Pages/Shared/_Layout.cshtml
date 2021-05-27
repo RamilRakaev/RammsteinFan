@@ -47,40 +47,43 @@
                 <nav class="navbar navbar-expand-lg">
                     <ul class="nav">
                         <li class="btn-group">
-                            <button style="margin: 0;" class="dropdown-toggle navBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Главное</button>
+                            <button style="margin: 0;" class="dropdown-toggle nav-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Главное</button>
                             <div class="dropdown-menu menuButtons">
                                 <a class="dropButton" asp-page="/Index">О группе</a>
-                                <a class="dropButton" href="main.html">История</a>
+                                <a class="dropButton" asp-page="/UserPages/Main/History">История</a>
                                 <a class="dropButton" href="main.html">Участники</a>
                             </div>
                         </li>
 
-                        <li><a style="margin: 0" class="nav-link navBtn" asp-page="/UserPages/Albums/AlbumsMain">Альбомы</a></li>
-                        <li><a style="margin: 0" class="nav-link navBtn" asp-page="/UserPages/SongTranslations/SongTranslationsMain">Переводы песен</a></li>
+                        <li><a style="margin: 0" class="nav-link nav-btn" asp-page="/UserPages/Albums/AlbumsMain">Альбомы</a></li>
+                        <li><a style="margin: 0" class="nav-link nav-btn" asp-page="/UserPages/SongTranslations/SongTranslationsMain">Переводы песен</a></li>
                         <li class="btn-group">
-                            <button type="button" style="margin: 0;" class="nav-link dropdown-toggle navBtn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Галерея</button>
+                            <button type="button" style="margin: 0;" class="nav-link dropdown-toggle nav-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Галерея</button>
                             <div class="dropdown-menu menuButtons">
                                 <a class="dropButton" asp-page="/UserPages/VideoGaleryMain">Видеогалерея</a>
                                 <a class="dropButton" asp-page="/UserPages/PhotoGalery/PhotoGaleryMain">Фотогалерея</a>
                             </div>
                         </li>
-                        <li><a style="margin: 0" class="nav-link navBtn" asp-page="/UserPages/Discussions/DiscussionsMain">Обсуждения</a></li>
+                        <li><a style="margin: 0" class="nav-link nav-btn" asp-page="/UserPages/Discussions/DiscussionsMain">Обсуждения</a></li>
                         @* Соц. сети *@
                         <li>
                             <a class='nav-link socialNetworks'
-                               target="_blank" href='https://www.instagram.com/rammsteinofficial/?hl=ru'><img src='~/img/instagram.jpg' style="width:30px"></a>
+                               target="_blank" href='https://www.instagram.com/rammsteinofficial/?hl=ru'><img src='~/img/instagram.png'></a>
                         </li>
                         <li>
                             <a class='nav-link socialNetworks'
-                               target="_blank" href='https://www.facebook.com/Rammstein/'><img src='~/img/facebook.png' style="width:30px"></a>
+                               target="_blank" href='https://www.facebook.com/Rammstein/'><img src='~/img/newfacebook.png'></a>
                         </li>
                         <li>
                             <a class='nav-link socialNetworks'
-                               target="_blank" href='https://twitter.com/rsprachrohr'><img src='~/img/Twitter-Emblem.png' style="width:30px"></a>
+                               target="_blank" href='https://twitter.com/rsprachrohr'><img src='~/img/newtwitter.png'></a>
                         </li>
                         <li>
                             <a class='nav-link socialNetworks'
-                               target="_blank" href='https://www.youtube.com/channel/UCYp3rk70ACGXQ4gFAiMr1SQ'><img src='~/img/youtube.png' style="width:30px"></a>
+                               target="_blank" href='https://www.youtube.com/channel/UCYp3rk70ACGXQ4gFAiMr1SQ'><img src='~/img/newyoutube.png'></a>
+                        </li>
+                        <li>
+                            <a class='nav-link nav-btn' asp-page="/Account/LoginAccount">Войти</a>
                         </li>
                     </ul>
                 </nav>

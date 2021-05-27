@@ -13,7 +13,8 @@
 		<div class="panel-group container-fluid discussion-container">
 			<div class="panel" style="padding: 0;width:100%;">
 				<div class="container-fluid">
-					<div class="discussion-message subject">
+					<div class="discussion-message subject p-2">
+						<h5>@Model.DiscussionSubject.Topic</h5>
 						@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", Model.DiscussionSubject)
 					</div>
 					<div id="comment@(Model.DiscussionSubject.Id)"  class="comment-form">
@@ -32,7 +33,7 @@
 						{
 							<div class="ml-4">
 								<a class="comment-collapse-btn" data-toggle="collapse" href="#@(id+(index))">
-									<h5 class="d-inline">Комментарии</h5>
+									<h6>Комментарии</h6>
 									<div class="comment-white-triangle"></div>
 								</a>
 								<div class="collapse in" id="@(id+(index++))">
