@@ -6,7 +6,7 @@
 }
 <div class="container">
     <div class="row justify-content-center m-3 mt-4">
-        @{int index = 0;
+        @{
         }
         @foreach (var album in Model.Albums)
         {
@@ -16,14 +16,14 @@
                 <img class="img-fluid" src="@imgPath" alt="@album.AlbumTitle" />
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-5">
-                <ul class="text-white font-weight-bold list-songs mt-3">
-                    @foreach(var songTitle in album.SongsList)
-                    { index++;
-                    <li>
-                        
-                        <a asp-page="/UserPages/SongTranslations/TranslationSong" asp-route-title="@songTitle">@index. @songTitle</a>
-                        
-                    </li>
+                <ul start="1" class="text-white font-weight-bold list-songs mt-3">
+                    @{int index = 0;}
+                    @foreach (var songTitle in album.SongsList)
+                    {
+                        index++;
+                        <li>
+                            <a asp-page="/UserPages/SongTranslations/TranslationSong" asp-route-title="@songTitle">@index. @songTitle</a>
+                        </li>
                     }
                 </ul>
             </div>

@@ -9,25 +9,32 @@
 }
 <div class="container-fluid">
     <div class="row justify-content-center">
+        <div class="col-12">
+            <a class="btn btn-send float-left ml-3"  asp-page="SongTranslationsMain">Назад</a>
+            <button class="btn btn-send float-right mr-3 close-translation" onclick="openCloseTranslation(event)">0</button>
+        </div>
         <div class="col-12 mb-4">
             <h3>@Model.Title</h3>
         </div>
-        @if (Model.SongTranslation.Count() == 1 & Model.Lyrics.Count() == 1)
+        @if (Model.SongTranslation.Count() == 0 & Model.Lyrics.Count() == 0)
         {
-            <div class="col-12"><h4>Перевод отсутствует</h4></div>
+            <div class="col-12"><h5 class="text-center">Перевод отсутствует</h5></div>
+            <script>
+                document.getElementsByClassName("close-translation")[0].style.display = "none";
+            </script>
         }
         else
         {
             @for (int i = 0; i < Model.Lyrics.Count(); i++)
             {
-                if (Model.Lyrics[i] == "" & Model.SongTranslation[i] == "")
+                if (Model.Lyrics[i] == "" && Model.SongTranslation[i] == "")
                 {
                     <div class="col-12"><br /></div>
                 }
                 else
                 {
-                    <div class="col-5 ml-2">@Model.Lyrics[i]</div>
-                    <div class="col-5 ">@Model.SongTranslation[i]</div>
+                    <div class="col-5 ml-2 lyrics">@Model.Lyrics[i]</div>
+                    <div class="col-5 translation">@Model.SongTranslation[i]</div>
                 }
             }
         }
@@ -36,3 +43,19 @@
         </div>
     </div>
 </div>
+<script>
+    function openCloseTranslation() {
+        event.target.classList.toggle('close-translation')
+        event.target.classList.toggle('show-translation')
+        let lyrics = document.getElementsByClassName('lyrics')
+        for (let offer of lyrics) {
+            offer.classList.toggle('col-5')
+            offer.classList.toggle('col-6')
+            offer.classList.toggle('pl-5')
+        }
+        let translation = document.getElementsByClassName('translation')
+        for (let offer of translation) {
+            offer.classList.toggle('d-none')
+        }
+    }
+</script>

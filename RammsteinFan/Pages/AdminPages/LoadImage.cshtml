@@ -1,0 +1,47 @@
+﻿@page "{handler?}"
+@model RammsteinFan.Pages.AdminPages.LoadImageModel
+@{ 
+    ViewData["Title"] = "Загрузить изображение";
+    ViewData["chapter"] = "Загрузить изображение";
+}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-7">
+            <form method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label class="col-form-label" for="title">Название картинки вместе с расширением (.png, .jpg, .jpeg, .gif)</label>
+                    <input type="text" class="form-control" name="title" />
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label">Расположение изображения относительно img/</label>
+                    <label class="col-form-label">
+                        photoGalery
+                        <input type="radio" class="custom-radio" checked name="locationRelativeImg" value="photoGalery"/>
+                    </label>
+                    <label class="col-form-label">
+                        videoGalery
+                        <input type="radio" class="custom-radio" name="locationRelativeImg" value="videoGalery"/>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <label for="location" class="col-form-label">Расположение изображения относительно photoGalery</label>
+                    <label for="location" class="col-form-label d-none">Расположение изображения относительно videoGalery</label>
+                    <select class="form-control" name="location" asp-items="@new SelectList(Model.LocationsRelativePhotoGalery)">
+                    </select>
+                    <select class="form-control" name="location" disabled asp-items="@new SelectList(Model.LocationsRelativeVideoGalery)">
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="uploadedImage">Файл изображение</label>
+                    <input class="form-control-file btn badge-light" type="file" name="uploadedImage" accept="image/png, image/jpg, image/jpeg" />
+                </div>
+                <div class="form-group">
+                    <label class="col-form-label" for="sources">Источники изображения</label>
+                    <textarea rows="3" class="form-control" type="text" name="sources"></textarea>
+                </div>
+                <input class="btn btn-send" value="Загрузить картинку" type="submit" />
+            </form>
+        </div>
+    </div>
+</div>
+<script src="~/js/admin/loadImage.js"></script>

@@ -109,6 +109,13 @@ namespace RammsteinFan.Domain.Repositories
         IEnumerable<Content> GetContentForType(string type);
 
         /// <summary>
+        /// Вернуть контент с названием начинающимся на title
+        /// </summary>
+        /// <param name="title">Первые буквы названия</param>
+        /// <returns></returns>
+        IEnumerable<Content> GetContentByFirstLetter(string title);
+
+        /// <summary>
         /// Вернуть контент по заголовку
         /// </summary>
         /// <param name="title"></param>
@@ -119,9 +126,9 @@ namespace RammsteinFan.Domain.Repositories
         /// <summary>
         /// Вернуть весь контент определённого типа
         /// </summary>
-        /// <param name="type"></param>
+        /// <param name="location"></param>
         /// <returns></returns>
-        IEnumerable<Content> GetContentForLocation(string type);
+        IEnumerable<Content> GetContentForLocation(string location);
         #endregion
 
         #region Статистика
@@ -145,5 +152,6 @@ namespace RammsteinFan.Domain.Repositories
         /// <returns></returns>
         Dictionary<string, int> AlbumRating();
         #endregion
+
     }
 }

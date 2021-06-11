@@ -16,6 +16,7 @@ namespace CookieAuthentication.Pages.Account
 
         public void OnGet()
         {
+            
         }
 
         public LoginModel Login { get; set; }

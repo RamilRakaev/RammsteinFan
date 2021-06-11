@@ -28,7 +28,8 @@ namespace RammsteinFan.Pages.UserPages
         {
             SubjectsListViewModel = new List<SubjectsListViewModel>();
             IEnumerable<string> topHeadings = (from subject in DiscussionSubjects
-                                        select subject.TopHeading).Distinct();
+                                        select subject.TopHeading 
+                                        ).Distinct();
            
             foreach(string topHeading in topHeadings)
             {

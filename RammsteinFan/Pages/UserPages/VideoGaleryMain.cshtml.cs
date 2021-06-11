@@ -16,9 +16,17 @@ namespace RammsteinFan.Pages.UserPages
 
         public void OnGet()
         {
-            Videos = userdb.GetContentForLocation("VideoGaleryMain").ToList();
+            Videos = new List<List<Content>>();
+            Albums = LineHandler.SplitSpaces(userdb.GetContentForTitle("videoGalery", "albumsGalleries").Text);
+            foreach(var album in Albums)
+            {
+                var videos = userdb.GetContentForLocation("videoGalery" + "/" + album).ToList();
+                if(videos !=null)
+                Videos.Add(videos);
+            }
         }
 
-        public List<Content> Videos { get; set; }
+        public List<string> Albums { get; set; }
+        public List<List<Content>> Videos { get; set; }
     }
 }

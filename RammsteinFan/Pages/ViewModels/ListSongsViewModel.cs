@@ -16,16 +16,5 @@ namespace RammsteinFan.Pages.ViewModels
 
         public string AlbumTitle { get; set; }
         public List<string> SongsList { get; set; }
-        
     }
 }
-//public ListSongsViewModel(string _AlbumTitle, List<string> songTranslation, List<string> songText)
-//{
-//    AlbumTitle = _AlbumTitle;
-//    SongTranslation = songTranslation;
-//    SongText = songText;
-//}
-
-//public string AlbumTitle { get; set; }
-//public List<string> SongTranslation { get; set; }
-//public List<string> SongText { get; set; }

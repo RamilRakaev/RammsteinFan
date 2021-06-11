@@ -3,36 +3,42 @@
 @{
     ViewData["Title"] = "Видеогалерея";
     ViewData["chapter"] = "Видеогалерея";
+    string marginClass = "";
 }
-
-<div class="container-fluid">
-    <h4 class="text-center">@Model.Videos[0].Type</h4>
+@for (int i=0, j=0; i< Model.Videos.Count; i++) {
+    if (i > 0)
+    {
+        marginClass = "mt-4";
+    }
+<div class="container-fluid @marginClass">
+    <h4 class="text-center">@Model.Albums[i]</h4>
     <div class="row justify-content-around">
-        @foreach (var video in Model.Videos)
-        {
+        @for(; j<4 && j < Model.Videos[i].Count; j++) 
+        { 
         <a class="blockVideoGalery" target="_blank"
-           href="@video.Text"
-           style="background-image: url('../img/videoGalery/@(video.Title).jpg');">
-            <p>@video.Title</p>
+           href="@Model.Videos[i][j].Text"
+           style="background-image: url('../img/videoGalery/@Model.Albums[i]/@Model.Videos[i][j].Title')">
+            <p>@Model.Videos[i][j].Title.Substring(0, Model.Videos[i][j].Title.LastIndexOf('.'))</p>
         </a>
         }
     </div>
+    @if (Model.Videos[i].Count() > 4) 
+    { 
     <div id="contentBlock" class="hidden-content row justify-content-around">
-        <a class="blockVideoGalery" target="_blank"
-           href="https://www.youtube.com/watch?v=FV1z3VVuvFI&t=331s"
-           style="background-image: url(../img/videoGalery/5.jpg);">
-            <p>
-                Rammstein - Haifisch (Official Making Of)
-            </p>
-        </a>
-        <a class="blockVideoGalery" target="_blank"
-           href="https://www.youtube.com/watch?v=mImuguOghRM"
-           style="background-image: url(../img/videoGalery/6.jpg);">
-            <p>Rammstein - Stripped (Official Making Of)</p>
-        </a>
+        @for (; j < Model.Videos[i].Count; j++)
+        {
+            <a class="blockVideoGalery" target="_blank"
+               href="@Model.Videos[i][j].Text"
+               style="background-image: url('../img/videoGalery/@Model.Albums[i]/@Model.Videos[i][j].Title')">
+                <p>@Model.Videos[i][j].Title.Substring(0, Model.Videos[i][j].Title.LastIndexOf('.'))</p>
+            </a>
+        }
     </div>
     <button class="collapsible">Развернуть</button>
+    }
 </div>
+}
+
 <script src="~/js/videoGalery.js">
 
 </script>

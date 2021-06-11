@@ -18,18 +18,10 @@ namespace RammsteinFan.Pages.UserPages.Main
         public List<Content> History { get; set; }
         public int PageNumber { get; set; }
 
-        public void OnGet(int? pageNumber)
+        public void OnGet(int pageNumber=1)
         {
-
             AllHistory = userdb.GetContentForType("HistoryText").ToList();
-            if (pageNumber == null || pageNumber < 1 || pageNumber > AllHistory.Count())
-            {
-                PageNumber = 1;
-            }
-            else
-            {
-                PageNumber = (int)pageNumber;
-            }
+            PageNumber = pageNumber;
             
             var history = userdb.GetContentForLocation("History/" + PageNumber);
             if(history == null)
@@ -42,6 +34,7 @@ namespace RammsteinFan.Pages.UserPages.Main
             }
             
         }
+
         public List<string> SplitIntoParagraphs(string text)
         {
             if(text != null)

@@ -1,5 +1,6 @@
 ﻿using RammsteinFan.Domain.Repositories;
 using RammsteinFan.Infrastructure.Core;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace RammsteinFan.Infrastructure.Repositories
@@ -13,6 +14,12 @@ namespace RammsteinFan.Infrastructure.Repositories
         public void AddContent(string title, string type, string text, string location)
         {
             db.DbContent.Add(new Content(title, type, text, location));
+            db.SaveChanges();
+        }
+
+        public void AddContent(Content newContent)
+        {
+            db.DbContent.Add(newContent);
             db.SaveChanges();
         }
 
@@ -39,7 +46,7 @@ namespace RammsteinFan.Infrastructure.Repositories
         }
         #endregion
 
-        #region Редактировать определённые значения
+        #region Редактирование
         public void ReplaceContent(int id, Content newContent)
         {
             foreach (Content content in db.DbContent)
@@ -91,6 +98,12 @@ namespace RammsteinFan.Infrastructure.Repositories
                 db.SaveChanges();
             }
         }
+        #endregion
+
+        #region Вернуть данные
+        public IEnumerable<string> GetTypes() => GetAllContent().Select(c => c.Type).Where(t => t != null).Distinct();
+
+        public IEnumerable<string> GetLocations() => GetAllContent().Select(c => c.Location).Where(l => l!=null).Distinct();
         #endregion
 
         #region Авторизация

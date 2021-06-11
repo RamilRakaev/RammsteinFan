@@ -37,6 +37,7 @@ namespace RammsteinFan
                 );
             services.AddTransient<IUserRepository<DiscussionSubject, Replica, Content, User, Role>, UserRepository> ();
             services.AddTransient<IAdminRepository<DiscussionSubject, Replica, Content, User, Role>, AdminRepository>();
+            services.AddTransient<IManagementPictures, ManagementPictures>();
             services.AddRazorPages();
 
         }

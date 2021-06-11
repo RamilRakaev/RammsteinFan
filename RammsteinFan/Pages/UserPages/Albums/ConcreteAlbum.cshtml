@@ -62,14 +62,12 @@
                 </div>
             }
         }
-        }
     </div>
 </div>
-<script src="/../../js/audio.js"></script>
+<script src="~/js/audio.js"></script>
 <script>
     let buttons = document.getElementsByClassName("playBtn");
     for (let elem of buttons) {
-        //alert("11");
         elem.onclick = function () { playClick(event) };
     }
     let pauseButtons = document.getElementsByClassName("pauseBtn");

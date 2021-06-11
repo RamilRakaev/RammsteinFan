@@ -6,8 +6,9 @@ namespace RammsteinFan.Domain.Repositories
 {
     public interface IAdminRepository<DiscussionSubject, Replica, Content, User, Role> : IUserRepository<DiscussionSubject, Replica, Content, User, Role>
     {
+        #region Добавить, удалить
         /// <summary>
-        /// Добавить новый фрагмент контента
+        /// Создать и добавить новый фрагмент контента
         /// </summary>
         /// <param name="title">Заголовок контента</param>
         /// <param name="text">Текст контента</param>
@@ -15,6 +16,19 @@ namespace RammsteinFan.Domain.Repositories
         /// <param name="type">Разновидность контента (текст, видео, аудио, картинка)</param>
         void AddContent(string title, string type, string text, string location);
 
+        /// <summary>
+        /// Добавить готовый фрагмент контента
+        /// </summary>
+        void AddContent(Content newContent);
+
+        /// <summary>
+        /// Удалить  вопрос из бд
+        /// </summary>
+        /// <param name="id"></param>
+        void RemoveSubject(int id);
+        #endregion
+
+        #region Редактирование
         /// <summary>
         /// Полностью заменить контент
         /// </summary>
@@ -49,25 +63,25 @@ namespace RammsteinFan.Domain.Repositories
         /// <param name="id"></param>
         /// <param name="newType"></param>
         void ChangeTypeContent(int id, string newType);
+        #endregion
+
+        #region Вернуть данные
 
         /// <summary>
-        /// Удалить фрагмент контента
+        /// Вернуть все типы контента
         /// </summary>
-        /// <param name="id"></param>
-        void RemoveContent(int id);
+        /// <returns></returns>
+        IEnumerable<string> GetTypes();
 
         /// <summary>
-        /// Удалить  ответ из бд
+        /// Вернуть все типы расположения
         /// </summary>
-        /// <param name="id"></param>
-        void RemoveReplica(int id);
+        /// <returns></returns>
+        IEnumerable<string> GetLocations();
 
-        /// <summary>
-        /// Удалить  вопрос из бд
-        /// </summary>
-        /// <param name="id"></param>
-        void RemoveSubject(int id);
-    
+        #endregion
+
+        #region Авторизация
         /// <summary>
         /// Разрешение на вход
         /// </summary>
@@ -83,7 +97,7 @@ namespace RammsteinFan.Domain.Repositories
         /// <param name="password"></param>
         /// <returns></returns>
         string ErrorAuthorizationMessage(string name, string password);
-       
-         
+        #endregion
+
     }
 }

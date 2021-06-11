@@ -6,9 +6,24 @@
 }
 <link rel="stylesheet" href="~/css/admin/adminPanel.css" />
 <div class="container">
+    <div class="row justify-content-end">
+        <div class="col-7 mt-3">
+            <form class="form-inline" method="post">
+                <div class="form-group">
+                    <select class="form-control custom-control-inline" type="text" name="type" asp-items="@Model.SelectType">
+                        <option value="AllContent">AllContent</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-send">Фильтровать</button>
+            </form>
+        </div>
+    </div>
     <div class="row justify-content-start">
         <div class="col-3 m-4">
-            <a class="btn btn-send btn-lg">Добавить</a>
+            <a class="btn btn-send btn-lg">Добавить контент</a>
+        </div>
+        <div class="col-3 m-4">
+            <a class="btn btn-send btn-lg" asp-page="LoadImage">Добавить изображение</a>
         </div>
         <div class="col-12">
             <table class="admin-panel" cellspacing="3">

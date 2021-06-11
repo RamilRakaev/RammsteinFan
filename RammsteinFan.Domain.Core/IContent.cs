@@ -37,7 +37,7 @@ namespace RammsteinFan.Domain.Core
         bool CanRemoved { get; set; }
 
         /// <summary>
-        /// Разрешение на изменение типа
+        /// Разрешение на изменение типа и расположения
         /// </summary>
         bool CanChangeType { get; set; }
     }

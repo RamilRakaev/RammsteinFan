@@ -23,12 +23,22 @@ namespace RammsteinFan.Pages.UserPages
             } 
         }
         public string Title { get; set; }
+        public List<string> ImagesLocation { get; set; }
+        public List<string> ImagesTitles { get; set; }
+        public List<string> ImagesSources { get; set; }
+
         public void OnGet(string title)
         {
-            
+            ImagesTitles = new List<string>();
+            ImagesLocation = new List<string>();
+            ImagesSources = new List<string>();
             Title = title;
-            Quantity = LineHandler.GetNumberOfPhotos(userdb.GetContentForTitle("NumberOfPhotos", "NumberOfPhotos").Text, title);
-            
+            foreach(var image in userdb.GetContentForLocation("photoGalery/" + Title))
+            {
+                ImagesTitles.Add(image.Title);
+                ImagesLocation.Add(image.Location);
+                ImagesSources.Add(image.Text);
+            }
         }
     }
 }

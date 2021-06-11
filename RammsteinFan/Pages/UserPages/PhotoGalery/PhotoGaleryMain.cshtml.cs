@@ -19,8 +19,11 @@ namespace RammsteinFan.Pages.UserPages
 
         public void OnGet()
         {
-            var galery = userdb.GetContentForTitle("PhotoGalery", "PhotoGalery");
-            PhotoGalery = LineHandler.SplitSpaces(galery.Text).ToList();
+            var galery = userdb.GetContentForTitle("photoGalery", "albumsGalleries");
+            if (galery != null)
+                PhotoGalery = LineHandler.SplitSpaces(galery.Text).ToList();
+            else
+                PhotoGalery = new List<string>();
         }
     }
 }

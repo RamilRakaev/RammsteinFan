@@ -15,12 +15,12 @@
         <label>Текст</label>
         <textarea rows="8" type="text" class="form-control" asp-for="@newContent.Text">@Model.OriginalContent.Text</textarea>
     </div>
-    <div class="form-group">
-        <label>Расположение</label>
-        <input type="text" class="form-control" asp-for="@newContent.Location" value="@Model.OriginalContent.Location" />
-    </div>
     @if (Model.OriginalContent.CanChangeType)
     {
+        <div class="form-group">
+            <label>Расположение</label>
+            <input type="text" class="form-control" asp-for="@newContent.Location" value="@Model.OriginalContent.Location" />
+        </div>
         <div class="form-group">
             <label>Тип</label>
             <input type="text" class="form-control" asp-for="@newContent.Type" value="@Model.OriginalContent.Type" />

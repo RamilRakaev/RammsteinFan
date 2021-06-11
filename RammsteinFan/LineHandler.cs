@@ -8,7 +8,7 @@ namespace RammsteinFan
     public class LineHandler
     {
         /// <summary>
-        /// Удаляет пробелы после запятых
+        /// Удаляет пробелы после запятых и разделяет строку по запятым
         /// </summary>
         /// <param name="inputText"></param>
         /// <returns></returns>

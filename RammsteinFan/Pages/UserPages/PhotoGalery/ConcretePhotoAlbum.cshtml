@@ -4,7 +4,7 @@
     ViewData["Title"] = "Фотогалерея";
     ViewData["chapter"] = "Фотогалерея";
 }
-
+<link rel="stylesheet" href="~/css/photoGalery/concretePhotoAlbum.css" />
 <div>
     <!-- окно для просмотра картинки -->
     <div id="myModal" class="modal">
@@ -16,7 +16,7 @@
         <img class="modal-content" id="img01">
 
         <!-- Modal Caption (Image Text) -->
-        <div id="caption"></div>
+        <div ><p id="caption"></p></div>
     </div>
     <br />
     <h3>@Model.Title</h3>
@@ -25,22 +25,19 @@
         <div class="rowImg">
             @while(true)
             {
-                i++;
-                <div class="albumImg ">
-                    <img class="myImg" src="~/img/photoGalery/@Model.Title/@(i).jpg">
-                </div>
                 
-                if (i % 4 == 0 || i >= Model.Quantity)
-                {
-                    break;
-                }
-                if (i % 4 == 0)
+                <div class="albumImg ">
+                    <img class="myImg" src="~/img/@(Model.ImagesLocation[i] + "/" + Model.ImagesTitles[i])" 
+                         alt="@Model.ImagesTitles[i] <br/>Источник: @Model.ImagesSources[i]">
+                </div>
+                i++;
+                if (i % 4 == 0 || i >= Model.ImagesTitles.Count())
                 {
                     break;
                 }
             }
         </div>
-        if (i >= Model.Quantity)
+        if (i >= Model.ImagesTitles.Count())
         {
             break;
         }

@@ -16,7 +16,6 @@ namespace RammsteinFan.Pages.UserPages
 
         public void OnGet()
         {
-            userdb.GetFavoriteAlbum(User.Identity.Name);
             Albums = userdb.AlbumRating();
         }
 
@@ -28,6 +27,7 @@ namespace RammsteinFan.Pages.UserPages
             if (User.Identity.IsAuthenticated)
             {
                 userdb.SetFavoriteAlbum(User.Identity.Name, title);
+                Albums = userdb.AlbumRating();
             }
         }
     }

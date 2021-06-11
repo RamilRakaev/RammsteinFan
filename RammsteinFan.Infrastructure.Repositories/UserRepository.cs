@@ -57,7 +57,7 @@ namespace RammsteinFan.Infrastructure.Repositories
         #endregion
 
         #region Вернуть данные из бд
-        public IEnumerable<DiscussionSubject> GetAllDiscussionSubjects() => db.DiscussionSubjects;
+        public IEnumerable<DiscussionSubject> GetAllDiscussionSubjects() => db.DiscussionSubjects.OrderByDescending(d => d.CreationDate);
 
         public DiscussionSubject GetDiscussionSubject(int id) => db.DiscussionSubjects.FirstOrDefault(ds => ds.Id == id);
 
@@ -74,6 +74,8 @@ namespace RammsteinFan.Infrastructure.Repositories
         public IEnumerable<Content> GetContentForLocation(string location) => db.DbContent.Where(c => c.Location == location);
 
         public Content GetContentForTitle(string title, string type) => db.DbContent.FirstOrDefault(c => c.Title == title && c.Type == type);
+
+        public IEnumerable<Content> GetContentByFirstLetter(string title) => db.DbContent.Where(c => c.Title.StartsWith(title));
 
         #endregion
 
