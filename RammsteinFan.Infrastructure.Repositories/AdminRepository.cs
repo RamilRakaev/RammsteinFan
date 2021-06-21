@@ -1,19 +1,22 @@
 ﻿using RammsteinFan.Domain.Repositories;
 using RammsteinFan.Infrastructure.Core;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 
 namespace RammsteinFan.Infrastructure.Repositories
 {
-    public class AdminRepository :UserRepository, IAdminRepository<DiscussionSubject, Replica, Content, User, Role>
+    public class AdminRepository :UserRepository, IAdminRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage>
     {
         public AdminRepository(DataContext context):base(context)
         {}
 
         #region Добавить, удалить
-        public void AddContent(string title, string type, string text, string location)
+        public void RemoveUser(int id) => db.Users.Remove(db.Users.Include(u => u.Role).FirstOrDefault(u => u.Id == id && u.Role == UserRights()));
+
+        public void AddContent(string title, string type, string location, string text)
         {
-            db.DbContent.Add(new Content(title, type, text, location));
+            db.DbContent.Add(new Content(title, type, location, text));
             db.SaveChanges();
         }
 
@@ -25,9 +28,19 @@ namespace RammsteinFan.Infrastructure.Repositories
 
         public void RemoveContent(int id)
         {
-            var content = db.DbContent.Where(c => c.Id == id).FirstOrDefault();
+            var content = db.DbContent.FirstOrDefault(c => c.Id == id);
             if (content != null && content.CanRemoved) 
             { 
+                db.DbContent.Remove(content);
+                db.SaveChanges();
+            }
+        }
+
+        public void RemoveContent(string title, string type)
+        {
+            var content = GetContentByTitle(title, type);
+            if (content != null && content.CanRemoved)
+            {
                 db.DbContent.Remove(content);
                 db.SaveChanges();
             }
@@ -42,6 +55,12 @@ namespace RammsteinFan.Infrastructure.Repositories
         public void RemoveSubject(int id)
         {
             db.DiscussionSubjects.Remove(db.DiscussionSubjects.FirstOrDefault(c => c.Id == id));
+            db.SaveChanges();
+        }
+
+        public void RemoveUserMessage(int id) 
+        {
+            db.UserMessages.Remove(db.UserMessages.FirstOrDefault(m => m.Id == id));
             db.SaveChanges();
         }
         #endregion
@@ -104,6 +123,8 @@ namespace RammsteinFan.Infrastructure.Repositories
         public IEnumerable<string> GetTypes() => GetAllContent().Select(c => c.Type).Where(t => t != null).Distinct();
 
         public IEnumerable<string> GetLocations() => GetAllContent().Select(c => c.Location).Where(l => l!=null).Distinct();
+
+        public IEnumerable<UserMessage> GetAllUserMessages() => db.UserMessages;
         #endregion
 
         #region Авторизация

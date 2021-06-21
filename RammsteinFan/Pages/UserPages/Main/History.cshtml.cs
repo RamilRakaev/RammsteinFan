@@ -11,26 +11,31 @@ namespace RammsteinFan.Pages.UserPages.Main
 {
     public class HistoryModel : GeneralUserPageTemplate
     {
-        public HistoryModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb) : base(_userdb)
+        public HistoryModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb) : base(_userdb)
         { }
 
         public List<Content> AllHistory { get; set; }
-        public List<Content> History { get; set; }
+        public Content History { get; set; }
         public int PageNumber { get; set; }
 
         public void OnGet(int pageNumber=1)
         {
-            AllHistory = userdb.GetContentForType("HistoryText").ToList();
-            PageNumber = pageNumber;
+            AllHistory = userdb.GetContentByType("HistoryText").ToList();
+            if (pageNumber >= AllHistory.Count)
+                PageNumber = 1;
+            else if (pageNumber <= 0)
+                PageNumber = AllHistory.Count() - 1;
+            else
+                PageNumber = pageNumber;
             
-            var history = userdb.GetContentForLocation("History/" + PageNumber);
+            var history = userdb.GetContentByLocation("History/" + PageNumber).FirstOrDefault();
             if(history == null)
             {
-                History = new List<Content>();
+                History = new Content("", "", "", "");
             }
             else
             {
-                History = history.ToList();
+                History = history;
             }
             
         }
@@ -39,7 +44,7 @@ namespace RammsteinFan.Pages.UserPages.Main
         {
             if(text != null)
             {
-                return text.Split("/n", StringSplitOptions.RemoveEmptyEntries).ToList();
+                return text.Split("\n", StringSplitOptions.RemoveEmptyEntries).ToList();
             }
             return new List<string>();
         }

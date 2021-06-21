@@ -1,0 +1,48 @@
+﻿@page
+@model RammsteinFan.Pages.AdminPages.FeedbackTableModel
+@{
+    ViewData["Title"] = "Админ";
+    ViewData["chapter"] = "Обратная свзяь";
+}
+<link rel="stylesheet" href="~/css/admin/adminPanel.css" />
+<div class="container">
+    <div class="row justify-content-start mt-3">
+        <div class="col-4 m-2">
+            <a class="btn btn-send btn-lg" asp-page="AdminPanel">Назад</a>
+        </div>
+    </div>
+    <div class="row justify-content-center mt-3">
+        <div class="col-12">
+            <table class="admin-panel" cellspacing="3">
+                <thead>
+                    <tr>
+                        <td class="default-cell">Почта</td>
+                        <td class="text-cell">Сообщение</td>
+                        <td class="default-cell">Дата отправки</td>
+                        <td class="management-cell"></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var message in Model.Messages)
+                    {
+                        <tr>
+                            <td class="default-cell">
+                                @message.EmailAdress
+                            </td>
+                            <td class="default-cell" style="word-break:break-word;">
+                                @(message.TextMessage)
+                            </td>
+                            <td class="default-cell">
+                                @(message.SendingDate)
+                            </td>
+                            <td>
+                                <a class="btn remove-btn" asp-page-handler="Remove" asp-route-id="@message.Id"></a>
+                            </td>
+                        </tr>
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

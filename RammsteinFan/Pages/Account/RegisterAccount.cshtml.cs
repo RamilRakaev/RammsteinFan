@@ -11,7 +11,7 @@ namespace CookieAuthentication.Pages.Account
     {
         public RegisterModel Register { get; set; }
 
-        public RegisterAccountModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb) : base(_userdb)
+        public RegisterAccountModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb) : base(_userdb)
         {
             Register = new RegisterModel();
         }
@@ -27,7 +27,7 @@ namespace CookieAuthentication.Pages.Account
                 User user = await userdb.AccountByEmailAsync(register.EmailAdress);
                 if (user == null)
                 {
-                    Role userRole = await userdb.UserRights();
+                    Role userRole = await userdb.UserRightsAsync();
                     if (userRole != null)
                     {
                         user = new User(

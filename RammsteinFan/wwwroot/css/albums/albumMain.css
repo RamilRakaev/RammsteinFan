@@ -27,9 +27,15 @@
 .audioBlock {
     color:white;
 }
-/*
-.link-album:hover{
-    color: #B79B74;
-    text-decoration: underline;
-    text-decoration-color: #B79B74;
-}*/
+
+.img-trimming {
+    width: 260px;
+    height: 260px;
+    overflow: hidden;
+}
+
+.img-trimming img {
+    object-fit: cover;
+    max-width: 260px;
+
+}

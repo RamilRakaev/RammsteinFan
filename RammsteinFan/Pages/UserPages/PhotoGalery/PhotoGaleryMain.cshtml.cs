@@ -12,14 +12,14 @@ namespace RammsteinFan.Pages.UserPages
 {
     public class PhotoGaleryModel : GeneralUserPageTemplate
     {
-        public PhotoGaleryModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        public PhotoGaleryModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb):base(_userdb)
         {}
 
         public List<string> PhotoGalery { set; get; }
 
         public void OnGet()
         {
-            var galery = userdb.GetContentForTitle("photoGalery", "albumsGalleries");
+            var galery = userdb.GetContentByTitle("photoGalery", "albumsGalleries");
             if (galery != null)
                 PhotoGalery = LineHandler.SplitSpaces(galery.Text).ToList();
             else

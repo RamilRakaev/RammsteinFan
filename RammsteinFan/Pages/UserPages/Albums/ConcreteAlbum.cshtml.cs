@@ -11,16 +11,15 @@ namespace RammsteinFan.Pages.UserPages
 {
     public class ConcreteAlbumModel : GeneralUserPageTemplate
     {
-        public ConcreteAlbumModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        public ConcreteAlbumModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb):base(_userdb)
         {}
 
         public void OnGet(string title)
         {
-            
-            Album = userdb.GetContentForTitle(title, "AlbumDescription");
+            Album = userdb.GetContentByTitle(title, "AlbumDescription");
             if (Album != null)
             {
-                Songs = LineHandler.SplitSpaces(userdb.GetContentForTitle(title, "AlbumTitles").Text);
+                Songs = LineHandler.SplitSpaces(userdb.GetContentByTitle(title, "AlbumTitles").Text);
             }
             else
             {

@@ -7,53 +7,53 @@
 	var index = 1;
 }
 
-<div class="container-fluid"style="padding: 0;">
+<div class="container-fluid" style="padding: 0;">
 	<div class="row justify-content-center">
-		@await Html.PartialAsync("SuggestionAddSubject") 
-		<div class="panel-group container-fluid discussion-container">
-			<div class="panel" style="padding: 0;width:100%;">
-				<div class="container-fluid">
-					<div class="discussion-message subject p-2">
-						<h5>@Model.DiscussionSubject.Topic</h5>
-						@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", Model.DiscussionSubject)
-					</div>
-					<div id="comment@(Model.DiscussionSubject.Id)"  class="comment-form">
-						@await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(Model.DiscussionSubject))
-					</div>
-					<h4 class="mt-5">Ответы</h4>
-					@foreach (var replica in Model.Replicas.Where(r => r.DiscussionSubjectId == Model.DiscussionSubject.Id & r.ReplicaId == 0))
-					{
-						<div class="discussion-message">
-							@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", replica)
-						</div>
-						<div id="comment@(replica.Id)" class="comment-form">
-							@await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(replica))
-						</div>
-						@if (Model.SetComments(replica.Id).Count() != 0)
-						{
-							<div class="ml-4">
-								<a class="comment-collapse-btn" data-toggle="collapse" href="#@(id+(index))">
-									<h6>Комментарии</h6>
-									<div class="comment-white-triangle"></div>
-								</a>
-								<div class="collapse in" id="@(id+(index++))">
-									@foreach (var comment in Model.Comments)
-									{
-										<div class="discussion-message">
-											@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", comment)
-										</div>
-                                        <div id="comment@(comment.Id)" class="comment-form">
-                                            @await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(comment))
-                                        </div>
-									}
-								</div>
-							</div>
-						}
-						<br />
-					}
-				</div>
+@await Html.PartialAsync("SuggestionAddSubject") 
+<div class="panel-group container-fluid discussion-container">
+	<div class="panel" style="padding: 0;width:100%;">
+		<div class="container-fluid">
+			<div class="discussion-message subject p-2">
+				<h5>@Model.DiscussionSubject.Topic</h5>
+				@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", Model.DiscussionSubject)
 			</div>
+			<div id="comment@(Model.DiscussionSubject.Id)"  class="comment-form">
+				@await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(Model.DiscussionSubject))
+			</div>
+			<h4 class="mt-5">Ответы</h4>
+			@foreach (var replica in Model.Replicas.Where(r => r.DiscussionSubjectId == Model.DiscussionSubject.Id & r.ReplicaId == 0))
+			{
+				<div class="discussion-message">
+					@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", replica)
+				</div>
+				<div id="comment@(replica.Id)" class="comment-form">
+					@await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(replica))
+				</div>
+				@if (Model.SetComments(replica.Id).Count() != 0)
+				{
+					<div class="ml-4">
+						<a class="comment-collapse-btn" data-toggle="collapse" href="#@(id+(index))">
+							<h6>Комментарии</h6>
+							<div class="comment-white-triangle"></div>
+						</a>
+						<div class="collapse in" id="@(id+(index++))">
+							@foreach (var comment in Model.Comments)
+							{
+								<div class="discussion-message">
+									@await Html.PartialAsync("UserPages/Discussions/DiscussionMessage", comment)
+								</div>
+                                <div id="comment@(comment.Id)" class="comment-form">
+                                    @await Html.PartialAsync("UserPages/Discussions/CommentForm", new CommentViewModel(comment))
+                                </div>
+							}
+						</div>
+					</div>
+				}
+				<br />
+			}
 		</div>
+	</div>
+</div>
 	</div>
 </div>
 <script src="~/js/discussion.js"></script>

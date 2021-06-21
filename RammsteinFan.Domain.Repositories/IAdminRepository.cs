@@ -4,17 +4,24 @@ using System.Text;
 
 namespace RammsteinFan.Domain.Repositories
 {
-    public interface IAdminRepository<DiscussionSubject, Replica, Content, User, Role> : IUserRepository<DiscussionSubject, Replica, Content, User, Role>
+    public interface IAdminRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> : 
+        IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage>
     {
         #region Добавить, удалить
+        /// <summary>
+        /// Удалить пользователя по идентификатору
+        /// </summary>
+        /// <param name="id"></param>
+        void RemoveUser(int id);
+
         /// <summary>
         /// Создать и добавить новый фрагмент контента
         /// </summary>
         /// <param name="title">Заголовок контента</param>
-        /// <param name="text">Текст контента</param>
-        /// <param name="location">Относительное местоположение контента по разделам</param>
+        /// <param name="location">Текст контента</param>
+        /// <param name="text">Относительное местоположение контента по разделам</param>
         /// <param name="type">Разновидность контента (текст, видео, аудио, картинка)</param>
-        void AddContent(string title, string type, string text, string location);
+        void AddContent(string title, string type, string location, string text);
 
         /// <summary>
         /// Добавить готовый фрагмент контента
@@ -22,10 +29,35 @@ namespace RammsteinFan.Domain.Repositories
         void AddContent(Content newContent);
 
         /// <summary>
-        /// Удалить  вопрос из бд
+        /// Удалить объект Content по заголовку и типу
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="type"></param>
+        void RemoveContent(string title, string type);
+
+        /// <summary>
+        /// Удалить объект Content по идентификатору
+        /// </summary>
+        /// <param name="id"></param>
+        void RemoveContent(int id);
+
+        /// <summary>
+        /// Удалить тему обсуждения из бд
         /// </summary>
         /// <param name="id"></param>
         void RemoveSubject(int id);
+
+        /// <summary>
+        /// Удалить реплику из бд
+        /// </summary>
+        /// <param name="id"></param>
+        void RemoveReplica(int id);
+
+        /// <summary>
+        /// Удалить сообщение пользователя
+        /// </summary>
+        /// <param name="id"></param>
+        void RemoveUserMessage(int id);
         #endregion
 
         #region Редактирование
@@ -79,6 +111,11 @@ namespace RammsteinFan.Domain.Repositories
         /// <returns></returns>
         IEnumerable<string> GetLocations();
 
+        /// <summary>
+        /// Вернуть все сообщения пользователей
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<UserMessage> GetAllUserMessages();
         #endregion
 
         #region Авторизация

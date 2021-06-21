@@ -35,8 +35,8 @@ namespace RammsteinFan
                     options.AccessDeniedPath = new Microsoft.AspNetCore.Http.PathString("/Account/LoginAccount");
                 }
                 );
-            services.AddTransient<IUserRepository<DiscussionSubject, Replica, Content, User, Role>, UserRepository> ();
-            services.AddTransient<IAdminRepository<DiscussionSubject, Replica, Content, User, Role>, AdminRepository>();
+            services.AddTransient<IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage>, UserRepository> ();
+            services.AddTransient<IAdminRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage>, AdminRepository>();
             services.AddTransient<IManagementPictures, ManagementPictures>();
             services.AddRazorPages();
 

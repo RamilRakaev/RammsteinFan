@@ -11,7 +11,7 @@ namespace RammsteinFan.Pages.UserPages
 {
     public class ConcretePhotoAlbumModel : GeneralUserPageTemplate
     {
-        public ConcretePhotoAlbumModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        public ConcretePhotoAlbumModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb):base(_userdb)
         {}
         private int quantity=0;
         public int Quantity 
@@ -33,7 +33,7 @@ namespace RammsteinFan.Pages.UserPages
             ImagesLocation = new List<string>();
             ImagesSources = new List<string>();
             Title = title;
-            foreach(var image in userdb.GetContentForLocation("photoGalery/" + Title))
+            foreach(var image in userdb.GetContentByLocation("photoGalery/" + Title))
             {
                 ImagesTitles.Add(image.Title);
                 ImagesLocation.Add(image.Location);

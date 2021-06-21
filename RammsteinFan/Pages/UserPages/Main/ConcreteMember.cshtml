@@ -1,0 +1,19 @@
+﻿@page
+@model RammsteinFan.Pages.UserPages.Main.ConcreteMemberModel
+@{
+    ViewData["Title"] = "Участники";
+    ViewData["chapter"] = "Участники";
+}
+<div class="container mt-3">
+    <div class="row justify-content-start">
+        <div class="col-3">
+            <a class="btn btn-send" asp-page="Members">Назад</a>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-12">
+            <h3>@Model.Member.Title</h3>
+            <p>@Model.Member.Text</p>
+        </div>
+    </div>
+</div>

@@ -11,7 +11,7 @@ namespace CookieAuthentication.Pages.Account
 {
     public class Account : GeneralUserPageTemplate
     {
-        public Account(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        public Account(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb):base(_userdb)
         {}
 
         protected async Task AuthenticateAsync(User user)
@@ -41,6 +41,12 @@ namespace CookieAuthentication.Pages.Account
             ClaimsIdentity id = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
             // установка аутентификационных куки
             HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
+        }
+
+        protected async Task Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
         }
     }
 }

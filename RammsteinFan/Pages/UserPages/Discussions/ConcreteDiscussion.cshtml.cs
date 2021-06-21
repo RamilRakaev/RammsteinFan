@@ -11,7 +11,7 @@ namespace RammsteinFan.Pages.UserPages.Discussions
 {
     public class ConcreteDiscussionModel : GeneralUserPageTemplate
     {
-        public ConcreteDiscussionModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        public ConcreteDiscussionModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb):base(_userdb)
         {}
 
         public DiscussionSubject DiscussionSubject { get; set; }
@@ -23,7 +23,7 @@ namespace RammsteinFan.Pages.UserPages.Discussions
         public void OnGet(int id)
         {
             DiscussionSubject = userdb.GetDiscussionSubject(id);
-            Replicas = userdb.GetReplicas(id).ToList();
+            Replicas = userdb.GetReplicasBySubject(id).ToList();
         }
 
         public IActionResult OnPost(string author, string text, int id, int subjectId, int replicaId = 0)

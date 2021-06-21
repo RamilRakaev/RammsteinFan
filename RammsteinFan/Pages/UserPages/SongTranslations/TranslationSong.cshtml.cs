@@ -12,7 +12,7 @@ namespace RammsteinFan.Pages.UserPages.SongTranslations
 {
     public class TranslationSongModel : GeneralUserPageTemplate
     {
-        public TranslationSongModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        public TranslationSongModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb):base(_userdb)
         {}
 
         public string Title { set; get; }
@@ -22,9 +22,9 @@ namespace RammsteinFan.Pages.UserPages.SongTranslations
         public void OnGet(string title)
         {
             Title = title;
-            var lyrics = userdb.GetContentForTitle(title, "Lyrics");
-            var songTranslation = userdb.GetContentForTitle(title, "SongTranslation");
-            var songDescription = userdb.GetContentForTitle(title, "SongDescription");
+            var lyrics = userdb.GetContentByTitle(title, "Lyrics");
+            var songTranslation = userdb.GetContentByTitle(title, "SongTranslation");
+            var songDescription = userdb.GetContentByTitle(title, "SongDescription");
             if(lyrics !=null && songTranslation!=null && songDescription != null)
             {
                 Lyrics = lyrics.Text.Split("\n").ToList();

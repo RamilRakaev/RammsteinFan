@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RammsteinFan.Infrastructure.Repositories
 {
-    public class UserRepository:IUserRepository<DiscussionSubject,Replica,Content, User, Role>
+    public class UserRepository:IUserRepository<DiscussionSubject,Replica,Content, User, Role, UserMessage>
     {
         public UserRepository(DataContext context)
         {
@@ -24,7 +24,8 @@ namespace RammsteinFan.Infrastructure.Repositories
         public async Task<User> AccountByEmailAsync(string emailAdress) => await db.Users.
             FirstOrDefaultAsync(u => u.EmailAdress == emailAdress);
 
-        public async Task<Role> UserRights() => await db.Roles.FirstOrDefaultAsync(r => r.Name == "user");
+        public async Task<Role> UserRightsAsync() => await db.Roles.FirstOrDefaultAsync(r => r.Name == "user");
+        public Role UserRights() => db.Roles.FirstOrDefault(r => r.Name == "user");
 
         public async Task AddUserAsync(User user)
         {
@@ -56,24 +57,39 @@ namespace RammsteinFan.Infrastructure.Repositories
         }
         #endregion
 
-        #region Вернуть данные из бд
+        #region Вернуть DiscussionMessage
         public IEnumerable<DiscussionSubject> GetAllDiscussionSubjects() => db.DiscussionSubjects.OrderByDescending(d => d.CreationDate);
 
         public DiscussionSubject GetDiscussionSubject(int id) => db.DiscussionSubjects.FirstOrDefault(ds => ds.Id == id);
 
+        public DiscussionSubject GetDiscussionSubject(string topic) => db.DiscussionSubjects.FirstOrDefault(ds => ds.Topic == topic);
+
         public Replica GetReplica(int id) => db.Replicas.FirstOrDefault(ds => ds.Id == id);
 
-        public IEnumerable<Replica> GetReplicas(int id) => db.Replicas.Where(a => a.ReplicaId == id || a.DiscussionSubjectId == id).OrderByDescending(c => c.CreationDate);
+        public IEnumerable<Replica> GetReplicasByFirstLetter(string startOfText) => db.Replicas.Where(r => r.Text.StartsWith(startOfText));
 
+        public IEnumerable<Replica> GetReplicasBySubject(int id) => db.Replicas.Where(a => a.ReplicaId == id || a.DiscussionSubjectId == id).OrderByDescending(c => c.CreationDate);
+
+        public IEnumerable<Replica> GetReplicasBySubject(string topic)
+        {
+            int id = 0;
+            var subject = GetDiscussionSubject(topic);
+            if (subject != null)
+                id = subject.Id;
+            return GetReplicasBySubject(id);
+        }
+        #endregion
+
+        #region Вернуть Content
         public IEnumerable<Content> GetAllContent() => db.DbContent;
 
-        public Content GetContentForId(int id) => db.DbContent.FirstOrDefault(c => c.Id == id);
+        public Content GetContentById(int id) => db.DbContent.FirstOrDefault(c => c.Id == id);
 
-        public IEnumerable<Content> GetContentForType(string type) => db.DbContent.Where(c => c.Type == type);
+        public IEnumerable<Content> GetContentByType(string type) => db.DbContent.Where(c => c.Type == type);
 
-        public IEnumerable<Content> GetContentForLocation(string location) => db.DbContent.Where(c => c.Location == location);
+        public IEnumerable<Content> GetContentByLocation(string location) => db.DbContent.Where(c => c.Location == location);
 
-        public Content GetContentForTitle(string title, string type) => db.DbContent.FirstOrDefault(c => c.Title == title && c.Type == type);
+        public Content GetContentByTitle(string title, string type) => db.DbContent.FirstOrDefault(c => c.Title == title && c.Type == type);
 
         public IEnumerable<Content> GetContentByFirstLetter(string title) => db.DbContent.Where(c => c.Title.StartsWith(title));
 
@@ -101,18 +117,23 @@ namespace RammsteinFan.Infrastructure.Repositories
             }
         }
 
-        public Dictionary<string, int> AlbumRating()
+        public Dictionary<string, int> AlbumRating(string location)
         {
             Dictionary<string, int> rating = new Dictionary<string, int>();
-            var albums = GetContentForLocation("SongTranslationsMain&AlbumsMain");
+            var albums = GetContentByLocation(location);
             var users = db.Users.ToList();
             foreach(var album in albums)
             {
-
                 var popularity = users.Where(u => u.FavoriteAlbum == album.Title).Count();
                 rating.Add(album.Title, popularity);
             }
             return rating;
+        }
+
+        public void SendMessage(UserMessage message)
+        {
+            db.UserMessages.Add(message);
+            db.SaveChanges();
         }
         #endregion
     }

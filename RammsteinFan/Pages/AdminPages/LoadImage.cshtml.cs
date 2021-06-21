@@ -16,7 +16,7 @@ namespace RammsteinFan.Pages.AdminPages
 {
     public class LoadImageModel : GeneralAdminPageTemplate
     {
-        public LoadImageModel(IAdminRepository<DiscussionSubject, Replica, Content, User, Role> _userdb, 
+        public LoadImageModel(IAdminRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb, 
             IManagementPictures _pict, IWebHostEnvironment _webHost):base(_userdb)
         {
             pictures = _pict;
@@ -25,8 +25,8 @@ namespace RammsteinFan.Pages.AdminPages
 
         public void OnGet()
         {
-            var galeryContent = admindb.GetContentForTitle("photoGalery", "albumsGalleries");
-            var videoGaleryContent = admindb.GetContentForTitle("videoGalery", "albumsGalleries");
+            var galeryContent = admindb.GetContentByTitle("photoGalery", "albumsGalleries");
+            var videoGaleryContent = admindb.GetContentByTitle("videoGalery", "albumsGalleries");
             if (galeryContent != null)
             {
                 LocationsRelativePhotoGalery = LineHandler.SplitSpaces(galeryContent.Text);
@@ -55,7 +55,7 @@ namespace RammsteinFan.Pages.AdminPages
         {
             var path = "/img/"+ locationRelativeImg + "/" + location + "/" + title;
             pictures.SaveImageAsync(uploadedImage, webHost.WebRootPath + path);
-            admindb.AddContent(title, "image", sources, location);
+            admindb.AddContent(title, "image", locationRelativeImg + "/" + location, sources);
             return RedirectToPage("AdminPanel");
         }
 

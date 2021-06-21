@@ -6,10 +6,12 @@ namespace RammsteinFan.Pages.UserPages
 {
     public class GeneralUserPageTemplate:PageModel
     {
-        readonly protected IUserRepository<DiscussionSubject, Replica, Content, User, Role> userdb;
-        public GeneralUserPageTemplate(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb)
+        readonly protected IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> userdb;
+
+        public GeneralUserPageTemplate(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb)
         {
             userdb = _userdb;
         }
+
     }
 }

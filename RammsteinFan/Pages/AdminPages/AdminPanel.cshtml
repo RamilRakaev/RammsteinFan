@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="~/css/admin/adminPanel.css" />
 <div class="container">
     <div class="row justify-content-end">
+        <div class="col-5 mt-3">
+            <a class="btn btn-send btn-lg" asp-page="FeedbackTable">Обратная связь</a>
+        </div>
         <div class="col-7 mt-3">
             <form class="form-inline" method="post">
                 <div class="form-group">
@@ -18,11 +21,11 @@
             </form>
         </div>
     </div>
-    <div class="row justify-content-start">
-        <div class="col-3 m-4">
-            <a class="btn btn-send btn-lg">Добавить контент</a>
+    <div class="row justify-content-center mt-3">
+        <div class="col-4 m-2">
+            <a class="btn btn-send btn-lg" asp-page="AddContent">Добавить контент</a>
         </div>
-        <div class="col-3 m-4">
+        <div class="col-5 m-2">
             <a class="btn btn-send btn-lg" asp-page="LoadImage">Добавить изображение</a>
         </div>
         <div class="col-12">
@@ -59,7 +62,7 @@
                             <td>
                                 @if (content.CanRemoved)
                                 {
-                                    <a class="btn remove-btn"></a>
+                                    <a class="btn remove-btn" asp-page-handler="Remove" asp-route-id="@content.Id"></a>
                                 }
                             </td>
                         </tr>

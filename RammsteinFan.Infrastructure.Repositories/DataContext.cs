@@ -18,6 +18,7 @@ namespace RammsteinFan.Infrastructure.Repositories
         public DbSet<Content> DbContent { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<UserMessage> UserMessages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

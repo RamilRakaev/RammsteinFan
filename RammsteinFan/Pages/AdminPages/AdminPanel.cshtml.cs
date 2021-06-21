@@ -15,7 +15,7 @@ namespace RammsteinFan.Pages.AdminPages
     [Authorize]
     public class AdminPanelModel : GeneralAdminPageTemplate
     {
-        public AdminPanelModel(IAdminRepository<DiscussionSubject, Replica, Content, User, Role> _admindb):base(_admindb)
+        public AdminPanelModel(IAdminRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _admindb):base(_admindb)
         {
             Types = admindb.GetAllContent().Select(t => t.Type).Distinct().ToList();
         }
@@ -29,6 +29,13 @@ namespace RammsteinFan.Pages.AdminPages
         {
             EstablishSelectContent();
         }
+
+        public void OnGetRemove(int id)
+        {
+            admindb.RemoveContent(id);
+            EstablishSelectContent();
+        }
+
         public void OnPost(string type)
         {
             EstablishSelectContent(type);
@@ -43,7 +50,7 @@ namespace RammsteinFan.Pages.AdminPages
             if (_type == "AllContent")
                 Contents = admindb.GetAllContent().ToList();
             else
-                Contents = admindb.GetContentForType(_type).ToList();
+                Contents = admindb.GetContentByType(_type).ToList();
             SelectType = new SelectList(Types, _type);
             TrimmingContentVariables();
         }

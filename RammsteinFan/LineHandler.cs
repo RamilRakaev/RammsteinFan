@@ -7,6 +7,9 @@ namespace RammsteinFan
 {
     public class LineHandler
     {
+        readonly static public char Separator = '/';
+        readonly static public string TypeMembers = "members";
+
         /// <summary>
         /// Удаляет пробелы после запятых и разделяет строку по запятым
         /// </summary>
@@ -17,12 +20,12 @@ namespace RammsteinFan
             var text = inputText;
             for (int i = 1; i < text.Length; i++)
             {
-                if (text[i] == ' ' & text[i - 1] == ',')
+                if (text[i] == ' ' & text[i - 1] == ';')
                 {
                     text = text.Remove(i, 1);
                 }
             }
-            return text.Split(',').ToList();
+            return text.Split(';').ToList();
         }
 
         public static int GetNumberOfPhotos(string PhotoGalery, string titlePhotoAlbum)

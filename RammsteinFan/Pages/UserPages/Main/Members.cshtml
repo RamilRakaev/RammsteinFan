@@ -1,0 +1,34 @@
+﻿@page
+@model RammsteinFan.Pages.UserPages.Main.MembersModel
+@{
+    ViewData["Title"] = "Участники";
+    ViewData["chapter"] = "Участники";
+}
+<div class="container-fluid">
+    <div class="row justify-content-around">
+        <div class="col-lg-5 col-md-4 col-8 mb-5 text-center">
+            <img class="img-fluid" style="width:100%" src="~/img/photoGalery/members/Рихард Круспе, соло-гитарист.jpg" />
+            <a class="p-1" asp-page="ConcreteMember" asp-route-member="Richard"><h6 class="simple-link">Richard Kruspe, соло-гитарист</h6></a>
+        </div>
+        <div class="col-lg-5 col-md-4 col-8 mb-5 text-center">
+            <img class="img-fluid" style="width:100%" src="~/img/photoGalery/members/Тиль Линдеманн, вокалист.jpg" />
+            <a class="p-1" asp-page="ConcreteMember" asp-route-member="Till"><h6 class="simple-link">Till Lindemann, вокалист</h6></a>
+        </div>
+        <div class="col-lg-5 col-md-4 col-8 mb-5 text-center">
+            <img class="img-fluid" style="width:100%" src="~/img/photoGalery/members/Пауль Ландерс, ритм-гитарист.jpg" />
+            <a class="p-1" asp-page="ConcreteMember" asp-route-member="Paul"><h6 class="simple-link">Paul Landers, ритм-гитарист</h6></a>
+        </div>
+        <div class="col-lg-5 col-md-4 col-8 mb-5 text-center">
+            <img class="img-fluid" style="width:100%" src="~/img/photoGalery/members/Кристоф Шнайдер, барабанщик.jpg" />
+            <a class="p-1" asp-page="ConcreteMember" asp-route-member="Christoph"><h6 class="simple-link">Christoph Schneider, барабанщик</h6></a>
+        </div>
+        <div class="col-lg-5 col-md-4 col-8 mb-5 text-center">
+            <img class="img-fluid" style="width:100%" src="~/img/photoGalery/members/Оливер Ридель, бас-гитарист.jpg" />
+            <a class="p-1" asp-page="ConcreteMember" asp-route-member="Oliver"><h6 class="simple-link">Oliver Riedel, бас-гитарист</h6></a>
+        </div>
+        <div class="col-lg-5 col-md-4 col-8 mb-5 text-center">
+            <img class="img-fluid" style="width:100%" src="~/img/photoGalery/members/Кристиан Лоренц, клавишник.jpg" />
+            <a class="p-1" asp-page="ConcreteMember" asp-route-member="Christian"><h6 class="simple-link">Christian Flake, клавишник</h6></a>
+        </div>
+    </div>
+</div>

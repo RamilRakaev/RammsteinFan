@@ -1,4 +1,5 @@
-﻿@{ }
+﻿@using RammsteinFan.Pages
+@{ }
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -60,7 +61,7 @@
                             <div class="dropdown-menu menuButtons">
                                 <a class="dropButton" asp-page="/Index">О группе</a>
                                 <a class="dropButton" asp-page="/UserPages/Main/History">История</a>
-                                <a class="dropButton" href="index">Участники</a>
+                                <a class="dropButton" asp-page="/UserPages/Main/Members">Участники</a>
                             </div>
                         </li>
 
@@ -76,7 +77,15 @@
                         <li><a style="margin: 0" class="nav-link nav-btn" asp-page="/UserPages/Discussions/DiscussionsMain">Обсуждения</a></li>
 
                         <li>
-                            <a class='nav-link nav-btn' asp-page="/Account/LoginAccount">Войти</a>
+                            @if (IndexModel.AuthorizedUser)
+                            {
+                                <a class='nav-link nav-btn' asp-page="/Account/LoginAccount" asp-page-handler="Logout">Выйти</a>
+                            }
+                            else
+                            {
+                                <a class='nav-link nav-btn' asp-page="/Account/LoginAccount">Войти</a>
+                            }
+
                         </li>
                         @* Соц. сети *@
                         <li>
@@ -123,7 +132,7 @@
                 </div>
             </div>
         </div>
-        @await Html.PartialAsync("Shared/_feedback")
+        @RenderSection("Feedback", false)
     </article>
 
     <footer id="footer" style="padding: 0">
@@ -165,7 +174,5 @@
     @RenderSection("Scripts", required: false)
     <script src="~/js/jquery-3.5.1.min.js"></script>
     <script src="~/js/site.js"></script>
-
-
 </body>
 </html>

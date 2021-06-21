@@ -12,7 +12,7 @@ namespace RammsteinFan.Pages.UserPages
 {
     public class DiscussionsMainModel : GeneralUserPageTemplate
     {
-        public DiscussionsMainModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        public DiscussionsMainModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _dbUser):base(_dbUser)
         {}
         
         public List<DiscussionSubject> DiscussionSubjects { get; set; } 

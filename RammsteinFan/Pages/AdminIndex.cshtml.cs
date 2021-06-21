@@ -19,6 +19,10 @@ namespace RammsteinFan.Pages
 
         public void OnGet()
         {
+            if (User.Identity.IsAuthenticated)
+                IndexModel.AuthorizedUser = true;
+            else
+                IndexModel.AuthorizedUser = false;
             IsAdmin = true;
         }
 

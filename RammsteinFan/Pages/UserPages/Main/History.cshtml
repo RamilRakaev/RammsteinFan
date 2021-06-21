@@ -16,17 +16,13 @@
                 <em>Вперёд</em>
             </a>
         </div>
-
-        @foreach (var content in Model.History)
-        {
-
-            <div class="col-12">
-                <h3>@content.Title</h3>
-                @foreach(var pharagraph in Model.SplitIntoParagraphs(content.Text))
-                {
-                    <p>@pharagraph</p>
-                }
-            </div>
-        }
+        <div class="col-12">
+            <h3>@Model.History.Title</h3>
+            @foreach(var pharagraph in Model.SplitIntoParagraphs(Model.History.Text))
+            {
+                <p>@pharagraph</p>
+            }
+        </div>
+        
     </div>
 </div>

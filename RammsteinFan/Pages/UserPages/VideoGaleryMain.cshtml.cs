@@ -11,16 +11,16 @@ namespace RammsteinFan.Pages.UserPages
 {
     public class VideoGaleryMainModel : GeneralUserPageTemplate
     {
-        public VideoGaleryMainModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        public VideoGaleryMainModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb):base(_userdb)
         {}
 
         public void OnGet()
         {
             Videos = new List<List<Content>>();
-            Albums = LineHandler.SplitSpaces(userdb.GetContentForTitle("videoGalery", "albumsGalleries").Text);
+            Albums = LineHandler.SplitSpaces(userdb.GetContentByTitle("videoGalery", "albumsGalleries").Text);
             foreach(var album in Albums)
             {
-                var videos = userdb.GetContentForLocation("videoGalery" + "/" + album).ToList();
+                var videos = userdb.GetContentByLocation("videoGalery" + "/" + album).ToList();
                 if(videos !=null)
                 Videos.Add(videos);
             }

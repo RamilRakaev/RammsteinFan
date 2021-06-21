@@ -11,10 +11,8 @@ namespace RammsteinFan.Pages.AdminPages
 {
     public class AddContentModel : GeneralAdminPageTemplate
     {
-        public AddContentModel(IAdminRepository<DiscussionSubject, Replica, Content, User, Role> _userdb) : base(_userdb)
-        {
-            
-        }
+        public AddContentModel(IAdminRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb) : base(_userdb)
+        { }
 
         public List<string> Types { get; set; }
         public List<string> Locations { get; set; }
@@ -24,15 +22,19 @@ namespace RammsteinFan.Pages.AdminPages
             Types = admindb.GetTypes().ToList();
             Types.Remove("image");
             Locations = admindb.GetLocations().ToList();
-            foreach(var loc in Locations.ToList())
+            for(int i =0; i< Locations.ToList().Count(); i++)
             {
-                if (loc.StartsWith("photoGalery") || loc.StartsWith("videoGalery"))
-                    Locations.Remove(loc);
+                if(Locations[i].Contains('/'))
+                Locations[i] = Locations[i].Substring(0, Locations[i].LastIndexOf('/'));
+                if (Locations[i].StartsWith("photoGalery") || Locations[i].StartsWith("videoGalery"))
+                    Locations.RemoveAt(i);
             }
+            Locations.Distinct();
         }
 
         public IActionResult OnPost(Content newContent)
         {
+            newContent.Location = newContent.Location + "/" + newContent.Title;
             admindb.AddContent(newContent);
             return RedirectToPage("AdminPanel");
         }

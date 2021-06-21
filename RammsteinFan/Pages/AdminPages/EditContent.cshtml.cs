@@ -11,11 +11,11 @@ namespace RammsteinFan.Pages.AdminPages
 {
     public class EditContentModel : GeneralAdminPageTemplate
     {
-        public EditContentModel(IAdminRepository<DiscussionSubject, Replica, Content, User, Role> _admindb):base(_admindb)
+        public EditContentModel(IAdminRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _admindb):base(_admindb)
         {}
         public void OnGet(int id)
         {
-            OriginalContent = admindb.GetContentForId(id);
+            OriginalContent = admindb.GetContentById(id);
         }
 
         public ActionResult OnPost(Content newContent)

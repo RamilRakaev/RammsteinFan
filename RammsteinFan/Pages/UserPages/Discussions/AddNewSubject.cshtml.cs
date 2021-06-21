@@ -11,7 +11,7 @@ namespace RammsteinFan.Pages.UserPages.Discussions
 {
 	public class AddNewSubjectModel : GeneralUserPageTemplate
 	{
-		public AddNewSubjectModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+		public AddNewSubjectModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb):base(_userdb)
 		{}
 
 		public void OnGet()

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RammsteinFan.Domain.Repositories
 {
-    public interface IUserRepository<DiscussionSubject,Replica,Content,User,Role>
+    public interface IUserRepository<DiscussionSubject,Replica,Content,User,Role, UserMessage>
     {
         #region Авторизация и права пользователя
         /// <summary>
@@ -27,7 +27,8 @@ namespace RammsteinFan.Domain.Repositories
         /// Получить права пользователя
         /// </summary>
         /// <returns></returns>
-        Task<Role> UserRights();
+        Task<Role> UserRightsAsync();
+        Role UserRights();
 
         /// <summary>
         /// Добавить простого пользователя
@@ -46,7 +47,7 @@ namespace RammsteinFan.Domain.Repositories
         /// </summary>
         /// <param name="author">Атор ответа</param>
         /// <param name="text">Текст ответа</param>
-        /// <param name="subjectId">Идентификатор вопроса, к которому привязан объект</param>
+        /// <param name="subjectId">Идентификатор темы, к которой привязан объект, если привязан к реплике, то равен нулю</param>
         /// <param name="replicaId">Идентификатор ответа (если он есть), к которому объект</param>
         void AddReplica(string author, string text, int subjectId, int replicaId=0);
 
@@ -60,7 +61,7 @@ namespace RammsteinFan.Domain.Repositories
         void AddDiscussionSubject(string topHeading, string topic, string author, string text);
         #endregion
 
-        #region Вернуть данные из бд
+        #region Вернуть DiscussionMessage
         /// <summary>
         /// Вернуть все темы обсуждений
         /// </summary>
@@ -68,11 +69,18 @@ namespace RammsteinFan.Domain.Repositories
         IEnumerable<DiscussionSubject> GetAllDiscussionSubjects();
 
         /// <summary>
-        /// Вернуть определённую тему дискуссии
+        /// Вернуть определённую тему дискуссии по идентификатору
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
         DiscussionSubject GetDiscussionSubject(int id);
+
+        /// <summary>
+        /// Вернуть определённую тему дискуссии по заголовку
+        /// </summary>
+        /// <param name="topic"></param>
+        /// <returns></returns>
+        DiscussionSubject GetDiscussionSubject(string topic);
 
         /// <summary>
         /// Вернуть конкретную реплику
@@ -82,12 +90,28 @@ namespace RammsteinFan.Domain.Repositories
         Replica GetReplica(int id);
 
         /// <summary>
-        /// Вернуть реплики, привязанные к определённому вопросу или другой реплике
+        /// Вернуть все реплики по первым буквам текста
+        /// </summary>
+        /// <param name="startOfText"></param>
+        /// <returns></returns>
+        IEnumerable<Replica> GetReplicasByFirstLetter(string startOfText);
+
+        /// <summary>
+        /// Вернуть реплики, привязанные к определённой теме или другой реплике по идентификатору
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        IEnumerable<Replica> GetReplicas(int id);
+        IEnumerable<Replica> GetReplicasBySubject(int id);
 
+        /// <summary>
+        /// Вернуть реплики, привязанные к определённой теме или другой реплике по заголовку 
+        /// </summary>
+        /// <param name="topic"></param>
+        /// <returns></returns>
+        IEnumerable<Replica> GetReplicasBySubject(string topic);
+        #endregion
+
+        #region Вернуть Content
         /// <summary>
         /// Вернуть весь контент
         /// </summary>
@@ -99,14 +123,14 @@ namespace RammsteinFan.Domain.Repositories
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        Content GetContentForId(int id);
+        Content GetContentById(int id);
 
         /// <summary>
         /// Вернуть контент определённого типа
         /// </summary>
         /// <param name="type"></param>
         /// <returns></returns>
-        IEnumerable<Content> GetContentForType(string type);
+        IEnumerable<Content> GetContentByType(string type);
 
         /// <summary>
         /// Вернуть контент с названием начинающимся на title
@@ -121,14 +145,14 @@ namespace RammsteinFan.Domain.Repositories
         /// <param name="title"></param>
         /// <param name="type"></param>
         /// <returns></returns>
-        Content GetContentForTitle(string title, string type);
+        Content GetContentByTitle(string title, string type);
 
         /// <summary>
         /// Вернуть весь контент определённого типа
         /// </summary>
         /// <param name="location"></param>
         /// <returns></returns>
-        IEnumerable<Content> GetContentForLocation(string location);
+        IEnumerable<Content> GetContentByLocation(string location);
         #endregion
 
         #region Статистика
@@ -149,8 +173,15 @@ namespace RammsteinFan.Domain.Repositories
         /// <summary>
         /// Вернуть рейтинг альбомов
         /// </summary>
+        /// <param name="location"></param>
         /// <returns></returns>
-        Dictionary<string, int> AlbumRating();
+        Dictionary<string, int> AlbumRating(string location);
+
+        /// <summary>
+        /// Отправить сообщение администратору
+        /// </summary>
+        /// <param name="message"></param>
+        void SendMessage(UserMessage message);
         #endregion
 
     }

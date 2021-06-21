@@ -5,10 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="EntityFramework" Version="6.4.4" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\RammsteinFan.Domain.Core\RammsteinFan.Domain.Core.csproj" />
   </ItemGroup>
 

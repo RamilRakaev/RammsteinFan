@@ -10,12 +10,13 @@
         }
         @foreach (var album in Model.Albums)
         {
-            string imgPath = "../../img/albums/" + album.AlbumTitle.ToString() + ".jpg";
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            string imgPath = "../../img/photoGalery/albums/" + album.AlbumTitle.ToString() + ".jpg";
+
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-5">
                 <h4>@album.AlbumTitle</h4>
                 <img class="img-fluid" src="@imgPath" alt="@album.AlbumTitle" />
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb-5">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 ">
                 <ul start="1" class="text-white font-weight-bold list-songs mt-3">
                     @{int index = 0;}
                     @foreach (var songTitle in album.SongsList)

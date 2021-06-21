@@ -15,7 +15,7 @@
         </div>
         <div class="col-lg-6 col-md-6 col-sm-6 col-10 order-lg-2 order-md-2">
             <section>
-                <form action="#" method="get" style="display: none">
+                <form class="d-none" action="#" method="get">
                     <label>
                         Language <select name="lang">
                             <option value="ru">Русский / Russian (ru)</option>
@@ -32,7 +32,7 @@
                 </form>
             </section>
             <h4 id="preview"></h4>
-            <img class="imgAlbum img-fluid text-center" src="~/img/albums/Mutter.jpg">
+            <img class="imgAlbum img-fluid text-center" src="~/img/photoGalery/albums/@(Model.Album.Title).jpg">
             <audio id="main-audio" preload="none" controls width="100%">
                 Ваш браузер не поддерживает элемент audio или данная запись отсутствует
                 <source src="~/audio/Mein herz brennt.mp3" type="audio/mp3">
@@ -44,21 +44,20 @@
         {
             @if (i == 0)
             {
-
                 <div class="col-lg-11 audioBlock selected">
-                    <button path="@(Model.Songs[i]).mp3" class="playBtn audioBtn"></button>
+                    <button path="@(Model.Album.Title + "/" + Model.Songs[i]).mp3" class="playBtn audioBtn"></button>
                     <button class="pauseBtn audioBtn"></button>
                     <label class="title">@(Model.Songs[i])</label>
-                    <label style="float: right;">4:57</label>
+                    <label class="float-right"></label>
                 </div>
             }
             else
             {
                 <div class="col-lg-11 audioBlock">
-                    <button path="@(Model.Songs[i]).mp3" class="playBtn audioBtn"></button>
+                    <button path="@(Model.Album.Title + "/" + Model.Songs[i]).mp3" class="playBtn audioBtn"></button>
                     <button class="pauseBtn audioBtn"></button>
                     <label class="title">@(Model.Songs[i])</label>
-                    <label style="float: right;">4:57</label>
+                    <label class="float-right">4:57</label>
                 </div>
             }
         }

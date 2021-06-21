@@ -7,7 +7,7 @@ namespace RammsteinFan.Pages.UserPages.SongTranslations
 {
     public class SongTranslationsMainModel : GeneralUserPageTemplate
     {
-        public SongTranslationsMainModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role> _userdb):base(_userdb)
+        public SongTranslationsMainModel(IUserRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> _userdb):base(_userdb)
         {}
 
         public List<ListSongsViewModel> Albums { get; set; }
@@ -15,7 +15,7 @@ namespace RammsteinFan.Pages.UserPages.SongTranslations
         public void OnGet()
         {
             Albums = new List<ListSongsViewModel>();
-            foreach (var list in userdb.GetContentForType("AlbumTitles"))
+            foreach (var list in userdb.GetContentByType("AlbumTitles"))
             {
                 var titles = LineHandler.SplitSpaces(list.Text);
                 Albums.Add(new ListSongsViewModel(list.Title, titles));
