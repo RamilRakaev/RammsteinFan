@@ -1,8 +1,8 @@
 ﻿using RammsteinFan.Domain.Repositories;
 using RammsteinFan.Infrastructure.Core;
 using System.Collections.Generic;
-using System.Data.Entity;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace RammsteinFan.Infrastructure.Repositories
 {
@@ -54,6 +54,11 @@ namespace RammsteinFan.Infrastructure.Repositories
 
         public void RemoveSubject(int id)
         {
+            var replicas = GetReplicasBySubject(id);
+            foreach (var message in replicas)
+            {
+                db.Replicas.Remove(message);
+            }
             db.DiscussionSubjects.Remove(db.DiscussionSubjects.FirstOrDefault(c => c.Id == id));
             db.SaveChanges();
         }

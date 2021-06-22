@@ -12,7 +12,7 @@ namespace UnitTestRammsteinFans
     public class RepositoryTest
     {
 
-        IAdminRepository<DiscussionSubject, Replica, Content, User, Role> db;
+        IAdminRepository<DiscussionSubject, Replica, Content, User, Role, UserMessage> db;
         DataContext context;
         /// <summary>
         /// Настройка и загрузка бд

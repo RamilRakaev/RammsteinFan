@@ -11,7 +11,7 @@ namespace RammsteinFan
         readonly static public string TypeMembers = "members";
 
         /// <summary>
-        /// Удаляет пробелы после запятых и разделяет строку по запятым
+        /// Удаляет пробелы после точек запятыми и разделяет строку по ним
         /// </summary>
         /// <param name="inputText"></param>
         /// <returns></returns>

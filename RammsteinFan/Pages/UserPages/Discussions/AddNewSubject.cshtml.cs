@@ -19,9 +19,10 @@ namespace RammsteinFan.Pages.UserPages.Discussions
 
 		}
 
-		public void OnPost(string topHeading, string topic, string author,string text)
+		public IActionResult OnPost(string topHeading, string topic, string author,string text)
 		{
 			userdb.AddDiscussionSubject(topHeading, topic, author, text);
+			return RedirectToPage("/UserPages/Discussions/DiscussionsMain");
 		}
 	}
 }

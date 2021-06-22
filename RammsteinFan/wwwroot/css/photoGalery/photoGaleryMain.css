@@ -1,4 +1,4 @@
-.photosBtn{
+.photosBtn {
     border: 0;
     border-radius: 7px;
     width: 95%;
@@ -6,17 +6,20 @@
     margin: 10px 2% 25px 2%;
     background: #181818;
 }
-.photosBtn:hover,.photosBtn> p:hover{
+
+.photosBtn:hover,.photosBtn> p:hover {
     cursor: pointer;
     color: #B79B74;
 }
-.photosBtn p{
+
+.photosBtn p {
     height: 100%;
     font-size: 19px;
     color: white;
     padding-top: 8%;
 }
-.photoImg{
+
+.photoImg {
     background-color: aliceblue;
     padding: 0;
     width:28%;
@@ -25,19 +28,23 @@
     height: 118px;
     border:0;
 }
-    .photoImg img {
-        border: 0;
-        overflow: hidden;
-        width: 190px;
-        object-fit: cover;
-    }
-.rowImg{
+
+.photoImg img {
+    min-height: 120px;
+    border: 0;
+    overflow: hidden;
+    width: 190px;
+    object-fit: cover;
+}
+
+.rowImg {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: stretch;
 }
-.albumImg{
+
+.albumImg {
     margin-top: 20px;
     background-color: aliceblue;
     padding: 0;
@@ -45,7 +52,9 @@
     height: 110px;
     overflow: hidden;
 }
-.albumImg img{
+
+.albumImg img {
+    min-height: 110px;
     position: relative;
     width: 123%;
     right: 13px;

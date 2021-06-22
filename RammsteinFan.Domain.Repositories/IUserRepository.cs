@@ -97,6 +97,13 @@ namespace RammsteinFan.Domain.Repositories
         IEnumerable<Replica> GetReplicasByFirstLetter(string startOfText);
 
         /// <summary>
+        /// Вернуть все темы по первым буквам заголовка
+        /// </summary>
+        /// <param name="startOfText"></param>
+        /// <returns></returns>
+        IEnumerable<DiscussionSubject> GetSubjectsByFirstLetter(string startOfText);
+
+        /// <summary>
         /// Вернуть реплики, привязанные к определённой теме или другой реплике по идентификатору
         /// </summary>
         /// <param name="id"></param>
@@ -182,6 +189,30 @@ namespace RammsteinFan.Domain.Repositories
         /// </summary>
         /// <param name="message"></param>
         void SendMessage(UserMessage message);
+
+        /// <summary>
+        /// Голосовать за реплику
+        /// </summary>
+        /// <param name="id"></param>
+        void VoteReply(int id);
+
+        /// <summary>
+        /// Удалить голос за реплику
+        /// </summary>
+        /// <param name="id"></param>
+        void RemoveVoiceLine(int id);
+
+        /// <summary>
+        /// Голосовать за тему
+        /// </summary>
+        /// <param name="id"></param>
+        void VoteSubject(int id);
+
+        /// <summary>
+        /// Снять голос за тему
+        /// </summary>
+        /// <param name="id"></param>
+        void RemoveVoiceSubject(int id);
         #endregion
 
     }

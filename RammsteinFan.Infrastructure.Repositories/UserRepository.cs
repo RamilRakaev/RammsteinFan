@@ -68,6 +68,8 @@ namespace RammsteinFan.Infrastructure.Repositories
 
         public IEnumerable<Replica> GetReplicasByFirstLetter(string startOfText) => db.Replicas.Where(r => r.Text.StartsWith(startOfText));
 
+        public IEnumerable<DiscussionSubject> GetSubjectsByFirstLetter(string startOfText) => db.DiscussionSubjects.Where(r => r.Topic.StartsWith(startOfText));
+
         public IEnumerable<Replica> GetReplicasBySubject(int id) => db.Replicas.Where(a => a.ReplicaId == id || a.DiscussionSubjectId == id).OrderByDescending(c => c.CreationDate);
 
         public IEnumerable<Replica> GetReplicasBySubject(string topic)
@@ -99,10 +101,9 @@ namespace RammsteinFan.Infrastructure.Repositories
         public string GetFavoriteAlbum(string emailAdress) =>
             db.Users.Where(u => u.EmailAdress == emailAdress).ToList().DefaultIfEmpty(new User() {FavoriteAlbum="No favorite" }).First().FavoriteAlbum;
         
-
         public void SetFavoriteAlbum(string emailAdress, string titleAlbum)
         {
-               var user = db.Users.FirstOrDefault(u => u.EmailAdress == emailAdress);
+            var user = db.Users.FirstOrDefault(u => u.EmailAdress == emailAdress);
             if(user != null)
             {
                 if (titleAlbum == user.FavoriteAlbum)
@@ -133,6 +134,38 @@ namespace RammsteinFan.Infrastructure.Repositories
         public void SendMessage(UserMessage message)
         {
             db.UserMessages.Add(message);
+            db.SaveChanges();
+        }
+
+        public void VoteReply(int id)
+        {
+            var replica = GetReplica(id);
+            if (replica != null)
+                replica.Likes++;
+            db.SaveChanges();
+        }
+
+        public void RemoveVoiceLine(int id)
+        {
+            var replica = GetReplica(id);
+                if(replica != null)
+                replica.Likes--;
+            db.SaveChanges();
+        }
+
+        public void VoteSubject(int id)
+        {
+            var subject = GetDiscussionSubject(id);
+            if (subject != null)
+                subject.Likes++;
+            db.SaveChanges();
+        }
+
+        public void RemoveVoiceSubject(int id)
+        {
+            var subject = GetDiscussionSubject(id);
+            if (subject != null)
+                subject.Likes--;
             db.SaveChanges();
         }
         #endregion

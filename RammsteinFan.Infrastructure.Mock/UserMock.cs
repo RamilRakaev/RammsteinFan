@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System;
 using System.Threading.Tasks;
-using System.Data.Entity;
 
 namespace RammsteinFan.Infrastructure.Mock
 {

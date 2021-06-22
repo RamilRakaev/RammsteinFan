@@ -16,7 +16,7 @@
                 <div class="mt-2">
                     <a class="link-album" asp-page="/UserPages/Albums/ConcreteAlbum" asp-route-title="@albumTitle"><h6>@albumTitle</h6></a>
                     <div class="float-right mr-1">
-                        <a class="d-inline-block"  asp-page-handler="SetFavoriteAlbum" asp-route-title="@albumTitle"><div class="likes"></div></a>
+                        <a class="d-inline-block"  asp-page-handler="SetFavoriteAlbum" asp-route-title="@album.Key"><div class="likes"></div></a>
                         <label class="lbl-icon">@album.Value</label>
                     </div>
                 </div>

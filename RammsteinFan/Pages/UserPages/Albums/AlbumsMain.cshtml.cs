@@ -25,13 +25,12 @@ namespace RammsteinFan.Pages.UserPages
 
         public void OnGetSetFavoriteAlbum(string title)
         {
-            Albums = userdb.AlbumRating(location);
-            Albums.Remove("Albums.jpg");
             if (User.Identity.IsAuthenticated)
             {
                 userdb.SetFavoriteAlbum(User.Identity.Name, title);
-                Albums = userdb.AlbumRating(location);
             }
+            Albums = userdb.AlbumRating(location);
+            Albums.Remove("Albums.jpg");
         }
 
     }

@@ -5,7 +5,8 @@
     ViewData["chapter"] = "Видеогалерея";
     string marginClass = "";
 }
-@for (int i=0, j=0; i< Model.Videos.Count; i++) {
+@for (int i=0, j=0; i< Model.Videos.Count; i++) {j=0;
+
     if (i > 0)
     {
         marginClass = "mt-4";
@@ -15,27 +16,27 @@
     <div class="row justify-content-around">
         @for(; j<4 && j < Model.Videos[i].Count; j++) 
         { 
-        <a class="blockVideoGalery" target="_blank"
-           href="@Model.Videos[i][j].Text"
-           style="background-image: url('../img/videoGalery/@Model.Albums[i]/@Model.Videos[i][j].Title')">
-            <p>@Model.Videos[i][j].Title.Substring(0, Model.Videos[i][j].Title.LastIndexOf('.'))</p>
-        </a>
-        }
-    </div>
-    @if (Model.Videos[i].Count() > 4) 
-    { 
-    <div id="contentBlock" class="hidden-content row justify-content-around">
-        @for (; j < Model.Videos[i].Count; j++)
-        {
             <a class="blockVideoGalery" target="_blank"
                href="@Model.Videos[i][j].Text"
                style="background-image: url('../img/videoGalery/@Model.Albums[i]/@Model.Videos[i][j].Title')">
                 <p>@Model.Videos[i][j].Title.Substring(0, Model.Videos[i][j].Title.LastIndexOf('.'))</p>
             </a>
-        }
-    </div>
-    <button class="collapsible">Развернуть</button>
-    }
+         }
+        </div>
+        @if (Model.Videos[i].Count() > 4) 
+        { 
+            <div id="contentBlock" class="hidden-content row justify-content-around">
+                @for (; j < Model.Videos[i].Count; j++)
+                {
+                    <a class="blockVideoGalery" target="_blank"
+                       href="@Model.Videos[i][j].Text"
+                       style="background-image: url('../img/videoGalery/@Model.Albums[i]/@Model.Videos[i][j].Title')">
+                        <p>@Model.Videos[i][j].Title.Substring(0, Model.Videos[i][j].Title.LastIndexOf('.'))</p>
+                    </a>
+                }
+            </div>
+            <button class="collapsible">Развернуть</button>
+       }
 </div>
 }
 

@@ -2,20 +2,49 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{
+    int subjectId = 0;
+    if (Model != null)
+        if (Model is Replica)
+            subjectId = (Model as Replica).DiscussionSubjectId;
+        else
+            subjectId = Model.Id;
 }
 
 @model DiscussionMessage
-<a><h6>Автор: @Model.Author, @Model.CreationDate.Date.ToString("D")</h6></a><br />
-<h6>@Model.Text</h6><br />
+<a><h6>Автор: @Model.Author, @Model.CreationDate.Date.ToString("D")</h6></a>
+<br />
+<h6>@Model.Text</h6>
+<br />
+@if (IndexModel.AuthorizedUser)
+    @if (Model is Replica)
+    {
+        <a class="btn float-right" asp-page="/AdminPages/RemoveMessage" asp-page-handler="RemoveReplica" asp-route-id="@Model.Id" asp-route-subjectId="@((Model as Replica).DiscussionSubjectId)"><em>Удалить</em></a>
+    }
+    else
+    {
+        <a class="btn float-right" asp-page="/AdminPages/RemoveMessage" asp-route-id="@Model.Id"><em>Удалить</em></a>
+    }
+
 <button class="comment ml-1" style="background-image: url(../../img/comment.png);"></button>
 <label>@Model.Comments</label>
 @if (Model is DiscussionSubject)
 {
     <button class="views" style="background-image: url(../../img/eye.png);"></button>
     <label>@Model.Views</label>
+
+    <form class="d-inline" method="post" asp-page="/UserPages/Discussions/ConcreteDiscussion" asp-page-handler="LikeSubject">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <button class="likes" type="submit"></button>
+    </form>
+}
+else {
+    <form class="d-inline" method="post" asp-page="/UserPages/Discussions/ConcreteDiscussion" asp-page-handler="Like">
+        <input type="hidden" name="id" value="@Model.Id" />
+        <input type="hidden" name="idSubject" value="@subjectId" />
+        <button class="likes" type="submit"></button>
+    </form> 
 }
 
-<button class="likes"></button>
 <label>@Model.Likes</label>
 <button class="show-close-comment answer-btn" child-id="comment@(Model.Id)">Ответить</button>
 <script>

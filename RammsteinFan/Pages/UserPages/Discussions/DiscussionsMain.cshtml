@@ -5,6 +5,7 @@
 @{
     ViewData["Title"] = "Обсуждения";
     ViewData["chapter"] = "Обсуждения";
+    string isShow = "";
 }
 
 <div class="container-fluid">
@@ -14,7 +15,7 @@
                 <form method="post" style="padding: 0;margin: 0;">
                     <div class="row justify-content-left" style="padding: 0;margin: 0;">
                         <div class="col-11" style="padding:3px 0 0 16px;margin: 0;">
-                            <input class="search" type="text">
+                            <input class="search" name="subject" type="text">
                         </div>
                         <div class="col-1">
                             <button class="searchButton" type="submit"></button>
@@ -24,7 +25,16 @@
             </div>
         </div>
         @await Html.PartialAsync("SuggestionAddSubject")
+        @{
+            if (Model.IsSample)
+            {
+                isShow = "show";
+            }
+        }
 
+        <div class="col-10">
+            <a class="btn btn-send btn-lg mt-3 float-right" asp-page="/UserPages/Discussions/DiscussionsMain">Сбросить</a>
+        </div>
         <div class="panel-group container-fluid" id="collapseGroup" style="padding:0;width:100%;margin:0 15px">
             @{ int index = 0;
                 string href = "#" + index;
@@ -40,7 +50,7 @@
                                 <h5>@subjectsListViewModel.TopHeading</h5>
                             </a>
                         </div>
-                        <div class="container-fluid collapse in" id="@id">
+                        <div class="container-fluid collapse in @isShow" id="@id">
                             @foreach (DiscussionSubject subject in subjectsListViewModel.GetDiscussionSubjects)
                             {
                                 @await Html.PartialAsync("DiscussionTitle", subject)

@@ -20,7 +20,16 @@ namespace RammsteinFan.Pages.UserPages
         public List<SubjectsListViewModel> SubjectsListViewModel { get; set; }
         public void OnGet()
         {
+            IsSample = false;
             DiscussionSubjects = userdb.GetAllDiscussionSubjects().ToList();
+            Classification();
+        }
+
+        public bool IsSample { get; set; }
+        public void OnPost(string subject)
+        {
+            IsSample = true;
+            DiscussionSubjects = userdb.GetSubjectsByFirstLetter(subject).ToList();
             Classification();
         }
 

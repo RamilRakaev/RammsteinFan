@@ -20,6 +20,7 @@ namespace RammsteinFan.Pages.UserPages.Discussions
         public List<Replica> Comments { get; set; }
 
         public List<Replica> SetComments (int id)=> Comments = Replicas.Where(c => c.ReplicaId == id).ToList();
+
         public void OnGet(int id)
         {
             DiscussionSubject = userdb.GetDiscussionSubject(id);
@@ -31,6 +32,24 @@ namespace RammsteinFan.Pages.UserPages.Discussions
             userdb.AddReplica(author, text, subjectId, replicaId);
             var url = Url.Page("ConcreteDiscussion", new { id = id });
             return Redirect(url);
+        }
+
+        public void OnPostLike(int id, int idSubject)
+        {
+            if(User.Identity.IsAuthenticated)
+            userdb.VoteReply(id);
+
+            DiscussionSubject = userdb.GetDiscussionSubject(idSubject);
+            Replicas = userdb.GetReplicasBySubject(idSubject).ToList();
+        }
+
+        public void OnPostLikeSubject(int id)
+        {
+            if(User.Identity.IsAuthenticated)
+            userdb.VoteSubject(id);
+
+            DiscussionSubject = userdb.GetDiscussionSubject(id);
+            Replicas = userdb.GetReplicasBySubject(id).ToList();
         }
     }
 }

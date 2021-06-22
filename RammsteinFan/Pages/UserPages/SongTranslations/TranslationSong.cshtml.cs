@@ -28,7 +28,17 @@ namespace RammsteinFan.Pages.UserPages.SongTranslations
             if(lyrics !=null && songTranslation!=null && songDescription != null)
             {
                 Lyrics = lyrics.Text.Split("\n").ToList();
+                
                 SongTranslation = songTranslation.Text.Split("\n").ToList();
+
+                for (int i = 0; i < Lyrics.Count(); i++)
+                {
+                    if (Lyrics[i] == "\r" && SongTranslation[i] == "\r")
+                    {
+                        SongTranslation[i] = "\n";
+                        Lyrics[i] = "\n";
+                    }
+                }
                 SongDescription = songDescription.Text;
             }
             else
